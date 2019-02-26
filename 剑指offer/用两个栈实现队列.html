@@ -1,0 +1,818 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>用两个栈实现队列 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="斐波那契数列.html" />
+    
+    
+    <link rel="prev" href="二叉树的下一个节点.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    剑指offer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="数组中重复的数字.html">
+            
+                <a href="数组中重复的数字.html">
+            
+                    
+                    数组中重复的数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="二维数组中的查找.html">
+            
+                <a href="二维数组中的查找.html">
+            
+                    
+                    二维数组中的查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="替换空格.html">
+            
+                <a href="替换空格.html">
+            
+                    
+                    替换空格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="从尾到头打印链表.html">
+            
+                <a href="从尾到头打印链表.html">
+            
+                    
+                    从尾到头打印链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="重建二叉树.html">
+            
+                <a href="重建二叉树.html">
+            
+                    
+                    重建二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="二叉树的下一个节点.html">
+            
+                <a href="二叉树的下一个节点.html">
+            
+                    
+                    二叉树的下一个节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.7" data-path="用两个栈实现队列.html">
+            
+                <a href="用两个栈实现队列.html">
+            
+                    
+                    用两个栈实现队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="斐波那契数列.html">
+            
+                <a href="斐波那契数列.html">
+            
+                    
+                    斐波那契数列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="旋转数组的最小数字.html">
+            
+                <a href="旋转数组的最小数字.html">
+            
+                    
+                    旋转数组的最小数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="矩阵中的路径.html">
+            
+                <a href="矩阵中的路径.html">
+            
+                    
+                    矩阵中的路径
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="机器人的运动范围.html">
+            
+                <a href="机器人的运动范围.html">
+            
+                    
+                    机器人的运动范围
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="二进制中1的个数.html">
+            
+                <a href="二进制中1的个数.html">
+            
+                    
+                    二进制中1的个数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="数值的整数次方.html">
+            
+                <a href="数值的整数次方.html">
+            
+                    
+                    数值的整数次方
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="打印从1到最大的n位数.html">
+            
+                <a href="打印从1到最大的n位数.html">
+            
+                    
+                    打印从1到最大的n位数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="删除链表的节点.html">
+            
+                <a href="删除链表的节点.html">
+            
+                    
+                    删除链表的节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="正则表达式匹配.html">
+            
+                <a href="正则表达式匹配.html">
+            
+                    
+                    正则表达式匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="表示数值的字符串.html">
+            
+                <a href="表示数值的字符串.html">
+            
+                    
+                    表示数值的字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="调整数组顺序使奇数位于偶数前面.html">
+            
+                <a href="调整数组顺序使奇数位于偶数前面.html">
+            
+                    
+                    调整数组顺序使奇数位于偶数前面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="链表中倒数第k个节点.html">
+            
+                <a href="链表中倒数第k个节点.html">
+            
+                    
+                    链表中倒数第k个节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="链表中环的入口节点.html">
+            
+                <a href="链表中环的入口节点.html">
+            
+                    
+                    链表中环的入口节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="反转链表.html">
+            
+                <a href="反转链表.html">
+            
+                    
+                    反转链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="合并两个排序的链表.html">
+            
+                <a href="合并两个排序的链表.html">
+            
+                    
+                    合并两个排序的链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="树的子结构.html">
+            
+                <a href="树的子结构.html">
+            
+                    
+                    树的子结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="二叉树的镜像.html">
+            
+                <a href="二叉树的镜像.html">
+            
+                    
+                    二叉树的镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.25" data-path="对称的二叉树.html">
+            
+                <a href="对称的二叉树.html">
+            
+                    
+                    对称的二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.26" data-path="顺时针打印矩阵.html">
+            
+                <a href="顺时针打印矩阵.html">
+            
+                    
+                    顺时针打印矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.27" data-path="包含min函数的栈.html">
+            
+                <a href="包含min函数的栈.html">
+            
+                    
+                    包含min函数的栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.28" data-path="栈的压入、弹出序列.html">
+            
+                <a href="栈的压入、弹出序列.html">
+            
+                    
+                    栈的压入、弹出序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.29" data-path="从上到下打印二叉树.html">
+            
+                <a href="从上到下打印二叉树.html">
+            
+                    
+                    从上到下打印二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.30" data-path="二叉搜索树的后序遍历序列.html">
+            
+                <a href="二叉搜索树的后序遍历序列.html">
+            
+                    
+                    二叉搜索树的后序遍历序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.31" data-path="二叉树中和为某一值的路径.html">
+            
+                <a href="二叉树中和为某一值的路径.html">
+            
+                    
+                    二叉树中和为某一值的路径
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.32" data-path="复杂链表的复制.html">
+            
+                <a href="复杂链表的复制.html">
+            
+                    
+                    复杂链表的复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.33" data-path="二叉搜索树与双向链表.md">
+            
+                <span>
+            
+                    
+                    二叉搜索树与双向链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.34" data-path="序列化二叉树.html">
+            
+                <a href="序列化二叉树.html">
+            
+                    
+                    序列化二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../LeetCode/">
+            
+                <a href="../LeetCode/">
+            
+                    
+                    LeetCode
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >用两个栈实现队列</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x9898;&#x76EE;">&#x9898;&#x76EE;</h1>
+<p>&#x7528;&#x4E24;&#x4E2A;&#x6808;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#xFF0C;&#x5B8C;&#x6210;&#x961F;&#x5217;&#x7684;&#x5165;&#x961F;offer()&#x548C;&#x51FA;&#x961F;poll()&#x64CD;&#x4F5C;&#x3002; &#x961F;&#x5217;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x4E3A;int&#x3002;</p>
+<h1 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h1>
+<p>push&#x65F6;&#x5C06;&#x6570;push&#x5230;stack1&#x4E2D;&#xFF0C;pop&#x65F6;&#xFF0C;&#x4ECE;stack2&#x4E2D;pop&#xFF0C;&#x5982;&#x679C;stack2&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x5148;&#x5C06;stack1&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6570;pop&#x5230;stack2&#x4E2D;&#x518D;&#x4ECE;stack2&#x4E2D;pop&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyQueue</span> </span>{
+
+    Stack&lt;Integer&gt; stack1;
+    Stack&lt;Integer&gt; stack2;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyQueue</span><span class="hljs-params">()</span> </span>{
+        stack1 = <span class="hljs-keyword">new</span> Stack&lt;&gt;();
+        stack2 = <span class="hljs-keyword">new</span> Stack&lt;&gt;();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">offer</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span> </span>{
+        stack1.push(num);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">poll</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (stack2.isEmpty()) {
+            <span class="hljs-keyword">while</span> (!stack1.isEmpty()) {
+                stack2.push(stack1.pop());
+            }
+        }
+        <span class="hljs-keyword">return</span> stack2.pop();
+    }
+}
+</code></pre>
+<h1 id="&#x6269;&#x5C55;">&#x6269;&#x5C55;</h1>
+<p>&#x7528;&#x4E24;&#x4E2A;&#x961F;&#x5217;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x6808;&#xFF0C;&#x5B8C;&#x6210;&#x6808;&#x7684;&#x5165;&#x6808;push()&#x548C;&#x51FA;&#x6808;pop()&#x64CD;&#x4F5C;&#x3002; &#x6808;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x4E3A;int&#x3002;</p>
+<h1 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h1>
+<p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x7CFB;&#x5217;&#x6808;&#x7684;push&#x548C;pop&#x64CD;&#x4F5C;&#x6765;&#x5206;&#x6790;&#x4E24;&#x4E2A;&#x961F;&#x5217;&#x6A21;&#x62DF;&#x4E00;&#x4E2A;&#x6808;&#x7684;&#x8FC7;&#x7A0B;&#x3002;&#x8868;&#x683C;&#x7684;&#x7B2C;&#x4E00;&#x5217;&#x8868;&#x793A;queue1&#xFF0C;&#x7B2C;&#x4E8C;&#x5217;&#x8868;&#x793A;queue2&#x3002;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5411;&#x6808;&#x4E2D;&#x4F9D;&#x6B21;push&#x8FDB;1,2,3&#x4E09;&#x4E2A;&#x6570;&#xFF0C;&#x7531;&#x4E8E;&#x521D;&#x59CB;&#x65F6;queue1&#x548C;queue2&#x90FD;&#x662F;&#x7A7A;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x63D2;&#x5165;&#x54EA;&#x4E2A;queue&#x90FD;&#x53EF;&#x4EE5;&#x3002;&#x6211;&#x4EEC;&#x4E0D;&#x59A8;&#x5C06;1,2,3&#x4F9D;&#x6B21;&#x63D2;&#x5165;&#x5230;queue2&#xFF0C;&#x6B64;&#x65F6;&#x4E24;&#x4E2A;queue&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x60C5;&#x51B5;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">queue1</th>
+<th style="text-align:center">queue2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5BF9;&#x6808;&#x6267;&#x884C;pop&#xFF0C;&#x7531;&#x4E8E;&#x6808;&#x7684;&#x540E;&#x8FDB;&#x5148;&#x51FA;&#x7279;&#x6027;&#x53EF;&#x77E5;&#x51FA;&#x6808;&#x5143;&#x7D20;&#x5E94;&#x8BE5;&#x662F;3&#xFF0C;&#x7136;&#x800C;&#x76F4;&#x63A5;&#x64CD;&#x4F5C;queue2&#x7684;&#x8BDD;&#x4F1A;&#x4ECE;&#x961F;&#x5934;&#x5220;&#x9664;&#x5143;&#x7D20;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5220;&#x9664;1&#x3002;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5148;&#x628A;queue2&#x4E2D;&#x7684;1,2&#x63D2;&#x5165;&#x5230;queue1&#x4E2D;&#xFF0C;&#x518D;&#x4ECE;queue2&#x4E2D;&#x5220;&#x9664;3&#x3002;&#x6267;&#x884C;&#x51FA;&#x6808;&#x540E;&#x4E24;&#x4E2A;queue&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x60C5;&#x51B5;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">queue1</th>
+<th style="text-align:center">queue2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5982;&#x679C;&#x518D;&#x6267;&#x884C;&#x4E00;&#x6B21;pop&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x628A;queue1&#x4E2D;&#x7684;1&#x63D2;&#x5165;&#x5230;queue2&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x4ECE;queue1&#x4E2D;&#x5220;&#x9664;1&#x3002;</p>
+<p>&#x603B;&#x7ED3;&#x4E0A;&#x8FF0;&#x8FC7;&#x7A0B;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4EE5;&#x4E0B;&#x7ED3;&#x8BBA;&#xFF1A;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#x6211;&#x4EEC;&#x4FDD;&#x6301;&#x4E24;&#x4E2A;&#x961F;&#x5217;&#x4E2D;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#x4E3A;&#x7A7A;&#x3002;&#x5F53;&#x6267;&#x884C;push&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x961F;&#x5217;&#x5747;&#x4E3A;&#x7A7A;&#xFF0C;&#x6211;&#x4EEC;&#x7EA6;&#x5B9A;&#x5C06;&#x5143;&#x7D20;&#x63D2;&#x5165;&#x5230;queue2&#x4E2D;&#xFF1B;&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x961F;&#x5217;&#x4E00;&#x4E2A;&#x672A;&#x7A7A;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5143;&#x7D20;&#x63D2;&#x5165;&#x5230;&#x90A3;&#x4E2A;&#x975E;&#x7A7A;&#x7684;&#x961F;&#x5217;&#x4E2D;&#x3002;&#x5F53;&#x6267;&#x884C;pop&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x65AD;&#x5C06;&#x975E;&#x7A7A;&#x7684;&#x90A3;&#x4E2A;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x51FA;&#x961F;&#xFF0C;&#x76F4;&#x5230;&#x8BE5;&#x961F;&#x5217;&#x53EA;&#x542B;&#x6709;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x6B64;&#x65F6;&#x8BE5;&#x5143;&#x7D20;&#x5373;&#x4E3A;&#x51FA;&#x6808;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x8BE5;&#x5143;&#x7D20;&#x51FA;&#x961F;&#x5E76;&#x8FD4;&#x56DE;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyStack</span> </span>{
+
+    Queue&lt;Integer&gt; queue1;
+    Queue&lt;Integer&gt; queue1;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyStack</span><span class="hljs-params">()</span> </span>{
+        queue1 = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
+        queue2 = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span> </span>{
+        <span class="hljs-keyword">if</span> (queue1.isEmpty()) {
+            queue2.offer(num);
+        } <span class="hljs-keyword">else</span> {
+            queue1.offer(num);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">pop</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (!queue1.isEmpty()) {
+            <span class="hljs-keyword">while</span> (queue1.size() &gt; <span class="hljs-number">1</span>) {
+                queue2.offer(queue1.poll());
+            }
+            <span class="hljs-keyword">return</span> queue1.poll();
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">while</span> (queue2.size() &gt; <span class="hljs-number">1</span>) {
+                queue1.offer(queue2.poll());
+            }
+            <span class="hljs-keyword">return</span> queue2.poll();
+        }
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="二叉树的下一个节点.html" class="navigation navigation-prev " aria-label="Previous page: 二叉树的下一个节点">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="斐波那契数列.html" class="navigation navigation-next " aria-label="Next page: 斐波那契数列">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"用两个栈实现队列","level":"1.2.7","depth":2,"next":{"title":"斐波那契数列","level":"1.2.8","depth":2,"path":"剑指offer/斐波那契数列.md","ref":"剑指offer/斐波那契数列.md","articles":[]},"previous":{"title":"二叉树的下一个节点","level":"1.2.6","depth":2,"path":"剑指offer/二叉树的下一个节点.md","ref":"剑指offer/二叉树的下一个节点.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"剑指offer/用两个栈实现队列.md","mtime":"2019-02-25T14:22:33.137Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-26T14:05:09.546Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
