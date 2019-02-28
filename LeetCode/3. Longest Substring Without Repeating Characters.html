@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode · GitBook</title>
+        <title>3. Longest Substring Without Repeating Characters · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="1. Two Sum.html" />
+    <link rel="next" href="5. Longest Palindromic Substring.html" />
     
     
-    <link rel="prev" href="../JianZhiOffer/滑动窗口的最大值.html" />
+    <link rel="prev" href="2. Add Two Numbers.html" />
     
 
     </head>
@@ -797,7 +797,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="./">
             
                 <a href="./">
             
@@ -837,7 +837,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="3. Longest Substring Without Repeating Characters.html">
+        <li class="chapter active" data-level="1.3.3" data-path="3. Longest Substring Without Repeating Characters.html">
             
                 <a href="3. Longest Substring Without Repeating Characters.html">
             
@@ -911,7 +911,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode</a>
+        <a href=".." >3. Longest Substring Without Repeating Characters</a>
     </h1>
 </div>
 
@@ -926,7 +926,68 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="leetcode">LeetCode</h1>
+                                <h1 id="&#x9898;&#x76EE;">&#x9898;&#x76EE;</h1>
+<p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: &quot;abcabcbb&quot;
+Output: 3 
+Explanation: The answer is &quot;abc&quot;, with the length of 3.
+</code></pre><p><strong>Example 2:</strong></p>
+<pre><code>Input: &quot;bbbbb&quot;
+Output: 1
+Explanation: The answer is &quot;b&quot;, with the length of 1.
+</code></pre><p><strong>Example 3:</strong></p>
+<pre><code>Input: &quot;pwwkew&quot;
+Output: 3
+Explanation: The answer is &quot;wke&quot;, with the length of 3. 
+             Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
+</code></pre><h1 id="&#x601D;&#x8DEF;1">&#x601D;&#x8DEF;1</h1>
+<p>&#x7A77;&#x4E3E;&#x6240;&#x6709;&#x7684;&#x5B50;&#x4E32;&#xFF0C;&#x5206;&#x522B;&#x5224;&#x65AD;&#x6BCF;&#x4E2A;&#x5B50;&#x4E32;&#x4E2D;&#x662F;&#x5426;&#x542B;&#x6709;&#x91CD;&#x590D;&#x5B57;&#x7B26;&#xFF0C;&#x8BB0;&#x5F55;&#x4E0D;&#x542B;&#x91CD;&#x590D;&#x5B57;&#x7B26;&#x7684;&#x6700;&#x957F;&#x5B50;&#x4E32;&#x7684;&#x957F;&#x5EA6;&#x3002;&#x4EE3;&#x7801;&#x7565;&#x3002;</p>
+<p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(N^3)</p>
+<h1 id="&#x601D;&#x8DEF;2">&#x601D;&#x8DEF;2</h1>
+<p>&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x3002;&#x4F7F;&#x7528;<code>[i,j)</code>&#x8868;&#x793A;&#x7A97;&#x53E3;&#x3002;&#x6211;&#x4EEC;&#x7528;&#x4E00;&#x4E2A;set&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x7A97;&#x53E3;<code>[i,j)</code>&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5B57;&#x7B26;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5411;&#x53F3;&#x79FB;&#x52A8;j&#xFF0C;&#x5982;&#x679C;<code>s[j]</code>&#x4E0D;&#x5728;set&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x79FB;&#x52A8;j&#xFF0C;&#x76F4;&#x5230;<code>s[j]</code>&#x5728;set&#x4E2D;&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x627E;&#x5230;&#x4E86;&#x4EE5;&#x4E3A;&#x8D77;&#x70B9;&#x7684;&#x5B50;&#x4E32;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#xFF0C;&#x5373;<code>j - i</code>&#xFF0C;&#x6211;&#x4EEC;&#x5BF9;&#x6240;&#x6709;i&#x91CD;&#x590D;&#x6267;&#x884C;&#x4E0A;&#x8FF0;&#x6B65;&#x9AA4;&#x4EE5;&#x6C42;&#x5F97;&#x6700;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">lengthOfLongestSubstring</span><span class="hljs-params">(String s)</span> </span>{
+    <span class="hljs-keyword">if</span> (s == <span class="hljs-keyword">null</span> || s.length() == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>;
+    Set&lt;Character&gt; set = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();
+    <span class="hljs-keyword">int</span> result = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">while</span> (i &lt; s.length() &amp;&amp; j &lt; s.length()) {
+        <span class="hljs-keyword">if</span> (!set.contains(s.charAt(j))) {
+            set.add(s.charAt(j++));
+            result = Math.max(result, j - i);
+        } <span class="hljs-keyword">else</span> {
+            set.remove(s.charAt(i++));
+        }
+    }
+
+    <span class="hljs-keyword">return</span> result;
+}
+</code></pre>
+<p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(2N)&#xFF08;&#x5728;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5B57;&#x7B26;&#x90FD;&#x8981;&#x5206;&#x522B;&#x88AB;i&#x548C;j&#x8BBF;&#x95EE;&#x4E00;&#x6B21;&#xFF09;</p>
+<h1 id="&#x601D;&#x8DEF;3">&#x601D;&#x8DEF;3</h1>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x601D;&#x8DEF;2&#x8FDB;&#x4E00;&#x6B65;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#x3002;&#x5F53;<code>s[j]</code>&#x548C;<code>[i,j)</code>&#x6307;&#x793A;&#x7684;&#x7A97;&#x53E3;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x5B57;&#x7B26;&#x91CD;&#x590D;&#x65F6;&#xFF0C;&#x5047;&#x8BBE;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x4E0B;&#x6807;&#x4E3A;j&apos;&#xFF0C;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x4E00;&#x70B9;&#x70B9;&#x5730;&#x53BB;&#x79FB;&#x52A8;i&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5C06;i&#x79FB;&#x52A8;&#x5230;j&apos;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;nextPos&#x5373;&#x53EF;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;map&#x8BB0;&#x5F55;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6BCF;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">lengthOfLongestSubstring</span><span class="hljs-params">(String s)</span> </span>{
+    <span class="hljs-keyword">if</span> (s == <span class="hljs-keyword">null</span> || s.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>;
+    Map&lt;Character, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+    <span class="hljs-keyword">int</span> result = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">while</span> (j &lt; s.length()) {
+        <span class="hljs-keyword">if</span> (map.containsKey(s.charAt(j))) {
+            <span class="hljs-keyword">int</span> nextPos = map.get(s.charAt(j));
+            <span class="hljs-comment">// &#x7531;&#x4E8E;map&#x4E2D;&#x4FDD;&#x5B58;&#x7684;&#x4E0D;&#x5355;&#x5355;&#x662F;&#x7A97;&#x53E3;&#x5185;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x91CD;&#x590D;&#x5B57;&#x7B26;&#x5E76;&#x4E0D;&#x5728;&#x7A97;&#x53E3;&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x91CC;&#x53EA;&#x6709;&#x5F53;&#x91CD;&#x590D;&#x5B57;&#x7B26;&#x5728;&#x5728;&#x7A97;&#x53E3;&#x4E2D;&#x65F6;&#x6211;&#x4EEC;&#x624D;&#x66F4;&#x65B0;i</span>
+            <span class="hljs-keyword">if</span> (nextPos &gt; i) i = nextPos;
+        }
+        result = Math.max(result, j - i + <span class="hljs-number">1</span>);
+        map.put(s.charAt(j), j + <span class="hljs-number">1</span>);
+        j++;
+    }
+
+    <span class="hljs-keyword">return</span> result;
+}
+</code></pre>
+<p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;O(N)</p>
 
                                 
                                 </section>
@@ -954,12 +1015,12 @@
 
             
                 
-                <a href="../JianZhiOffer/滑动窗口的最大值.html" class="navigation navigation-prev " aria-label="Previous page: 滑动窗口的最大值">
+                <a href="2. Add Two Numbers.html" class="navigation navigation-prev " aria-label="Previous page: 2. Add Two Numbers">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="1. Two Sum.html" class="navigation navigation-next " aria-label="Next page: 1. Two Sum">
+                <a href="5. Longest Palindromic Substring.html" class="navigation navigation-next " aria-label="Next page: 5. Longest Palindromic Substring">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -970,7 +1031,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode","level":"1.3","depth":1,"next":{"title":"1. Two Sum","level":"1.3.1","depth":2,"path":"LeetCode/1. Two Sum.md","ref":"LeetCode/1. Two Sum.md","articles":[]},"previous":{"title":"滑动窗口的最大值","level":"1.2.52","depth":2,"path":"JianZhiOffer/滑动窗口的最大值.md","ref":"JianZhiOffer/滑动窗口的最大值.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"LeetCode/README.md","mtime":"2019-02-27T14:38:55.655Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-28T07:58:38.368Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. Longest Substring Without Repeating Characters","level":"1.3.3","depth":2,"next":{"title":"5. Longest Palindromic Substring","level":"1.3.4","depth":2,"path":"LeetCode/5. Longest Palindromic Substring.md","ref":"LeetCode/5. Longest Palindromic Substring.md","articles":[]},"previous":{"title":"2. Add Two Numbers","level":"1.3.2","depth":2,"path":"LeetCode/2. Add Two Numbers.md","ref":"LeetCode/2. Add Two Numbers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"LeetCode/3. Longest Substring Without Repeating Characters.md","mtime":"2019-02-28T03:48:47.744Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-28T07:58:38.368Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

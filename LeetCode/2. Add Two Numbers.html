@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode · GitBook</title>
+        <title>2. Add Two Numbers · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="1. Two Sum.html" />
+    <link rel="next" href="3. Longest Substring Without Repeating Characters.html" />
     
     
-    <link rel="prev" href="../JianZhiOffer/滑动窗口的最大值.html" />
+    <link rel="prev" href="1. Two Sum.html" />
     
 
     </head>
@@ -797,7 +797,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="./">
             
                 <a href="./">
             
@@ -824,7 +824,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="2. Add Two Numbers.html">
+        <li class="chapter active" data-level="1.3.2" data-path="2. Add Two Numbers.html">
             
                 <a href="2. Add Two Numbers.html">
             
@@ -911,7 +911,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode</a>
+        <a href=".." >2. Add Two Numbers</a>
     </h1>
 </div>
 
@@ -926,7 +926,40 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="leetcode">LeetCode</h1>
+                                <h1 id="&#x9898;&#x76EE;">&#x9898;&#x76EE;</h1>
+<p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong> and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
+Output: 7 -&gt; 0 -&gt; 8
+Explanation: 342 + 465 = 807.
+</code></pre><h1 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h1>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x94FE;&#x8868;&#x7528;&#x6765;&#x4FDD;&#x5B58;&#x76F8;&#x52A0;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x540C;&#x65F6;&#x904D;&#x5386;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#xFF0C;&#x5C06;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x503C;&#x76F8;&#x52A0;&#x5F97;&#x5230;sum&#xFF0C;&#x5982;&#x679C;sum<10，创建一个新的值为sum的节点并将其链接到新链表中；如果sum>10&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x503C;&#x4E3A;sum-10&#x7684;&#x8282;&#x70B9;&#x5E76;&#x5C06;&#x5176;&#x94FE;&#x63A5;&#x5230;&#x65B0;&#x94FE;&#x8868;&#x4E2D;&#xFF0C;&#x540C;&#x65F6;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x8FDB;&#x4F4D;carry&#x4E3A;1&#x3002;&#x7531;&#x4E8E;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x7684;&#x957F;&#x5EA6;&#x53EF;&#x80FD;&#x4E0D;&#x540C;&#xFF0C;&#x56E0;&#x6B64;&#x904D;&#x5386;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x7684;&#x6307;&#x9488;&#x53EF;&#x80FD;&#x4E0D;&#x662F;&#x540C;&#x65F6;&#x5230;&#x8FBE;&#x5404;&#x81EA;&#x94FE;&#x8868;&#x7684;&#x672B;&#x5C3E;&#x3002;&#x82E5;p==null,q!=null&#xFF0C;&#x5373;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#x5DF2;&#x7ECF;&#x904D;&#x5386;&#x5230;&#x4E86;&#x672B;&#x5C3E;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#x8FD8;&#x6CA1;&#x6709;&#x904D;&#x5386;&#x672B;&#x5C3E;&#xFF0C;&#x6B64;&#x65F6;&#x9700;&#x8981;&#x628A;p&#x8868;&#x793A;&#x7684;&#x6570;&#x5F53;&#x505A;0&#x518D;&#x548C;q&#x8868;&#x793A;&#x7684;&#x6570;&#x76F8;&#x52A0;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x94FE;&#x8868;&#x90FD;&#x5DF2;&#x7ECF;&#x904D;&#x5386;&#x5B8C;&#x4E86;&#x4F46;&#x662F;carry=1&#xFF0C;&#x8BF4;&#x660E;&#x5728;&#x6700;&#x9AD8;&#x4F4D;&#x4E0A;&#x53D1;&#x751F;&#x4E86;&#x8FDB;&#x4F4D;&#xFF0C;&#x6B64;&#x65F6;&#x9700;&#x8981;&#x518D;&#x989D;&#x5916;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x503C;&#x4E3A;1&#x7684;&#x8282;&#x70B9;&#x5E76;&#x5C06;&#x5176;&#x94FE;&#x63A5;&#x5230;&#x65B0;&#x94FE;&#x8868;&#x4E2D;&#x3002;</10，创建一个新的值为sum的节点并将其链接到新链表中；如果sum></p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">addTwoNumbers</span><span class="hljs-params">(ListNode l1, ListNode l2)</span> </span>{
+    <span class="hljs-keyword">if</span> (l1 == <span class="hljs-keyword">null</span> || l2 == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    ListNode dummyHead = <span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>);    <span class="hljs-comment">// &#x65B0;&#x94FE;&#x8868;&#x7684;&#x865A;&#x62DF;&#x5934;&#x7ED3;&#x70B9;</span>
+    ListNode curr = dummyHead;
+    ListNode p1 = l1;
+    ListNode p2 = l2;
+    <span class="hljs-keyword">int</span> carry = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">while</span> (p1 != <span class="hljs-keyword">null</span> || p2 != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">int</span> x = p1 == <span class="hljs-keyword">null</span> ? <span class="hljs-number">0</span> : p1.val;
+        <span class="hljs-keyword">int</span> y = p2 == <span class="hljs-keyword">null</span> ? <span class="hljs-number">0</span> : p2.val;
+        <span class="hljs-keyword">int</span> sum = x + y + carry;
+        <span class="hljs-keyword">int</span> carry = sum / <span class="hljs-number">10</span>;
+        curr.next = <span class="hljs-keyword">new</span> ListNode(sum % <span class="hljs-number">10</span>);
+        curr = curr.next;
+        <span class="hljs-keyword">if</span> (p1 != <span class="hljs-keyword">null</span>) p1 = p1.next;
+        <span class="hljs-keyword">if</span> (p2 != <span class="hljs-keyword">null</span>) p2 = p2.next;
+    }
+    <span class="hljs-keyword">if</span> (carry == <span class="hljs-number">1</span>) {
+        curr.next = <span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">1</span>);
+    }
+
+    <span class="hljs-keyword">return</span> dummyHead.next;
+}
+</code></pre>
 
                                 
                                 </section>
@@ -954,12 +987,12 @@
 
             
                 
-                <a href="../JianZhiOffer/滑动窗口的最大值.html" class="navigation navigation-prev " aria-label="Previous page: 滑动窗口的最大值">
+                <a href="1. Two Sum.html" class="navigation navigation-prev " aria-label="Previous page: 1. Two Sum">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="1. Two Sum.html" class="navigation navigation-next " aria-label="Next page: 1. Two Sum">
+                <a href="3. Longest Substring Without Repeating Characters.html" class="navigation navigation-next " aria-label="Next page: 3. Longest Substring Without Repeating Characters">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -970,7 +1003,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode","level":"1.3","depth":1,"next":{"title":"1. Two Sum","level":"1.3.1","depth":2,"path":"LeetCode/1. Two Sum.md","ref":"LeetCode/1. Two Sum.md","articles":[]},"previous":{"title":"滑动窗口的最大值","level":"1.2.52","depth":2,"path":"JianZhiOffer/滑动窗口的最大值.md","ref":"JianZhiOffer/滑动窗口的最大值.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"LeetCode/README.md","mtime":"2019-02-27T14:38:55.655Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-28T07:58:38.368Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2. Add Two Numbers","level":"1.3.2","depth":2,"next":{"title":"3. Longest Substring Without Repeating Characters","level":"1.3.3","depth":2,"path":"LeetCode/3. Longest Substring Without Repeating Characters.md","ref":"LeetCode/3. Longest Substring Without Repeating Characters.md","articles":[]},"previous":{"title":"1. Two Sum","level":"1.3.1","depth":2,"path":"LeetCode/1. Two Sum.md","ref":"LeetCode/1. Two Sum.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"LeetCode/2. Add Two Numbers.md","mtime":"2019-02-28T03:01:18.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-28T07:58:38.368Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
