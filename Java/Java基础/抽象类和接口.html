@@ -1,0 +1,1538 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>抽象类和接口 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Object类中的方法.html" />
+    
+    
+    <link rel="prev" href="参数传递.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Java基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="数据类型.html">
+            
+                <a href="数据类型.html">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="String.html">
+            
+                <a href="String.html">
+            
+                    
+                    String
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="参数传递.html">
+            
+                <a href="参数传递.html">
+            
+                    
+                    参数传递
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.1.4" data-path="抽象类和接口.html">
+            
+                <a href="抽象类和接口.html">
+            
+                    
+                    抽象类和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="Object类中的方法.html">
+            
+                <a href="Object类中的方法.html">
+            
+                    
+                    Object类中的方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" data-path="final和static.html">
+            
+                <a href="final和static.html">
+            
+                    
+                    final和static
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7" data-path="异常.html">
+            
+                <a href="异常.html">
+            
+                    
+                    异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Java容器/">
+            
+                <a href="../Java容器/">
+            
+                    
+                    Java容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../Java容器/ArrayList.html">
+            
+                <a href="../Java容器/ArrayList.html">
+            
+                    
+                    ArrayList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../Java容器/ConcurrentHashMap.html">
+            
+                <a href="../Java容器/ConcurrentHashMap.html">
+            
+                    
+                    ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../Java容器/CopyOnWriteArrayList.html">
+            
+                <a href="../Java容器/CopyOnWriteArrayList.html">
+            
+                    
+                    CopyOnWriteArrayList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../Java容器/HashMap.html">
+            
+                <a href="../Java容器/HashMap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../Java容器/LinkedHashMap.html">
+            
+                <a href="../Java容器/LinkedHashMap.html">
+            
+                    
+                    LinkedHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../Java容器/LinkedList.html">
+            
+                <a href="../Java容器/LinkedList.html">
+            
+                    
+                    LinkedList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../Java容器/Vector.html">
+            
+                <a href="../Java容器/Vector.html">
+            
+                    
+                    Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../Java容器/WeakHashMap.html">
+            
+                <a href="../Java容器/WeakHashMap.html">
+            
+                    
+                    WeakHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../JianZhiOffer/">
+            
+                <a href="../../JianZhiOffer/">
+            
+                    
+                    剑指offer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../JianZhiOffer/Array/">
+            
+                <a href="../../JianZhiOffer/Array/">
+            
+                    
+                    Array
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../JianZhiOffer/Array/把数组排成最小的数.html">
+            
+                <a href="../../JianZhiOffer/Array/把数组排成最小的数.html">
+            
+                    
+                    把数组排成最小的数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../../JianZhiOffer/Array/丑数.html">
+            
+                <a href="../../JianZhiOffer/Array/丑数.html">
+            
+                    
+                    丑数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../../JianZhiOffer/Array/和为s的两个数字.html">
+            
+                <a href="../../JianZhiOffer/Array/和为s的两个数字.html">
+            
+                    
+                    和为s的两个数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../../JianZhiOffer/Array/数值的整数次方.html">
+            
+                <a href="../../JianZhiOffer/Array/数值的整数次方.html">
+            
+                    
+                    数值的整数次方
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="../../JianZhiOffer/Array/数组中出现次数超过一半的数字.html">
+            
+                <a href="../../JianZhiOffer/Array/数组中出现次数超过一半的数字.html">
+            
+                    
+                    数组中出现次数超过一半的数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="../../JianZhiOffer/Array/数组中的逆序对.html">
+            
+                <a href="../../JianZhiOffer/Array/数组中的逆序对.html">
+            
+                    
+                    数组中的逆序对
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="../../JianZhiOffer/Array/数组中重复的数字.html">
+            
+                <a href="../../JianZhiOffer/Array/数组中重复的数字.html">
+            
+                    
+                    数组中重复的数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="../../JianZhiOffer/Array/调整数组顺序使奇数位于偶数前面.html">
+            
+                <a href="../../JianZhiOffer/Array/调整数组顺序使奇数位于偶数前面.html">
+            
+                    
+                    调整数组顺序使奇数位于偶数前面
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../JianZhiOffer/Backtracking/">
+            
+                <a href="../../JianZhiOffer/Backtracking/">
+            
+                    
+                    Backtracking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../../JianZhiOffer/Backtracking/机器人的运动范围.html">
+            
+                <a href="../../JianZhiOffer/Backtracking/机器人的运动范围.html">
+            
+                    
+                    机器人的运动范围
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../../JianZhiOffer/Backtracking/矩阵中的路径.html">
+            
+                <a href="../../JianZhiOffer/Backtracking/矩阵中的路径.html">
+            
+                    
+                    矩阵中的路径
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../JianZhiOffer/Binary Search/">
+            
+                <a href="../../JianZhiOffer/Binary Search/">
+            
+                    
+                    Binary Search
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../../JianZhiOffer/Binary Search/数字在排序数组中出现的次数.html">
+            
+                <a href="../../JianZhiOffer/Binary Search/数字在排序数组中出现的次数.html">
+            
+                    
+                    数字在排序数组中出现的次数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../../JianZhiOffer/Binary Search/旋转数组的最小数字.html">
+            
+                <a href="../../JianZhiOffer/Binary Search/旋转数组的最小数字.html">
+            
+                    
+                    旋转数组的最小数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../JianZhiOffer/Bit Manipulation/">
+            
+                <a href="../../JianZhiOffer/Bit Manipulation/">
+            
+                    
+                    Bit Manipulation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../../JianZhiOffer/Bit Manipulation/二进制中1的个数.html">
+            
+                <a href="../../JianZhiOffer/Bit Manipulation/二进制中1的个数.html">
+            
+                    
+                    二进制中1的个数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../../JianZhiOffer/Bit Manipulation/数组中只出现一次的两个数字.html">
+            
+                <a href="../../JianZhiOffer/Bit Manipulation/数组中只出现一次的两个数字.html">
+            
+                    
+                    数组中只出现一次的两个数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../JianZhiOffer/Dynamic Programming/">
+            
+                <a href="../../JianZhiOffer/Dynamic Programming/">
+            
+                    
+                    Dynamic Programming
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../../JianZhiOffer/Dynamic Programming/斐波那契数列.html">
+            
+                <a href="../../JianZhiOffer/Dynamic Programming/斐波那契数列.html">
+            
+                    
+                    斐波那契数列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../../JianZhiOffer/Dynamic Programming/连续子数组的最大和.html">
+            
+                <a href="../../JianZhiOffer/Dynamic Programming/连续子数组的最大和.html">
+            
+                    
+                    连续子数组的最大和
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../../JianZhiOffer/Dynamic Programming/正则表达式匹配.html">
+            
+                <a href="../../JianZhiOffer/Dynamic Programming/正则表达式匹配.html">
+            
+                    
+                    正则表达式匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../JianZhiOffer/LinkedList/">
+            
+                <a href="../../JianZhiOffer/LinkedList/">
+            
+                    
+                    LinkedList
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../../JianZhiOffer/LinkedList/从尾到头打印链表.html">
+            
+                <a href="../../JianZhiOffer/LinkedList/从尾到头打印链表.html">
+            
+                    
+                    从尾到头打印链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../../JianZhiOffer/LinkedList/反转链表.html">
+            
+                <a href="../../JianZhiOffer/LinkedList/反转链表.html">
+            
+                    
+                    反转链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../../JianZhiOffer/LinkedList/复杂链表的复制.html">
+            
+                <a href="../../JianZhiOffer/LinkedList/复杂链表的复制.html">
+            
+                    
+                    复杂链表的复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../../JianZhiOffer/LinkedList/合并两个排序的链表.html">
+            
+                <a href="../../JianZhiOffer/LinkedList/合并两个排序的链表.html">
+            
+                    
+                    合并两个排序的链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="../../JianZhiOffer/LinkedList/链表中倒数第k个节点.html">
+            
+                <a href="../../JianZhiOffer/LinkedList/链表中倒数第k个节点.html">
+            
+                    
+                    链表中倒数第k个节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.6" data-path="../../JianZhiOffer/LinkedList/链表中环的入口节点.html">
+            
+                <a href="../../JianZhiOffer/LinkedList/链表中环的入口节点.html">
+            
+                    
+                    链表中环的入口节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.7" data-path="../../JianZhiOffer/LinkedList/两个链表的第一个公共节点.html">
+            
+                <a href="../../JianZhiOffer/LinkedList/两个链表的第一个公共节点.html">
+            
+                    
+                    两个链表的第一个公共节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.8" data-path="../../JianZhiOffer/LinkedList/删除链表的节点.html">
+            
+                <a href="../../JianZhiOffer/LinkedList/删除链表的节点.html">
+            
+                    
+                    删除链表的节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../JianZhiOffer/Matrix/">
+            
+                <a href="../../JianZhiOffer/Matrix/">
+            
+                    
+                    Matrix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../../JianZhiOffer/Matrix/二维数组中的查找.html">
+            
+                <a href="../../JianZhiOffer/Matrix/二维数组中的查找.html">
+            
+                    
+                    二维数组中的查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../../JianZhiOffer/Matrix/顺时针打印矩阵.html">
+            
+                <a href="../../JianZhiOffer/Matrix/顺时针打印矩阵.html">
+            
+                    
+                    顺时针打印矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../../JianZhiOffer/Stack & Queue & PriorityQueue/">
+            
+                <a href="../../JianZhiOffer/Stack & Queue & PriorityQueue/">
+            
+                    
+                    Stack & Queue & PriorityQueue
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="../../JianZhiOffer/Stack & Queue & PriorityQueue/包含min函数的栈.html">
+            
+                <a href="../../JianZhiOffer/Stack & Queue & PriorityQueue/包含min函数的栈.html">
+            
+                    
+                    包含min函数的栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="../../JianZhiOffer/Stack & Queue & PriorityQueue/滑动窗口的最大值.html">
+            
+                <a href="../../JianZhiOffer/Stack & Queue & PriorityQueue/滑动窗口的最大值.html">
+            
+                    
+                    滑动窗口的最大值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="../../JianZhiOffer/Stack & Queue & PriorityQueue/数据流中的中位数.html">
+            
+                <a href="../../JianZhiOffer/Stack & Queue & PriorityQueue/数据流中的中位数.html">
+            
+                    
+                    数据流中的中位数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="../../JianZhiOffer/Stack & Queue & PriorityQueue/用两个栈实现队列.html">
+            
+                <a href="../../JianZhiOffer/Stack & Queue & PriorityQueue/用两个栈实现队列.html">
+            
+                    
+                    用两个栈实现队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="../../JianZhiOffer/Stack & Queue & PriorityQueue/栈的压入、弹出序列.html">
+            
+                <a href="../../JianZhiOffer/Stack & Queue & PriorityQueue/栈的压入、弹出序列.html">
+            
+                    
+                    栈的压入、弹出序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.6" data-path="../../JianZhiOffer/Stack & Queue & PriorityQueue/最小的k个数.html">
+            
+                <a href="../../JianZhiOffer/Stack & Queue & PriorityQueue/最小的k个数.html">
+            
+                    
+                    最小的k个数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../../JianZhiOffer/String/">
+            
+                <a href="../../JianZhiOffer/String/">
+            
+                    
+                    String
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="../../JianZhiOffer/String/表示数值的字符串.html">
+            
+                <a href="../../JianZhiOffer/String/表示数值的字符串.html">
+            
+                    
+                    表示数值的字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.2" data-path="../../JianZhiOffer/String/打印从1到最大的n位数.html">
+            
+                <a href="../../JianZhiOffer/String/打印从1到最大的n位数.html">
+            
+                    
+                    打印从1到最大的n位数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.3" data-path="../../JianZhiOffer/String/第一个只出现一次的字符.html">
+            
+                <a href="../../JianZhiOffer/String/第一个只出现一次的字符.html">
+            
+                    
+                    第一个只出现一次的字符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.4" data-path="../../JianZhiOffer/String/翻转字符串.html">
+            
+                <a href="../../JianZhiOffer/String/翻转字符串.html">
+            
+                    
+                    翻转字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.5" data-path="../../JianZhiOffer/String/替换空格.html">
+            
+                <a href="../../JianZhiOffer/String/替换空格.html">
+            
+                    
+                    替换空格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.6" data-path="../../JianZhiOffer/String/字符串的排列.html">
+            
+                <a href="../../JianZhiOffer/String/字符串的排列.html">
+            
+                    
+                    字符串的排列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.7" data-path="../../JianZhiOffer/String/字符流中第一个只出现一次的字符.html">
+            
+                <a href="../../JianZhiOffer/String/字符流中第一个只出现一次的字符.html">
+            
+                    
+                    字符流中第一个只出现一次的字符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../../JianZhiOffer/Tree/">
+            
+                <a href="../../JianZhiOffer/Tree/">
+            
+                    
+                    Tree
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.10.1" data-path="../../JianZhiOffer/Tree/从上到下打印二叉树.html">
+            
+                <a href="../../JianZhiOffer/Tree/从上到下打印二叉树.html">
+            
+                    
+                    从上到下打印二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.2" data-path="../../JianZhiOffer/Tree/对称的二叉树.html">
+            
+                <a href="../../JianZhiOffer/Tree/对称的二叉树.html">
+            
+                    
+                    对称的二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.3" data-path="../../JianZhiOffer/Tree/二叉树的镜像.html">
+            
+                <a href="../../JianZhiOffer/Tree/二叉树的镜像.html">
+            
+                    
+                    二叉树的镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.4" data-path="../../JianZhiOffer/Tree/二叉树的深度.html">
+            
+                <a href="../../JianZhiOffer/Tree/二叉树的深度.html">
+            
+                    
+                    二叉树的深度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.5" data-path="../../JianZhiOffer/Tree/二叉树的下一个节点.html">
+            
+                <a href="../../JianZhiOffer/Tree/二叉树的下一个节点.html">
+            
+                    
+                    二叉树的下一个节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.6" data-path="../../JianZhiOffer/Tree/二叉树中和为某一值的路径.html">
+            
+                <a href="../../JianZhiOffer/Tree/二叉树中和为某一值的路径.html">
+            
+                    
+                    二叉树中和为某一值的路径
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.7" data-path="../../JianZhiOffer/Tree/二叉搜索树的第k大节点.html">
+            
+                <a href="../../JianZhiOffer/Tree/二叉搜索树的第k大节点.html">
+            
+                    
+                    二叉搜索树的第k大节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.8" data-path="../../JianZhiOffer/Tree/二叉搜索树的后序遍历序列.html">
+            
+                <a href="../../JianZhiOffer/Tree/二叉搜索树的后序遍历序列.html">
+            
+                    
+                    二叉搜索树的后序遍历序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.9" data-path="../../JianZhiOffer/Tree/二叉搜索树与双向链表.html">
+            
+                <a href="../../JianZhiOffer/Tree/二叉搜索树与双向链表.html">
+            
+                    
+                    二叉搜索树与双向链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.10" data-path="../../JianZhiOffer/Tree/树的子结构.html">
+            
+                <a href="../../JianZhiOffer/Tree/树的子结构.html">
+            
+                    
+                    树的子结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.11" data-path="../../JianZhiOffer/Tree/序列化二叉树.html">
+            
+                <a href="../../JianZhiOffer/Tree/序列化二叉树.html">
+            
+                    
+                    序列化二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.12" data-path="../../JianZhiOffer/Tree/重建二叉树.html">
+            
+                <a href="../../JianZhiOffer/Tree/重建二叉树.html">
+            
+                    
+                    重建二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../LeetCode/">
+            
+                <a href="../../LeetCode/">
+            
+                    
+                    LeetCode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../LeetCode/1. Two Sum.html">
+            
+                <a href="../../LeetCode/1. Two Sum.html">
+            
+                    
+                    1. Two Sum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../LeetCode/2. Add Two Numbers.html">
+            
+                <a href="../../LeetCode/2. Add Two Numbers.html">
+            
+                    
+                    2. Add Two Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../LeetCode/3. Longest Substring Without Repeating Characters.html">
+            
+                <a href="../../LeetCode/3. Longest Substring Without Repeating Characters.html">
+            
+                    
+                    3. Longest Substring Without Repeating Characters
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../LeetCode/5. Longest Palindromic Substring.html">
+            
+                <a href="../../LeetCode/5. Longest Palindromic Substring.html">
+            
+                    
+                    5. Longest Palindromic Substring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../LeetCode/7. Reverse Integer.html">
+            
+                <a href="../../LeetCode/7. Reverse Integer.html">
+            
+                    
+                    7. Reverse Integer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >抽象类和接口</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x62BD;&#x8C61;&#x7C7B;&#x4E0E;&#x63A5;&#x53E3;">&#x62BD;&#x8C61;&#x7C7B;&#x4E0E;&#x63A5;&#x53E3;</h2>
+<p><strong>1. &#x62BD;&#x8C61;&#x7C7B;</strong></p>
+<p>&#x62BD;&#x8C61;&#x7C7B;&#x548C;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x90FD;&#x4F7F;&#x7528; abstract &#x5173;&#x952E;&#x5B57;&#x8FDB;&#x884C;&#x58F0;&#x660E;&#x3002;&#x62BD;&#x8C61;&#x7C7B;&#x4E00;&#x822C;&#x4F1A;&#x5305;&#x542B;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#xFF0C;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x4E00;&#x5B9A;&#x4F4D;&#x4E8E;&#x62BD;&#x8C61;&#x7C7B;&#x4E2D;&#x3002;</p>
+<p>&#x62BD;&#x8C61;&#x7C7B;&#x548C;&#x666E;&#x901A;&#x7C7B;&#x6700;&#x5927;&#x7684;&#x533A;&#x522B;&#x662F;&#xFF0C;&#x62BD;&#x8C61;&#x7C7B;&#x4E0D;&#x80FD;&#x88AB;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x9700;&#x8981;&#x7EE7;&#x627F;&#x62BD;&#x8C61;&#x7C7B;&#x624D;&#x80FD;&#x5B9E;&#x4F8B;&#x5316;&#x5176;&#x5B50;&#x7C7B;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractClassExample</span> </span>{
+
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">int</span> x;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> y;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">func1</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">func2</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;func2&quot;</span>);
+    }
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractExtendClassExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractClassExample</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">func1</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;func1&quot;</span>);
+    }
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-comment">// AbstractClassExample ac1 = new AbstractClassExample(); // &apos;AbstractClassExample&apos; is abstract; cannot be instantiated</span>
+AbstractClassExample ac2 = <span class="hljs-keyword">new</span> AbstractExtendClassExample();
+ac2.func1();
+</code></pre>
+<p><strong>2. &#x63A5;&#x53E3;</strong></p>
+<p>&#x63A5;&#x53E3;&#x662F;&#x62BD;&#x8C61;&#x7C7B;&#x7684;&#x5EF6;&#x4F38;&#xFF0C;&#x5728; Java 8 &#x4E4B;&#x524D;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x770B;&#x6210;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x5168;&#x62BD;&#x8C61;&#x7684;&#x7C7B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5B83;&#x4E0D;&#x80FD;&#x6709;&#x4EFB;&#x4F55;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x4ECE; Java 8 &#x5F00;&#x59CB;&#xFF0C;&#x63A5;&#x53E3;&#x4E5F;&#x53EF;&#x4EE5;&#x62E5;&#x6709;&#x9ED8;&#x8BA4;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x4E0D;&#x652F;&#x6301;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#x7684;&#x63A5;&#x53E3;&#x7684;&#x7EF4;&#x62A4;&#x6210;&#x672C;&#x592A;&#x9AD8;&#x4E86;&#x3002;&#x5728; Java 8 &#x4E4B;&#x524D;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x60F3;&#x8981;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x8981;&#x4FEE;&#x6539;&#x6240;&#x6709;&#x5B9E;&#x73B0;&#x4E86;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#x3002;</p>
+<p>&#x63A5;&#x53E3;&#x7684;&#x6210;&#x5458;&#xFF08;&#x5B57;&#x6BB5; + &#x65B9;&#x6CD5;&#xFF09;&#x9ED8;&#x8BA4;&#x90FD;&#x662F; public &#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x5141;&#x8BB8;&#x5B9A;&#x4E49;&#x4E3A; private &#x6216;&#x8005; protected&#x3002;</p>
+<p>&#x63A5;&#x53E3;&#x7684;&#x5B57;&#x6BB5;&#x9ED8;&#x8BA4;&#x90FD;&#x662F; static &#x548C; final &#x7684;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">InterfaceExample</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">func1</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">func2</span><span class="hljs-params">()</span></span>{
+        System.out.println(<span class="hljs-string">&quot;func2&quot;</span>);
+    }
+
+    <span class="hljs-keyword">int</span> x = <span class="hljs-number">123</span>;
+    <span class="hljs-comment">// int y;               // Variable &apos;y&apos; might not have been initialized</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> z = <span class="hljs-number">0</span>;       <span class="hljs-comment">// Modifier &apos;public&apos; is redundant for interface fields</span>
+    <span class="hljs-comment">// private int k = 0;   // Modifier &apos;private&apos; not allowed here</span>
+    <span class="hljs-comment">// protected int l = 0; // Modifier &apos;protected&apos; not allowed here</span>
+    <span class="hljs-comment">// private void fun3(); // Modifier &apos;private&apos; not allowed here</span>
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InterfaceImplementExample</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InterfaceExample</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">func1</span><span class="hljs-params">()</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;func1&quot;</span>);
+    }
+}
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-comment">// InterfaceExample ie1 = new InterfaceExample(); // &apos;InterfaceExample&apos; is abstract; cannot be instantiated</span>
+InterfaceExample ie2 = <span class="hljs-keyword">new</span> InterfaceImplementExample();
+ie2.func1();
+System.out.println(InterfaceExample.x);
+</code></pre>
+<p><strong>3. &#x6BD4;&#x8F83;</strong></p>
+<ul>
+<li>&#x4ECE;&#x8BBE;&#x8BA1;&#x5C42;&#x9762;&#x4E0A;&#x770B;&#xFF0C;&#x62BD;&#x8C61;&#x7C7B;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD; IS-A &#x5173;&#x7CFB;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;<strong>&#x91CC;&#x5F0F;&#x66FF;&#x6362;&#x539F;&#x5219;</strong> (&#x5982;&#x679C;&#x5B50;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x91CD;&#x5199;&#x4E86;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x5B50;&#x7C7B;&#x4E2D;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x8BBF;&#x95EE;&#x7EA7;&#x522B;&#x4E0D;&#x5141;&#x8BB8;&#x4F4E;&#x4E8E;&#x7236;&#x7C7B;&#x7684;&#x8BBF;&#x95EE;&#x7EA7;&#x522B;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x6EE1;&#x8DB3;&#x91CC;&#x5F0F;&#x66FF;&#x6362;&#x539F;&#x5219;&#x4EE5;&#x786E;&#x4FDD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7236;&#x7C7B;&#x5B9E;&#x4F8B;&#x7684;&#x5730;&#x65B9;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B50;&#x7C7B;&#x5B9E;&#x4F8B;)&#xFF0C;&#x5373;&#x5B50;&#x7C7B;&#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x80FD;&#x591F;&#x66FF;&#x6362;&#x6389;&#x6240;&#x6709;&#x7236;&#x7C7B;&#x5BF9;&#x8C61;&#x3002;&#x800C;&#x63A5;&#x53E3;&#x66F4;&#x50CF;&#x662F;&#x4E00;&#x79CD; LIKE-A &#x5173;&#x7CFB;&#xFF0C;&#x5B83;&#x53EA;&#x662F;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x5951;&#x7EA6;&#xFF0C;&#x5E76;&#x4E0D;&#x8981;&#x6C42;&#x63A5;&#x53E3;&#x548C;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#x5177;&#x6709; IS-A &#x5173;&#x7CFB;&#x3002;</li>
+<li>&#x4ECE;&#x4F7F;&#x7528;&#x4E0A;&#x6765;&#x770B;&#xFF0C;&#x4E00;&#x4E2A;&#x7C7B;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x591A;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#x3002;</li>
+<li>&#x63A5;&#x53E3;&#x7684;&#x5B57;&#x6BB5;&#x53EA;&#x80FD;&#x662F; static &#x548C; final &#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x800C;&#x62BD;&#x8C61;&#x7C7B;&#x7684;&#x5B57;&#x6BB5;&#x6CA1;&#x6709;&#x8FD9;&#x79CD;&#x9650;&#x5236;&#x3002;</li>
+<li>&#x63A5;&#x53E3;&#x7684;&#x6210;&#x5458;&#x53EA;&#x80FD;&#x662F; public &#x7684;&#xFF0C;&#x800C;&#x62BD;&#x8C61;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x79CD;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x3002;</li>
+</ul>
+<p><strong>4. &#x4F7F;&#x7528;&#x9009;&#x62E9;</strong></p>
+<p>&#x4F7F;&#x7528;&#x63A5;&#x53E3;&#xFF1A;</p>
+<ul>
+<li>&#x9700;&#x8981;&#x8BA9;&#x4E0D;&#x76F8;&#x5173;&#x7684;&#x7C7B;&#x90FD;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4F8B;&#x5982;&#x4E0D;&#x76F8;&#x5173;&#x7684;&#x7C7B;&#x90FD;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0; Compareable &#x63A5;&#x53E3;&#x4E2D;&#x7684; compareTo() &#x65B9;&#x6CD5;&#xFF1B;</li>
+<li>&#x9700;&#x8981;&#x4F7F;&#x7528;&#x591A;&#x91CD;&#x7EE7;&#x627F;&#x3002;</li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x62BD;&#x8C61;&#x7C7B;&#xFF1A;</p>
+<ul>
+<li>&#x9700;&#x8981;&#x5728;&#x51E0;&#x4E2A;&#x76F8;&#x5173;&#x7684;&#x7C7B;&#x4E2D;&#x5171;&#x4EAB;&#x4EE3;&#x7801;&#x3002;</li>
+<li>&#x9700;&#x8981;&#x80FD;&#x63A7;&#x5236;&#x7EE7;&#x627F;&#x6765;&#x7684;&#x6210;&#x5458;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x90FD;&#x4E3A; public&#x3002;</li>
+<li>&#x9700;&#x8981;&#x7EE7;&#x627F;&#x975E;&#x9759;&#x6001;&#x548C;&#x975E;&#x5E38;&#x91CF;&#x5B57;&#x6BB5;&#x3002;</li>
+</ul>
+<p>&#x5728;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x63A5;&#x53E3;&#x4F18;&#x5148;&#x4E8E;&#x62BD;&#x8C61;&#x7C7B;&#x3002;&#x56E0;&#x4E3A;&#x63A5;&#x53E3;&#x6CA1;&#x6709;&#x62BD;&#x8C61;&#x7C7B;&#x4E25;&#x683C;&#x7684;&#x7C7B;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x8981;&#x6C42;&#xFF0C;&#x53EF;&#x4EE5;&#x7075;&#x6D3B;&#x5730;&#x4E3A;&#x4E00;&#x4E2A;&#x7C7B;&#x6DFB;&#x52A0;&#x884C;&#x4E3A;&#x3002;&#x5E76;&#x4E14;&#x4ECE; Java 8 &#x5F00;&#x59CB;&#xFF0C;&#x63A5;&#x53E3;&#x4E5F;&#x53EF;&#x4EE5;&#x6709;&#x9ED8;&#x8BA4;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#xFF0C;&#x4F7F;&#x5F97;&#x4FEE;&#x6539;&#x63A5;&#x53E3;&#x7684;&#x6210;&#x672C;&#x4E5F;&#x53D8;&#x7684;&#x5F88;&#x4F4E;&#x3002;</p>
+<ul>
+<li><a href="https://www.ibm.com/developerworks/cn/java/l-javainterface-abstract/" target="_blank">&#x6DF1;&#x5165;&#x7406;&#x89E3; abstract class &#x548C; interface</a></li>
+<li><a href="https://dzone.com/articles/when-to-use-abstract-class-and-intreface" target="_blank">When to Use Abstract Class and Interface</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="参数传递.html" class="navigation navigation-prev " aria-label="Previous page: 参数传递">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Object类中的方法.html" class="navigation navigation-next " aria-label="Next page: Object类中的方法">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"抽象类和接口","level":"1.2.1.4","depth":3,"next":{"title":"Object类中的方法","level":"1.2.1.5","depth":3,"path":"Java/Java基础/Object类中的方法.md","ref":"Java/Java基础/Object类中的方法.md","articles":[]},"previous":{"title":"参数传递","level":"1.2.1.3","depth":3,"path":"Java/Java基础/参数传递.md","ref":"Java/Java基础/参数传递.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Java/Java基础/抽象类和接口.md","mtime":"2019-02-28T09:19:39.435Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-28T16:01:22.373Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
