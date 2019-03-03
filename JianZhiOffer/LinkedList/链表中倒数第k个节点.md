@@ -1,10 +1,10 @@
 # 题目
 
-输入一个链表，输出该链表中倒数第k个结点。
+输入一个链表，输出该链表中倒数第 k 个结点。
 
 # 思路1
 
-先遍历一遍链表，将每一个节点都压入一个stack中，将stack pop k次即可得到倒数第k个节点。注意，这种方法要求k不能大于链表的长度，为此需要先求出链表的长度。
+先遍历一遍链表，将每一个节点都压入一个 stack 中，将 stack pop k 次即可得到倒数第 k 个节点。注意，这种方法要求 k 不能大于链表的长度，为此需要先求出链表的长度。
 
 ```java
 public ListNode FindKthToTail(ListNode head, int k) {
@@ -35,7 +35,7 @@ private int length(ListNode head) {
 
 # 思路2
 
-用一个slow指针和一个fast指针，fast从表头开始先向后移动k - 1个节点，之后两个指针再一起移动，当fast移动到链表的最后一个节点时，slow指示的刚好是链表中倒数第k个节点
+用一个 slow 指针和一个 fast 指针，fast 从表头开始先向后移动 k - 1 个节点，之后两个指针再一起移动，当 fast移动到链表的最后一个节点时，slow 指示的刚好是链表中倒数第 k 个节点
 
 ```java
 public ListNode FindKthToTail(ListNode head, int k) {

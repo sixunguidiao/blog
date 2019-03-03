@@ -1,0 +1,1919 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>41. First Missing Positive · guidiao's blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="赵强 <zhao_qiang@bupt.edu.cn>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="42. Trapping Rain Water.html" />
+    
+    
+    <link rel="prev" href="38. Count and Say.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://sixunguidiao.github.io/blog/" target="_blank" class="custom-link">guidiao's blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Java/">
+            
+                <a href="../Java/">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Java/Java基础/">
+            
+                <a href="../Java/Java基础/">
+            
+                    
+                    Java基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../Java/Java基础/数据类型.html">
+            
+                <a href="../Java/Java基础/数据类型.html">
+            
+                    
+                    数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../Java/Java基础/String.html">
+            
+                <a href="../Java/Java基础/String.html">
+            
+                    
+                    String
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../Java/Java基础/参数传递.html">
+            
+                <a href="../Java/Java基础/参数传递.html">
+            
+                    
+                    参数传递
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../Java/Java基础/抽象类和接口.html">
+            
+                <a href="../Java/Java基础/抽象类和接口.html">
+            
+                    
+                    抽象类和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="../Java/Java基础/Object类中的方法.html">
+            
+                <a href="../Java/Java基础/Object类中的方法.html">
+            
+                    
+                    Object类中的方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" data-path="../Java/Java基础/final和static.html">
+            
+                <a href="../Java/Java基础/final和static.html">
+            
+                    
+                    final和static
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7" data-path="../Java/Java基础/异常.html">
+            
+                <a href="../Java/Java基础/异常.html">
+            
+                    
+                    异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Java/Java容器/">
+            
+                <a href="../Java/Java容器/">
+            
+                    
+                    Java容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../Java/Java容器/ArrayList.html">
+            
+                <a href="../Java/Java容器/ArrayList.html">
+            
+                    
+                    ArrayList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../Java/Java容器/ConcurrentHashMap.html">
+            
+                <a href="../Java/Java容器/ConcurrentHashMap.html">
+            
+                    
+                    ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../Java/Java容器/CopyOnWriteArrayList.html">
+            
+                <a href="../Java/Java容器/CopyOnWriteArrayList.html">
+            
+                    
+                    CopyOnWriteArrayList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../Java/Java容器/HashMap.html">
+            
+                <a href="../Java/Java容器/HashMap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../Java/Java容器/LinkedHashMap.html">
+            
+                <a href="../Java/Java容器/LinkedHashMap.html">
+            
+                    
+                    LinkedHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../Java/Java容器/LinkedList.html">
+            
+                <a href="../Java/Java容器/LinkedList.html">
+            
+                    
+                    LinkedList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../Java/Java容器/Vector.html">
+            
+                <a href="../Java/Java容器/Vector.html">
+            
+                    
+                    Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="../Java/Java容器/WeakHashMap.html">
+            
+                <a href="../Java/Java容器/WeakHashMap.html">
+            
+                    
+                    WeakHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Java/Java并发/">
+            
+                <a href="../Java/Java并发/">
+            
+                    
+                    Java并发
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../Java/Java并发/线程基础.html">
+            
+                <a href="../Java/Java并发/线程基础.html">
+            
+                    
+                    线程基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../Java/Java并发/线程池.html">
+            
+                <a href="../Java/Java并发/线程池.html">
+            
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../Java/Java并发/互斥同步.html">
+            
+                <a href="../Java/Java并发/互斥同步.html">
+            
+                    
+                    互斥同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../Java/Java并发/线程之间的协作.html">
+            
+                <a href="../Java/Java并发/线程之间的协作.html">
+            
+                    
+                    线程之间的协作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../Java/Java并发/J.U.C组件.html">
+            
+                <a href="../Java/Java并发/J.U.C组件.html">
+            
+                    
+                    J.U.C组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../Java/Java并发/Java内存模型.html">
+            
+                <a href="../Java/Java并发/Java内存模型.html">
+            
+                    
+                    Java内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../Java/Java并发/线程安全.html">
+            
+                <a href="../Java/Java并发/线程安全.html">
+            
+                    
+                    线程安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../Java/Java并发/ThreadLocal .html">
+            
+                <a href="../Java/Java并发/ThreadLocal .html">
+            
+                    
+                    ThreadLocal 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.9" data-path="../Java/Java并发/锁优化.html">
+            
+                <a href="../Java/Java并发/锁优化.html">
+            
+                    
+                    锁优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.10" data-path="../Java/Java并发/Best Practices.html">
+            
+                <a href="../Java/Java并发/Best Practices.html">
+            
+                    
+                    Best Practices
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../JianZhiOffer/">
+            
+                <a href="../JianZhiOffer/">
+            
+                    
+                    剑指offer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../JianZhiOffer/Array/">
+            
+                <a href="../JianZhiOffer/Array/">
+            
+                    
+                    Array
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../JianZhiOffer/Array/把数组排成最小的数.html">
+            
+                <a href="../JianZhiOffer/Array/把数组排成最小的数.html">
+            
+                    
+                    把数组排成最小的数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../JianZhiOffer/Array/丑数.html">
+            
+                <a href="../JianZhiOffer/Array/丑数.html">
+            
+                    
+                    丑数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../JianZhiOffer/Array/和为s的两个数字.html">
+            
+                <a href="../JianZhiOffer/Array/和为s的两个数字.html">
+            
+                    
+                    和为s的两个数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../JianZhiOffer/Array/数值的整数次方.html">
+            
+                <a href="../JianZhiOffer/Array/数值的整数次方.html">
+            
+                    
+                    数值的整数次方
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="../JianZhiOffer/Array/数组中出现次数超过一半的数字.html">
+            
+                <a href="../JianZhiOffer/Array/数组中出现次数超过一半的数字.html">
+            
+                    
+                    数组中出现次数超过一半的数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="../JianZhiOffer/Array/数组中的逆序对.html">
+            
+                <a href="../JianZhiOffer/Array/数组中的逆序对.html">
+            
+                    
+                    数组中的逆序对
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" data-path="../JianZhiOffer/Array/数组中重复的数字.html">
+            
+                <a href="../JianZhiOffer/Array/数组中重复的数字.html">
+            
+                    
+                    数组中重复的数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" data-path="../JianZhiOffer/Array/调整数组顺序使奇数位于偶数前面.html">
+            
+                <a href="../JianZhiOffer/Array/调整数组顺序使奇数位于偶数前面.html">
+            
+                    
+                    调整数组顺序使奇数位于偶数前面
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../JianZhiOffer/Backtracking/">
+            
+                <a href="../JianZhiOffer/Backtracking/">
+            
+                    
+                    Backtracking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../JianZhiOffer/Backtracking/机器人的运动范围.html">
+            
+                <a href="../JianZhiOffer/Backtracking/机器人的运动范围.html">
+            
+                    
+                    机器人的运动范围
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../JianZhiOffer/Backtracking/矩阵中的路径.html">
+            
+                <a href="../JianZhiOffer/Backtracking/矩阵中的路径.html">
+            
+                    
+                    矩阵中的路径
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../JianZhiOffer/Binary Search/">
+            
+                <a href="../JianZhiOffer/Binary Search/">
+            
+                    
+                    Binary Search
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../JianZhiOffer/Binary Search/数字在排序数组中出现的次数.html">
+            
+                <a href="../JianZhiOffer/Binary Search/数字在排序数组中出现的次数.html">
+            
+                    
+                    数字在排序数组中出现的次数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../JianZhiOffer/Binary Search/旋转数组的最小数字.html">
+            
+                <a href="../JianZhiOffer/Binary Search/旋转数组的最小数字.html">
+            
+                    
+                    旋转数组的最小数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../JianZhiOffer/Bit Manipulation/">
+            
+                <a href="../JianZhiOffer/Bit Manipulation/">
+            
+                    
+                    Bit Manipulation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../JianZhiOffer/Bit Manipulation/二进制中1的个数.html">
+            
+                <a href="../JianZhiOffer/Bit Manipulation/二进制中1的个数.html">
+            
+                    
+                    二进制中1的个数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../JianZhiOffer/Bit Manipulation/数组中只出现一次的两个数字.html">
+            
+                <a href="../JianZhiOffer/Bit Manipulation/数组中只出现一次的两个数字.html">
+            
+                    
+                    数组中只出现一次的两个数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../JianZhiOffer/Dynamic Programming/">
+            
+                <a href="../JianZhiOffer/Dynamic Programming/">
+            
+                    
+                    Dynamic Programming
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../JianZhiOffer/Dynamic Programming/斐波那契数列.html">
+            
+                <a href="../JianZhiOffer/Dynamic Programming/斐波那契数列.html">
+            
+                    
+                    斐波那契数列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../JianZhiOffer/Dynamic Programming/连续子数组的最大和.html">
+            
+                <a href="../JianZhiOffer/Dynamic Programming/连续子数组的最大和.html">
+            
+                    
+                    连续子数组的最大和
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../JianZhiOffer/Dynamic Programming/正则表达式匹配.html">
+            
+                <a href="../JianZhiOffer/Dynamic Programming/正则表达式匹配.html">
+            
+                    
+                    正则表达式匹配
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../JianZhiOffer/LinkedList/">
+            
+                <a href="../JianZhiOffer/LinkedList/">
+            
+                    
+                    LinkedList
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../JianZhiOffer/LinkedList/从尾到头打印链表.html">
+            
+                <a href="../JianZhiOffer/LinkedList/从尾到头打印链表.html">
+            
+                    
+                    从尾到头打印链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../JianZhiOffer/LinkedList/反转链表.html">
+            
+                <a href="../JianZhiOffer/LinkedList/反转链表.html">
+            
+                    
+                    反转链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../JianZhiOffer/LinkedList/复杂链表的复制.html">
+            
+                <a href="../JianZhiOffer/LinkedList/复杂链表的复制.html">
+            
+                    
+                    复杂链表的复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../JianZhiOffer/LinkedList/合并两个排序的链表.html">
+            
+                <a href="../JianZhiOffer/LinkedList/合并两个排序的链表.html">
+            
+                    
+                    合并两个排序的链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="../JianZhiOffer/LinkedList/链表中倒数第k个节点.html">
+            
+                <a href="../JianZhiOffer/LinkedList/链表中倒数第k个节点.html">
+            
+                    
+                    链表中倒数第k个节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.6" data-path="../JianZhiOffer/LinkedList/链表中环的入口节点.html">
+            
+                <a href="../JianZhiOffer/LinkedList/链表中环的入口节点.html">
+            
+                    
+                    链表中环的入口节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.7" data-path="../JianZhiOffer/LinkedList/两个链表的第一个公共节点.html">
+            
+                <a href="../JianZhiOffer/LinkedList/两个链表的第一个公共节点.html">
+            
+                    
+                    两个链表的第一个公共节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.8" data-path="../JianZhiOffer/LinkedList/删除链表的节点.html">
+            
+                <a href="../JianZhiOffer/LinkedList/删除链表的节点.html">
+            
+                    
+                    删除链表的节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../JianZhiOffer/Matrix/">
+            
+                <a href="../JianZhiOffer/Matrix/">
+            
+                    
+                    Matrix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../JianZhiOffer/Matrix/二维数组中的查找.html">
+            
+                <a href="../JianZhiOffer/Matrix/二维数组中的查找.html">
+            
+                    
+                    二维数组中的查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../JianZhiOffer/Matrix/顺时针打印矩阵.html">
+            
+                <a href="../JianZhiOffer/Matrix/顺时针打印矩阵.html">
+            
+                    
+                    顺时针打印矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../JianZhiOffer/Stack & Queue & PriorityQueue/">
+            
+                <a href="../JianZhiOffer/Stack & Queue & PriorityQueue/">
+            
+                    
+                    Stack & Queue & PriorityQueue
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="../JianZhiOffer/Stack & Queue & PriorityQueue/包含min函数的栈.html">
+            
+                <a href="../JianZhiOffer/Stack & Queue & PriorityQueue/包含min函数的栈.html">
+            
+                    
+                    包含min函数的栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="../JianZhiOffer/Stack & Queue & PriorityQueue/滑动窗口的最大值.html">
+            
+                <a href="../JianZhiOffer/Stack & Queue & PriorityQueue/滑动窗口的最大值.html">
+            
+                    
+                    滑动窗口的最大值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="../JianZhiOffer/Stack & Queue & PriorityQueue/数据流中的中位数.html">
+            
+                <a href="../JianZhiOffer/Stack & Queue & PriorityQueue/数据流中的中位数.html">
+            
+                    
+                    数据流中的中位数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="../JianZhiOffer/Stack & Queue & PriorityQueue/用两个栈实现队列.html">
+            
+                <a href="../JianZhiOffer/Stack & Queue & PriorityQueue/用两个栈实现队列.html">
+            
+                    
+                    用两个栈实现队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="../JianZhiOffer/Stack & Queue & PriorityQueue/栈的压入、弹出序列.html">
+            
+                <a href="../JianZhiOffer/Stack & Queue & PriorityQueue/栈的压入、弹出序列.html">
+            
+                    
+                    栈的压入、弹出序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.6" data-path="../JianZhiOffer/Stack & Queue & PriorityQueue/最小的k个数.html">
+            
+                <a href="../JianZhiOffer/Stack & Queue & PriorityQueue/最小的k个数.html">
+            
+                    
+                    最小的k个数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../JianZhiOffer/String/">
+            
+                <a href="../JianZhiOffer/String/">
+            
+                    
+                    String
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="../JianZhiOffer/String/表示数值的字符串.html">
+            
+                <a href="../JianZhiOffer/String/表示数值的字符串.html">
+            
+                    
+                    表示数值的字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.2" data-path="../JianZhiOffer/String/打印从1到最大的n位数.html">
+            
+                <a href="../JianZhiOffer/String/打印从1到最大的n位数.html">
+            
+                    
+                    打印从1到最大的n位数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.3" data-path="../JianZhiOffer/String/第一个只出现一次的字符.html">
+            
+                <a href="../JianZhiOffer/String/第一个只出现一次的字符.html">
+            
+                    
+                    第一个只出现一次的字符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.4" data-path="../JianZhiOffer/String/翻转字符串.html">
+            
+                <a href="../JianZhiOffer/String/翻转字符串.html">
+            
+                    
+                    翻转字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.5" data-path="../JianZhiOffer/String/替换空格.html">
+            
+                <a href="../JianZhiOffer/String/替换空格.html">
+            
+                    
+                    替换空格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.6" data-path="../JianZhiOffer/String/字符串的排列.html">
+            
+                <a href="../JianZhiOffer/String/字符串的排列.html">
+            
+                    
+                    字符串的排列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.7" data-path="../JianZhiOffer/String/字符流中第一个只出现一次的字符.html">
+            
+                <a href="../JianZhiOffer/String/字符流中第一个只出现一次的字符.html">
+            
+                    
+                    字符流中第一个只出现一次的字符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../JianZhiOffer/Tree/">
+            
+                <a href="../JianZhiOffer/Tree/">
+            
+                    
+                    Tree
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.10.1" data-path="../JianZhiOffer/Tree/从上到下打印二叉树.html">
+            
+                <a href="../JianZhiOffer/Tree/从上到下打印二叉树.html">
+            
+                    
+                    从上到下打印二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.2" data-path="../JianZhiOffer/Tree/对称的二叉树.html">
+            
+                <a href="../JianZhiOffer/Tree/对称的二叉树.html">
+            
+                    
+                    对称的二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.3" data-path="../JianZhiOffer/Tree/二叉树的镜像.html">
+            
+                <a href="../JianZhiOffer/Tree/二叉树的镜像.html">
+            
+                    
+                    二叉树的镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.4" data-path="../JianZhiOffer/Tree/二叉树的深度.html">
+            
+                <a href="../JianZhiOffer/Tree/二叉树的深度.html">
+            
+                    
+                    二叉树的深度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.5" data-path="../JianZhiOffer/Tree/二叉树的下一个节点.html">
+            
+                <a href="../JianZhiOffer/Tree/二叉树的下一个节点.html">
+            
+                    
+                    二叉树的下一个节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.6" data-path="../JianZhiOffer/Tree/二叉树中和为某一值的路径.html">
+            
+                <a href="../JianZhiOffer/Tree/二叉树中和为某一值的路径.html">
+            
+                    
+                    二叉树中和为某一值的路径
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.7" data-path="../JianZhiOffer/Tree/二叉搜索树的第k大节点.html">
+            
+                <a href="../JianZhiOffer/Tree/二叉搜索树的第k大节点.html">
+            
+                    
+                    二叉搜索树的第k大节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.8" data-path="../JianZhiOffer/Tree/二叉搜索树的后序遍历序列.html">
+            
+                <a href="../JianZhiOffer/Tree/二叉搜索树的后序遍历序列.html">
+            
+                    
+                    二叉搜索树的后序遍历序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.9" data-path="../JianZhiOffer/Tree/二叉搜索树与双向链表.html">
+            
+                <a href="../JianZhiOffer/Tree/二叉搜索树与双向链表.html">
+            
+                    
+                    二叉搜索树与双向链表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.10" data-path="../JianZhiOffer/Tree/树的子结构.html">
+            
+                <a href="../JianZhiOffer/Tree/树的子结构.html">
+            
+                    
+                    树的子结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.11" data-path="../JianZhiOffer/Tree/序列化二叉树.html">
+            
+                <a href="../JianZhiOffer/Tree/序列化二叉树.html">
+            
+                    
+                    序列化二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.12" data-path="../JianZhiOffer/Tree/重建二叉树.html">
+            
+                <a href="../JianZhiOffer/Tree/重建二叉树.html">
+            
+                    
+                    重建二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    LeetCode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="1. Two Sum.html">
+            
+                <a href="1. Two Sum.html">
+            
+                    
+                    1. Two Sum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="2. Add Two Numbers.html">
+            
+                <a href="2. Add Two Numbers.html">
+            
+                    
+                    2. Add Two Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="3. Longest Substring Without Repeating Characters.html">
+            
+                <a href="3. Longest Substring Without Repeating Characters.html">
+            
+                    
+                    3. Longest Substring Without Repeating Characters
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="5. Longest Palindromic Substring.html">
+            
+                <a href="5. Longest Palindromic Substring.html">
+            
+                    
+                    5. Longest Palindromic Substring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="7. Reverse Integer.html">
+            
+                <a href="7. Reverse Integer.html">
+            
+                    
+                    7. Reverse Integer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="11. Container With Most Water.html">
+            
+                <a href="11. Container With Most Water.html">
+            
+                    
+                    11. Container With Most Water
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="13. Roman to Integer.html">
+            
+                <a href="13. Roman to Integer.html">
+            
+                    
+                    13. Roman to Integer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="14. Longest Common Prefix.html">
+            
+                <a href="14. Longest Common Prefix.html">
+            
+                    
+                    14. Longest Common Prefix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="15. 3Sum.html">
+            
+                <a href="15. 3Sum.html">
+            
+                    
+                    15. 3Sum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="17. Letter Combinations of a Phone Number.html">
+            
+                <a href="17. Letter Combinations of a Phone Number.html">
+            
+                    
+                    17. Letter Combinations of a Phone Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="19. Remove Nth Node From End of List.html">
+            
+                <a href="19. Remove Nth Node From End of List.html">
+            
+                    
+                    19. Remove Nth Node From End of List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="20. Valid Parentheses.html">
+            
+                <a href="20. Valid Parentheses.html">
+            
+                    
+                    20. Valid Parentheses
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="21. Merge Two Sorted Lists.html">
+            
+                <a href="21. Merge Two Sorted Lists.html">
+            
+                    
+                    21. Merge Two Sorted Lists
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="22. Generate Parentheses.html">
+            
+                <a href="22. Generate Parentheses.html">
+            
+                    
+                    22. Generate Parentheses
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="23. Merge k Sorted Lists.html">
+            
+                <a href="23. Merge k Sorted Lists.html">
+            
+                    
+                    23. Merge k Sorted Lists
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="26. Remove Duplicates from Sorted Array.html">
+            
+                <a href="26. Remove Duplicates from Sorted Array.html">
+            
+                    
+                    26. Remove Duplicates from Sorted Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.17" data-path="28. Implement strStr(">
+            
+                <span>
+            
+                    
+                    28. Implement strStr()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.18" data-path="33. Search in Rotated Sorted Array.html">
+            
+                <a href="33. Search in Rotated Sorted Array.html">
+            
+                    
+                    33. Search in Rotated Sorted Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.19" data-path="34. Find First and Last Position of Element in Sorted Array.html">
+            
+                <a href="34. Find First and Last Position of Element in Sorted Array.html">
+            
+                    
+                    34. Find First and Last Position of Element in Sorted Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.20" data-path="36. Valid Sudoku.html">
+            
+                <a href="36. Valid Sudoku.html">
+            
+                    
+                    36. Valid Sudoku
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.21" data-path="38. Count and Say.html">
+            
+                <a href="38. Count and Say.html">
+            
+                    
+                    38. Count and Say
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.22" data-path="41. First Missing Positive.html">
+            
+                <a href="41. First Missing Positive.html">
+            
+                    
+                    41. First Missing Positive
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.23" data-path="42. Trapping Rain Water.html">
+            
+                <a href="42. Trapping Rain Water.html">
+            
+                    
+                    42. Trapping Rain Water
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.24" data-path="80. Remove Duplicates from Sorted Array II.html">
+            
+                <a href="80. Remove Duplicates from Sorted Array II.html">
+            
+                    
+                    80. Remove Duplicates from Sorted Array II
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >41. First Missing Positive</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x9898;&#x76EE;">&#x9898;&#x76EE;</h1>
+<p>Given an unsorted integer array, find the smallest missing positive integer.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: [1,2,0]
+Output: 3
+</code></pre><p><strong>Example 2:</strong></p>
+<pre><code>Input: [3,4,-1,1]
+Output: 2
+</code></pre><p><strong>Example 3:</strong></p>
+<pre><code>Input: [7,8,9,11,12]
+Output: 1
+</code></pre><p><strong>Note:</strong></p>
+<p>Your algorithm should run in <em>O</em>(<em>n</em>) time and uses constant extra space.</p>
+<h1 id="&#x9898;&#x76EE;&#x5927;&#x610F;">&#x9898;&#x76EE;&#x5927;&#x610F;</h1>
+<p>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x672A;&#x6392;&#x5E8F;&#x7684;&#x6574;&#x6570;&#x6570;&#x7EC4;&#xFF0C;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;&#x4E2D;&#x7F3A;&#x5931;&#x7684;&#x6700;&#x5C0F;&#x7684;&#x6B63;&#x6574;&#x6570;&#x3002;&#x8981;&#x6C42;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A; O(N) &#xFF0C;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A; O(1)&#x3002;</p>
+<h1 id="&#x601D;&#x8DEF;">&#x601D;&#x8DEF;</h1>
+<p>&#x601D;&#x8DEF;&#x540C; <a href="JianZhiOffer/Array/&#x6570;&#x7EC4;&#x4E2D;&#x91CD;&#x590D;&#x7684;&#x6570;&#x5B57;.md">&#x6570;&#x7EC4;&#x4E2D;&#x91CD;&#x590D;&#x7684;&#x6570;&#x5B57;</a> &#x3002;&#x8BBE;&#x60F3;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x7F3A;&#x5931;&#x6B63;&#x6574;&#x6570;&#x7684;&#x6570;&#x7EC4;&#x5E94;&#x8BE5;&#x662F;&#x600E;&#x6837;&#x7684;&#xFF1F;&#x8BBE;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x662F; n&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x5E94;&#x8BE5;&#x662F; [1, 2, 3, ..., n]&#xFF0C;&#x5373; nums[i] = i + 1&#x3002;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6309;&#x7167;&#x8FD9;&#x79CD;&#x89C4;&#x5219;&#x5BF9;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x91CD;&#x7EC4;&#xFF0C;&#x5373;&#x5C06;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x4EA4;&#x6362;&#x5230;&#x5176;&#x6B63;&#x786E;&#x7684;&#x4F4D;&#x7F6E;&#x4E0A;&#xFF0C;&#x5FFD;&#x7565;&#x5143;&#x7D20;&#x503C;&#x4E3A;0&#x548C;&#x5143;&#x7D20;&#x503C;&#x5927;&#x4E8E; n &#x7684;&#x5143;&#x7D20;&#x3002;&#x91CD;&#x7EC4;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x82E5;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x7684;&#x5143;&#x7D20;&#x4E0D;&#x6EE1;&#x8DB3; nums[i] = i + 1&#xFF0C;&#x5373;&#x627E;&#x5230;&#x4E86;&#x6570;&#x7EC4;&#x4E2D;&#x7F3A;&#x5931;&#x7684;&#x6700;&#x5C0F;&#x7684;&#x6B63;&#x6574;&#x6570;&#xFF0C;&#x5373; i + 1&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">firstMissingPositive</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
+    <span class="hljs-keyword">if</span> (nums == <span class="hljs-keyword">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (i &lt; nums.length) {
+        <span class="hljs-keyword">if</span> (nums[i] &lt; <span class="hljs-number">1</span> || nums[i] &gt; nums.length) {
+            i++;
+            <span class="hljs-keyword">continue</span>;
+        }
+        <span class="hljs-keyword">if</span> (nums[i] != i + <span class="hljs-number">1</span>) {
+            swap(nums, i, nums[i] - <span class="hljs-number">1</span>);
+        } <span class="hljs-keyword">else</span> {    <span class="hljs-comment">// nums[i] == i + 1</span>
+            i++;
+        }
+    }
+    i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (i &lt; nums.length &amp;&amp; nums[i] == i + <span class="hljs-number">1</span>) {
+        i++;
+    }
+
+    <span class="hljs-keyword">return</span> i + <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span> </span>{
+    <span class="hljs-keyword">if</span> (i != j) {
+        <span class="hljs-keyword">int</span> t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="38. Count and Say.html" class="navigation navigation-prev " aria-label="Previous page: 38. Count and Say">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="42. Trapping Rain Water.html" class="navigation navigation-next " aria-label="Next page: 42. Trapping Rain Water">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"41. First Missing Positive","level":"1.4.22","depth":2,"next":{"title":"42. Trapping Rain Water","level":"1.4.23","depth":2,"path":"LeetCode/42. Trapping Rain Water.md","ref":"LeetCode/42. Trapping Rain Water.md","articles":[]},"previous":{"title":"38. Count and Say","level":"1.4.21","depth":2,"path":"LeetCode/38. Count and Say.md","ref":"LeetCode/38. Count and Say.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"LeetCode/41. First Missing Positive.md","mtime":"2019-03-03T13:31:28.386Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-03T15:48:12.108Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
