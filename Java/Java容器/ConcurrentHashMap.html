@@ -740,12 +740,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../../计算机网络/应用层.html">
+        <li class="chapter " data-level="1.4.1" data-path="../../计算机网络/HTTP.html">
             
-                <a href="../../计算机网络/应用层.html">
+                <a href="../../计算机网络/HTTP.html">
             
                     
-                    应用层
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../计算机网络/TCP和UDP.html">
+            
+                <a href="../../计算机网络/TCP和UDP.html">
+            
+                    
+                    TCP和UDP
             
                 </a>
             
@@ -837,7 +850,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="../../设计模式/迭代器模式.html">
+        <li class="chapter " data-level="1.5.6" data-path="../../设计模式/观察者模式.html">
+            
+                <a href="../../设计模式/观察者模式.html">
+            
+                    
+                    观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../../设计模式/迭代器模式.html">
             
                 <a href="../../设计模式/迭代器模式.html">
             
@@ -850,7 +876,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="../../设计模式/适配器模式.html">
+        <li class="chapter " data-level="1.5.8" data-path="../../设计模式/适配器模式.html">
             
                 <a href="../../设计模式/适配器模式.html">
             
@@ -2091,7 +2117,7 @@
 </code></pre>
 <p>&#x9ED8;&#x8BA4;&#x7684;&#x5E76;&#x53D1;&#x7EA7;&#x522B;&#x4E3A; 16&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x9ED8;&#x8BA4;&#x521B;&#x5EFA; 16 &#x4E2A; Segment&#x3002;</p>
 <p><img src="https://cyc2018.github.io/CS-Notes/pics/deb18bdb-b3b3-4660-b778-b0823a48db12.jpg" alt="img"></p>
-<h2 id="2-size&#x64CD;&#x4F5C;">2. size&#x64CD;&#x4F5C;</h2>
+<h2 id="2-size-&#x64CD;&#x4F5C;">2. size &#x64CD;&#x4F5C;</h2>
 <p>&#x6BCF;&#x4E2A; Segment &#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A; count &#x53D8;&#x91CF;&#x6765;&#x7EDF;&#x8BA1;&#x8BE5; Segment &#x4E2D;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x4E2A;&#x6570;&#x3002;</p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
  * The number of elements. Accessed only either within locks
@@ -2100,7 +2126,7 @@
 <span class="hljs-keyword">transient</span> <span class="hljs-keyword">int</span> count;
 </code></pre>
 <p>&#x5728;&#x6267;&#x884C; size &#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x904D;&#x5386;&#x6240;&#x6709; Segment &#x7136;&#x540E;&#x628A; count &#x7D2F;&#x8BA1;&#x8D77;&#x6765;&#x3002;</p>
-<p>ConcurrentHashMap &#x5728;&#x6267;&#x884C; size &#x64CD;&#x4F5C;&#x65F6;&#x5148;&#x5C1D;&#x8BD5;&#x4E0D;&#x52A0;&#x9501;&#xFF0C;&#x5982;&#x679C;&#x8FDE;&#x7EED;&#x4E24;&#x6B21;&#x4E0D;&#x52A0;&#x9501;&#x64CD;&#x4F5C;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x4E00;&#x81F4;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x662F;&#x6B63;&#x786E;&#x7684;&#x3002;</p>
+<p>ConcurrentHashMap &#x5728;&#x6267;&#x884C; size &#x64CD;&#x4F5C;&#x65F6;&#x5148;&#x5C1D;&#x8BD5;&#x4E0D;&#x52A0;&#x9501;&#xFF0C;&#x5982;&#x679C;<strong>&#x8FDE;&#x7EED;&#x4E24;&#x6B21;</strong>&#x4E0D;&#x52A0;&#x9501;&#x64CD;&#x4F5C;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x4E00;&#x81F4;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x662F;&#x6B63;&#x786E;&#x7684;&#x3002;</p>
 <p>&#x5C1D;&#x8BD5;&#x6B21;&#x6570;&#x4F7F;&#x7528; RETRIES_BEFORE_LOCK &#x5B9A;&#x4E49;&#xFF0C;&#x8BE5;&#x503C;&#x4E3A; 2&#xFF0C;retries &#x521D;&#x59CB;&#x503C;&#x4E3A; -1&#xFF0C;&#x56E0;&#x6B64;&#x5C1D;&#x8BD5;&#x6B21;&#x6570;&#x4E3A; 3&#x3002;</p>
 <p>&#x5982;&#x679C;&#x5C1D;&#x8BD5;&#x7684;&#x6B21;&#x6570;&#x8D85;&#x8FC7; 3 &#x6B21;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5BF9;&#x6BCF;&#x4E2A; Segment &#x52A0;&#x9501;&#x3002;</p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
@@ -2153,11 +2179,30 @@
     <span class="hljs-keyword">return</span> overflow ? Integer.MAX_VALUE : size;
 }
 </code></pre>
-<h2 id="3-jdk-18-&#x7684;&#x6539;&#x52A8;">3. JDK 1.8 &#x7684;&#x6539;&#x52A8;</h2>
+<h2 id="3-put-&#x64CD;&#x4F5C;">3. put &#x64CD;&#x4F5C;</h2>
+<ol>
+<li><p>&#x901A;&#x8FC7; key &#x5B9A;&#x4F4D;&#x5230; Segment&#xFF0C;&#x5728;&#x5BF9;&#x5E94;&#x7684; Segment &#x4E2D;&#x8FDB;&#x884C;&#x5177;&#x4F53;&#x7684; put&#x3002;</p>
+</li>
+<li><p>&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x9501;&#xFF0C;&#x5982;&#x679C;&#x83B7;&#x53D6;&#x5931;&#x8D25;&#x80AF;&#x5B9A;&#x5C31;&#x6709;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x5B58;&#x5728;&#x7ADE;&#x4E89;&#xFF0C;&#x5219;&#x5229;&#x7528; scanAndLockForPut() &#x81EA;&#x65CB;&#x83B7;&#x53D6;&#x9501;&#xFF0C;&#x5982;&#x679C;&#x91CD;&#x8BD5;&#x7684;&#x6B21;&#x6570;&#x8FBE;&#x5230;&#x4E86; MAX_SCAN_RETRIES &#x5219;&#x6539;&#x4E3A;&#x963B;&#x585E;&#x9501;&#x83B7;&#x53D6;&#xFF0C;&#x4FDD;&#x8BC1;&#x80FD;&#x83B7;&#x53D6;&#x6210;&#x529F;&#x3002;</p>
+</li>
+<li><p>&#x901A;&#x8FC7; key &#x7684; hashcode &#x5B9A;&#x4F4D;&#x5230;&#x5F53;&#x524D; Segment &#x4E2D;&#x7684; table &#x4E2D;&#x7684; HashEntry&#x3002;</p>
+</li>
+<li><p>&#x904D;&#x5386;&#x8BE5; HashEntry&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x4E3A;&#x7A7A;&#x5219;&#x5224;&#x65AD;&#x4F20;&#x5165;&#x7684; key &#x548C;&#x5F53;&#x524D;&#x904D;&#x5386;&#x7684; key &#x662F;&#x5426;&#x76F8;&#x7B49;&#xFF0C;&#x76F8;&#x7B49;&#x5219;&#x8986;&#x76D6;&#x65E7;&#x7684; value&#x3002;</p>
+</li>
+<li><p>&#x4E3A;&#x7A7A;&#x5219;&#x9700;&#x8981;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A; HashEntry &#x5E76;&#x52A0;&#x5165;&#x5230; Segment &#x4E2D;&#xFF0C;&#x5728;&#x63D2;&#x5165;&#x4E4B;&#x524D;&#x4F1A;&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x6269;&#x5BB9;&#x3002;</p>
+</li>
+<li><p>&#x6700;&#x540E;&#x89E3;&#x9664;&#x6240;&#x83B7;&#x53D6;&#x7684;&#x5F53;&#x524D; Segment &#x7684;&#x9501;&#x3002;</p>
+</li>
+</ol>
+<h2 id="4-get-&#x64CD;&#x4F5C;">4. get &#x64CD;&#x4F5C;</h2>
+<p>get&#x903B;&#x8F91;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5C06; key &#x901A;&#x8FC7; Hash &#x4E4B;&#x540E;&#x5B9A;&#x4F4D;&#x5230;&#x5177;&#x4F53;&#x7684; Segment &#xFF0C;&#x518D;&#x5B9A;&#x4F4D;&#x5230;&#x5177;&#x4F53;&#x7684;HashEntry&#x3002;&#x7531;&#x4E8E; HashEntry &#x4E2D;&#x7684; value &#x5C5E;&#x6027;&#x662F;&#x7528; volatile &#x5173;&#x952E;&#x8BCD;&#x4FEE;&#x9970;&#x7684;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86;&#x5185;&#x5B58;&#x53EF;&#x89C1;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x6BCF;&#x6B21;&#x83B7;&#x53D6;&#x65F6;&#x90FD;&#x662F;&#x6700;&#x65B0;&#x503C;&#x3002;</p>
+<p>ConcurrentHashMap &#x7684; get &#x65B9;&#x6CD5;&#x662F;&#x975E;&#x5E38;&#x9AD8;&#x6548;&#x7684;&#xFF0C;<strong>&#x56E0;&#x4E3A;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x90FD;&#x4E0D;&#x9700;&#x8981;&#x52A0;&#x9501;</strong>&#x3002;</p>
+<h2 id="jdk-18-&#x7684;&#x6539;&#x52A8;">. JDK 1.8 &#x7684;&#x6539;&#x52A8;</h2>
 <p>JDK 1.7 &#x4F7F;&#x7528;&#x5206;&#x6BB5;&#x9501;&#x673A;&#x5236;&#x6765;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#xFF0C;&#x6838;&#x5FC3;&#x7C7B;&#x4E3A; Segment&#xFF0C;&#x5B83;&#x7EE7;&#x627F;&#x81EA;&#x91CD;&#x5165;&#x9501; ReentrantLock&#xFF0C;&#x5E76;&#x53D1;&#x5EA6;&#x4E0E; Segment &#x6570;&#x91CF;&#x76F8;&#x7B49;&#x3002;</p>
-<p>JDK 1.8 &#x4F7F;&#x7528;&#x4E86; CAS &#x64CD;&#x4F5C;&#x6765;&#x652F;&#x6301;&#x66F4;&#x9AD8;&#x7684;&#x5E76;&#x53D1;&#x5EA6;&#xFF0C;&#x5728; CAS &#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x65F6;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x9501; synchronized&#xFF0C;JDK 1.7 &#x4F7F;&#x7528;&#x5206;&#x6BB5;&#x9501;&#x673A;&#x5236;&#x6765;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#xFF0C;&#x6838;&#x5FC3;&#x7C7B;&#x4E3A; Segment&#xFF0C;&#x5B83;&#x7EE7;&#x627F;&#x81EA;&#x91CD;&#x5165;&#x9501; ReentrantLock&#xFF0C;&#x5E76;&#x53D1;&#x5EA6;&#x4E0E; Segment &#x6570;&#x91CF;&#x76F8;&#x7B49;&#x3002;</p>
-<p>JDK 1.8 &#x4F7F;&#x7528;&#x4E86; CAS &#x64CD;&#x4F5C;&#x6765;&#x652F;&#x6301;&#x66F4;&#x9AD8;&#x7684;&#x5E76;&#x53D1;&#x5EA6;&#xFF0C;&#x5728; CAS &#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x65F6;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x9501; synchronized&#xFF0C;&#x800C;&#x4E14;1.8 &#x5BF9;synchronized &#x4E5F;&#x4F5C;&#x4E86;&#x5F88;&#x591A;&#x4F18;&#x5316;&#x3002;</p>
-<p>JDK 1.8 &#x7684;&#x5B9E;&#x73B0;&#x4E5F;&#x5728;&#x94FE;&#x8868;&#x8FC7;&#x957F;&#x65F6;&#x4F1A;&#x8F6C;&#x6362;&#x4E3A;&#x7EA2;&#x9ED1;&#x6811;&#x3002;</p>
+<p>JDK 1.8 &#x4F7F;&#x7528;&#x4E86; CAS &#x64CD;&#x4F5C;&#x6765;&#x652F;&#x6301;&#x66F4;&#x9AD8;&#x7684;&#x5E76;&#x53D1;&#x5EA6;&#xFF0C;&#x5728; CAS &#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x65F6;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x9501; synchronized&#xFF0C;&#x800C;&#x4E14;1.8 &#x5BF9;synchronized &#x4E5F;&#x505A;&#x4E86;&#x5F88;&#x591A;&#x7684;&#x4F18;&#x5316;&#x3002;</p>
+<p>JDK 1.8 &#x7684;&#x5B9E;&#x73B0;&#x4E5F;&#x5728;&#x94FE;&#x8868;&#x8FC7;&#x957F; (&#x9ED8;&#x8BA4;&#x4E3A;8) &#x65F6;&#x4F1A;&#x8F6C;&#x6362;&#x4E3A;&#x7EA2;&#x9ED1;&#x6811;&#x3002;</p>
+<h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h1>
+<p><a href="https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%AE%B9%E5%99%A8" target="_blank">Java &#x5BB9;&#x5668;</a></p>
 
                                 
                                 </section>
@@ -2201,7 +2246,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ConcurrentHashMap","level":"1.2.2.2","depth":3,"next":{"title":"CopyOnWriteArrayList","level":"1.2.2.3","depth":3,"path":"Java/Java容器/CopyOnWriteArrayList.md","ref":"Java/Java容器/CopyOnWriteArrayList.md","articles":[]},"previous":{"title":"ArrayList","level":"1.2.2.1","depth":3,"path":"Java/Java容器/ArrayList.md","ref":"Java/Java容器/ArrayList.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"Java/Java容器/ConcurrentHashMap.md","mtime":"2019-02-28T14:10:09.258Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T05:12:04.598Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ConcurrentHashMap","level":"1.2.2.2","depth":3,"next":{"title":"CopyOnWriteArrayList","level":"1.2.2.3","depth":3,"path":"Java/Java容器/CopyOnWriteArrayList.md","ref":"Java/Java容器/CopyOnWriteArrayList.md","articles":[]},"previous":{"title":"ArrayList","level":"1.2.2.1","depth":3,"path":"Java/Java容器/ArrayList.md","ref":"Java/Java容器/ArrayList.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"Java/Java容器/ConcurrentHashMap.md","mtime":"2019-03-12T15:07:09.211Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-18T10:28:05.234Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

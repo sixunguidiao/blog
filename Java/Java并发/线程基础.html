@@ -740,12 +740,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../../计算机网络/应用层.html">
+        <li class="chapter " data-level="1.4.1" data-path="../../计算机网络/HTTP.html">
             
-                <a href="../../计算机网络/应用层.html">
+                <a href="../../计算机网络/HTTP.html">
             
                     
-                    应用层
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../计算机网络/TCP和UDP.html">
+            
+                <a href="../../计算机网络/TCP和UDP.html">
+            
+                    
+                    TCP和UDP
             
                 </a>
             
@@ -837,7 +850,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="../../设计模式/迭代器模式.html">
+        <li class="chapter " data-level="1.5.6" data-path="../../设计模式/观察者模式.html">
+            
+                <a href="../../设计模式/观察者模式.html">
+            
+                    
+                    观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../../设计模式/迭代器模式.html">
             
                 <a href="../../设计模式/迭代器模式.html">
             
@@ -850,7 +876,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="../../设计模式/适配器模式.html">
+        <li class="chapter " data-level="1.5.8" data-path="../../设计模式/适配器模式.html">
             
                 <a href="../../设计模式/适配器模式.html">
             
@@ -2190,11 +2216,11 @@
 </ul>
 <h2 id="&#x4E09;&#x3001;&#x57FA;&#x7840;&#x7EBF;&#x7A0B;&#x673A;&#x5236;">&#x4E09;&#x3001;&#x57FA;&#x7840;&#x7EBF;&#x7A0B;&#x673A;&#x5236;</h2>
 <h3 id="executor">Executor</h3>
-<p>xecutor &#x7BA1;&#x7406;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x800C;&#x65E0;&#x9700;&#x7A0B;&#x5E8F;&#x5458;&#x663E;&#x5F0F;&#x5730;&#x7BA1;&#x7406;&#x7EBF;&#x7A0B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x5F02;&#x6B65;&#x662F;&#x6307;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x4E92;&#x4E0D;&#x5E72;&#x6270;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>Executor &#x7BA1;&#x7406;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x800C;&#x65E0;&#x9700;&#x7A0B;&#x5E8F;&#x5458;&#x663E;&#x5F0F;&#x5730;&#x7BA1;&#x7406;&#x7EBF;&#x7A0B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x5F02;&#x6B65;&#x662F;&#x6307;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x4E92;&#x4E0D;&#x5E72;&#x6270;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#x3002;</p>
 <p>&#x4E3B;&#x8981;&#x6709;&#x4E09;&#x79CD; Executor&#xFF1A;</p>
 <ul>
 <li>CachedThreadPool&#xFF1A;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF1B;</li>
-<li>FixedThreadPool&#xFF1A;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x7EBF;&#x7A0B;&#xFF1B;</li>
+<li>FixedThreadPool&#xFF1A;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#xFF1B;</li>
 <li>SingleThreadExecutor&#xFF1A;&#x76F8;&#x5F53;&#x4E8E;&#x5927;&#x5C0F;&#x4E3A; 1 &#x7684; FixedThreadPool&#x3002;</li>
 </ul>
 <pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
@@ -2291,7 +2317,6 @@ java.lang.InterruptedException: sleep interrupted
 </code></pre>
 <pre><code class="lang-html">Thread end
 </code></pre>
-<h3 id=""> </h3>
 <h3 id="executor-&#x7684;&#x4E2D;&#x65AD;&#x64CD;&#x4F5C;">Executor &#x7684;&#x4E2D;&#x65AD;&#x64CD;&#x4F5C;</h3>
 <p>&#x8C03;&#x7528; Executor &#x7684; shutdown() &#x65B9;&#x6CD5;&#x4F1A;&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x90FD;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;&#x518D;&#x5173;&#x95ED;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x8C03;&#x7528;&#x7684;&#x662F; shutdownNow() &#x65B9;&#x6CD5;&#xFF0C;&#x5219;&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684; interrupt() &#x65B9;&#x6CD5;&#x3002;</p>
 <p>&#x4EE5;&#x4E0B;&#x4F7F;&#x7528; Lambda &#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7EBF;&#x7A0B;&#x3002;</p>
@@ -2319,6 +2344,8 @@ java.lang.InterruptedException: sleep interrupted
     at java.lang.Thread.run(Thread.java:745)
 </code></pre>
 <p>&#x5982;&#x679C;&#x53EA;&#x60F3;&#x4E2D;&#x65AD; Executor &#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F7F;&#x7528; submit() &#x65B9;&#x6CD5;&#x6765;&#x63D0;&#x4EA4;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x5B83;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; Future&lt;?&gt; &#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x8BE5;&#x5BF9;&#x8C61;&#x7684; cancel(true) &#x65B9;&#x6CD5;&#x5C31;&#x53EF;&#x4EE5;&#x4E2D;&#x65AD;&#x7EBF;&#x7A0B;&#x3002;</p>
+<h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h1>
+<p><a href="https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%B9%B6%E5%8F%91" target="_blank">Java &#x5E76;&#x53D1;</a></p>
 
                                 
                                 </section>
@@ -2362,7 +2389,7 @@ java.lang.InterruptedException: sleep interrupted
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"线程基础","level":"1.2.3.1","depth":3,"next":{"title":"线程池","level":"1.2.3.2","depth":3,"path":"Java/Java并发/线程池.md","ref":"Java/Java并发/线程池.md","articles":[]},"previous":{"title":"Java并发","level":"1.2.3","depth":2,"path":"Java/Java并发/README.md","ref":"Java/Java并发/README.md","articles":[{"title":"线程基础","level":"1.2.3.1","depth":3,"path":"Java/Java并发/线程基础.md","ref":"Java/Java并发/线程基础.md","articles":[]},{"title":"线程池","level":"1.2.3.2","depth":3,"path":"Java/Java并发/线程池.md","ref":"Java/Java并发/线程池.md","articles":[]},{"title":"互斥同步","level":"1.2.3.3","depth":3,"path":"Java/Java并发/互斥同步.md","ref":"Java/Java并发/互斥同步.md","articles":[]},{"title":"线程之间的协作","level":"1.2.3.4","depth":3,"path":"Java/Java并发/线程之间的协作.md","ref":"Java/Java并发/线程之间的协作.md","articles":[]},{"title":"J.U.C组件","level":"1.2.3.5","depth":3,"path":"Java/Java并发/J.U.C组件.md","ref":"Java/Java并发/J.U.C组件.md","articles":[]},{"title":"Java内存模型","level":"1.2.3.6","depth":3,"path":"Java/Java并发/Java内存模型.md","ref":"Java/Java并发/Java内存模型.md","articles":[]},{"title":"线程安全","level":"1.2.3.7","depth":3,"path":"Java/Java并发/线程安全.md","ref":"Java/Java并发/线程安全.md","articles":[]},{"title":"ThreadLocal ","level":"1.2.3.8","depth":3,"path":"Java/Java并发/ThreadLocal .md","ref":"Java/Java并发/ThreadLocal .md","articles":[]},{"title":"锁优化","level":"1.2.3.9","depth":3,"path":"Java/Java并发/锁优化.md","ref":"Java/Java并发/锁优化.md","articles":[]},{"title":"Best Practices","level":"1.2.3.10","depth":3,"path":"Java/Java并发/Best Practices.md","ref":"Java/Java并发/Best Practices.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"Java/Java并发/线程基础.md","mtime":"2019-03-03T03:33:27.813Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T05:12:04.598Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"线程基础","level":"1.2.3.1","depth":3,"next":{"title":"线程池","level":"1.2.3.2","depth":3,"path":"Java/Java并发/线程池.md","ref":"Java/Java并发/线程池.md","articles":[]},"previous":{"title":"Java并发","level":"1.2.3","depth":2,"path":"Java/Java并发/README.md","ref":"Java/Java并发/README.md","articles":[{"title":"线程基础","level":"1.2.3.1","depth":3,"path":"Java/Java并发/线程基础.md","ref":"Java/Java并发/线程基础.md","articles":[]},{"title":"线程池","level":"1.2.3.2","depth":3,"path":"Java/Java并发/线程池.md","ref":"Java/Java并发/线程池.md","articles":[]},{"title":"互斥同步","level":"1.2.3.3","depth":3,"path":"Java/Java并发/互斥同步.md","ref":"Java/Java并发/互斥同步.md","articles":[]},{"title":"线程之间的协作","level":"1.2.3.4","depth":3,"path":"Java/Java并发/线程之间的协作.md","ref":"Java/Java并发/线程之间的协作.md","articles":[]},{"title":"J.U.C组件","level":"1.2.3.5","depth":3,"path":"Java/Java并发/J.U.C组件.md","ref":"Java/Java并发/J.U.C组件.md","articles":[]},{"title":"Java内存模型","level":"1.2.3.6","depth":3,"path":"Java/Java并发/Java内存模型.md","ref":"Java/Java并发/Java内存模型.md","articles":[]},{"title":"线程安全","level":"1.2.3.7","depth":3,"path":"Java/Java并发/线程安全.md","ref":"Java/Java并发/线程安全.md","articles":[]},{"title":"ThreadLocal ","level":"1.2.3.8","depth":3,"path":"Java/Java并发/ThreadLocal .md","ref":"Java/Java并发/ThreadLocal .md","articles":[]},{"title":"锁优化","level":"1.2.3.9","depth":3,"path":"Java/Java并发/锁优化.md","ref":"Java/Java并发/锁优化.md","articles":[]},{"title":"Best Practices","level":"1.2.3.10","depth":3,"path":"Java/Java并发/Best Practices.md","ref":"Java/Java并发/Best Practices.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"Java/Java并发/线程基础.md","mtime":"2019-03-12T15:10:36.510Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-18T10:28:05.234Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

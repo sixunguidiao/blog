@@ -212,5 +212,8 @@ private void set(ThreadLocal<?> key, Object value) {
 
 - ThreadLocal 适用于变量在线程间隔离且在方法间共享的场景
 
-[Java进阶（七）正确理解Thread Local的原理与适用场景](http://www.jasongj.com/java/threadlocal/)
+# 参考资料
 
+[Java 并发](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%B9%B6%E5%8F%91)
+
+[Java进阶（七）正确理解Thread Local的原理与适用场景](http://www.jasongj.com/java/threadlocal/)

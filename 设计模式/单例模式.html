@@ -740,12 +740,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../计算机网络/应用层.html">
+        <li class="chapter " data-level="1.4.1" data-path="../计算机网络/HTTP.html">
             
-                <a href="../计算机网络/应用层.html">
+                <a href="../计算机网络/HTTP.html">
             
                     
-                    应用层
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../计算机网络/TCP和UDP.html">
+            
+                <a href="../计算机网络/TCP和UDP.html">
+            
+                    
+                    TCP和UDP
             
                 </a>
             
@@ -837,7 +850,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="迭代器模式.html">
+        <li class="chapter " data-level="1.5.6" data-path="观察者模式.html">
+            
+                <a href="观察者模式.html">
+            
+                    
+                    观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="迭代器模式.html">
             
                 <a href="迭代器模式.html">
             
@@ -850,7 +876,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="适配器模式.html">
+        <li class="chapter " data-level="1.5.8" data-path="适配器模式.html">
             
                 <a href="适配器模式.html">
             
@@ -2175,17 +2201,17 @@
         <span class="hljs-comment">// &#x5355;&#x4F8B;&#x6D4B;&#x8BD5;</span>
         Singleton firstSingleton = Singleton.INSTANCE;
         firstSingleton.setObjName(<span class="hljs-string">&quot;firstName&quot;</span>);
-        System.out.println(firstSingleton.getObjName());
+        System.out.println(firstSingleton.getObjName());    <span class="hljs-comment">// firstName</span>
         Singleton secondSingleton = Singleton.INSTANCE;
         secondSingleton.setObjName(<span class="hljs-string">&quot;secondName&quot;</span>);
-        System.out.println(firstSingleton.getObjName());
-        System.out.println(secondSingleton.getObjName());
+        System.out.println(firstSingleton.getObjName());    <span class="hljs-comment">// secondName</span>
+        System.out.println(secondSingleton.getObjName());    <span class="hljs-comment">// secondName</span>
 
         <span class="hljs-comment">// &#x53CD;&#x5C04;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B;&#x6D4B;&#x8BD5;</span>
         <span class="hljs-keyword">try</span> {
             Singleton[] enumConstants = Singleton.class.getEnumConstants();
             <span class="hljs-keyword">for</span> (Singleton enumConstant : enumConstants) {
-                System.out.println(enumConstant.getObjName());
+                System.out.println(enumConstant.getObjName());    <span class="hljs-comment">// secondName</span>
             }
         } <span class="hljs-keyword">catch</span> (Exception e) {
             e.printStackTrace();
@@ -2193,47 +2219,12 @@
     }
 }
 </code></pre>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Singleton {
-
-    INSTANCE;
-
-    <span class="hljs-keyword">private</span> String objName;
-
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getObjName</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> objName;
-    }
-
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setObjName</span><span class="hljs-params">(String objName)</span> </span>{
-        <span class="hljs-keyword">this</span>.objName = objName;
-    }
-
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-
-        <span class="hljs-comment">// &#x5355;&#x4F8B;&#x6D4B;&#x8BD5;</span>
-        Singleton firstSingleton = Singleton.INSTANCE;
-        firstSingleton.setObjName(<span class="hljs-string">&quot;firstName&quot;</span>);
-        System.out.println(firstSingleton.getObjName());
-        Singleton secondSingleton = Singleton.INSTANCE;
-        secondSingleton.setObjName(<span class="hljs-string">&quot;secondName&quot;</span>);
-        System.out.println(firstSingleton.getObjName());
-        System.out.println(secondSingleton.getObjName());
-
-        <span class="hljs-comment">// &#x53CD;&#x5C04;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B;&#x6D4B;&#x8BD5;</span>
-        <span class="hljs-keyword">try</span> {
-            Singleton[] enumConstants = Singleton.class.getEnumConstants();
-            <span class="hljs-keyword">for</span> (Singleton enumConstant : enumConstants) {
-                System.out.println(enumConstant.getObjName());
-            }
-        } <span class="hljs-keyword">catch</span> (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
+<pre><code class="lang-java">firstName
+secondName
+secondName
+secondName
 </code></pre>
-<p>&#x8BE5;&#x5B9E;&#x73B0;&#x5728;&#x591A;&#x6B21;&#x5E8F;&#x5217;&#x5316;&#x518D;&#x8FDB;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E4B;&#x540E;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F97;&#x5230;&#x591A;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;&#x800C;&#x5176;&#x5B83;&#x5B9E;&#x73B0;&#x9700;&#x8981;&#x4F7F;&#x7528; transient &#x4FEE;&#x9970;&#x6240;&#x6709;&#x5B57;&#x6BB5;&#xFF0C;&#x5E76;&#x4E14;&#x5B9E;&#x73B0;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x8BE5;&#x5B9E;&#x73B0;&#x5728;&#x591A;&#x6B21;&#x5E8F;&#x5217;&#x5316;&#x518D;&#x8FDB;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E4B;&#x540E;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F97;&#x5230;&#x591A;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;&#x800C;&#x5176;&#x5B83;&#x5B9E;&#x73B0;&#x9700;&#x8981;&#x4F7F;&#x7528; transient &#x4FEE;&#x9970;&#x6240;&#x6709;&#x5B57;&#x6BB5; (transient  &#x4FEE;&#x9970;&#x7684;&#x5B57;&#x6BB5;&#x5728;&#x5BF9;&#x8C61;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x5E8F;&#x5217;&#x5316;)&#xFF0C;&#x5E76;&#x4E14;&#x5B9E;&#x73B0;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
 <p>&#x8BE5;&#x5B9E;&#x73B0;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x53CD;&#x5C04;&#x653B;&#x51FB;&#x3002;&#x5728;&#x5176;&#x5B83;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7; setAccessible() &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5C06;&#x79C1;&#x6709;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x8BBF;&#x95EE;&#x7EA7;&#x522B;&#x8BBE;&#x7F6E;&#x4E3A; public&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4ECE;&#x800C;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x9632;&#x6B62;&#x8FD9;&#x79CD;&#x653B;&#x51FB;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x6DFB;&#x52A0;&#x9632;&#x6B62;&#x591A;&#x6B21;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x4EE3;&#x7801;&#x3002;<strong>&#x8BE5;&#x5B9E;&#x73B0;&#x662F;&#x7531; JVM &#x4FDD;&#x8BC1;&#x53EA;&#x4F1A;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x6B21;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x4E0A;&#x8FF0;&#x7684;&#x53CD;&#x5C04;&#x653B;&#x51FB;</strong>&#x3002;</p>
 <p>&#x6240;&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x7684;&#x6700;&#x597D;&#x5B9E;&#x73B0;&#xFF1F;</p>
 <h2 id="examples">Examples</h2>
@@ -2243,6 +2234,8 @@
 <li>Accesing resources in shared mode</li>
 <li>Factories implemented as Singletons</li>
 </ul>
+<h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h1>
+<p><a href="https://cyc2018.github.io/CS-Notes/#/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" target="_blank">&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</a></p>
 
                                 
                                 </section>
@@ -2286,7 +2279,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"单例模式","level":"1.5.2","depth":2,"next":{"title":"原型模式","level":"1.5.3","depth":2,"path":"设计模式/原型模式.md","ref":"设计模式/原型模式.md","articles":[]},"previous":{"title":"代理模式","level":"1.5.1","depth":2,"path":"设计模式/代理模式.md","ref":"设计模式/代理模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"设计模式/单例模式.md","mtime":"2019-03-08T15:50:37.751Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-10T05:12:04.598Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"单例模式","level":"1.5.2","depth":2,"next":{"title":"原型模式","level":"1.5.3","depth":2,"path":"设计模式/原型模式.md","ref":"设计模式/原型模式.md","articles":[]},"previous":{"title":"代理模式","level":"1.5.1","depth":2,"path":"设计模式/代理模式.md","ref":"设计模式/代理模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"设计模式/单例模式.md","mtime":"2019-03-13T15:19:59.365Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-18T10:28:05.234Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

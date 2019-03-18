@@ -121,7 +121,7 @@ public V put(K key, V value) {
 }
 ```
 
-HashMap 允许插入键为 null 的键值对。但是因为无法调用 null 的 hashCode() 方法，也就无法确定该键值对的桶下标，只能通过强制指定一个桶下标来存放。HashMap 使用第 0 个桶存放键为 null 的键值对。
+**HashMap 允许插入键为 null 的键值对**。但是因为无法调用 null 的 hashCode() 方法，也就无法确定该键值对的桶下标，只能通过强制指定一个桶下标来存放。**HashMap 使用第 0 个桶存放键为 null 的键值对**。
 
 ```java
 private V putForNullKey(V value) {
@@ -374,9 +374,16 @@ static final int tableSizeFor(int cap) {
 
 - HashTable 使用 synchronized 来进行同步。
 
-- HashMap 可以插入键为 null 的 Entry。
+- HashMap 可以插入键为 null 的 Entry (HashTable 不可以)。
 
-- HashMap 的迭代器是 fail-fast 迭代器。
+- HashMap 的迭代器是 fail-fast 迭代器 (可能会报并发修改异常)。
 
 - HashMap 不能保证随着时间的推移 Map 中的元素次序是不变的。
 
+## 10. 注意
+
+HashMap 在多线程下可能会产生死循环，原因是当两个以上的线程同时执行 put() 并且同时执行 resize() 时，会在某一个桶上产生一个循环链表。
+
+# 参考资料
+
+[Java 容器](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%AE%B9%E5%99%A8)

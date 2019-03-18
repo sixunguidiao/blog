@@ -294,3 +294,6 @@ ForkJoinPool 实现了工作窃取算法来提高 CPU 的利用率。每个线�
 
 ![img](https://cyc2018.github.io/CS-Notes/pics/e19452dd-220a-4a6b-bcb0-91ad5e5c4706.png)
 
+# 参考资料
+
+[Java 并发](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%B9%B6%E5%8F%91)

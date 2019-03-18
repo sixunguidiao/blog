@@ -456,12 +456,5 @@ Redis 没有关系型数据库中的表这一概念来将同种类型的数据�
 
 # 参考资料
 
-- Carlson J L. Redis in Action[J]. Media.johnwiley.com.au, 2013.
-- [黄健宏. Redis 设计与实现 [M]. 机械工业出版社, 2014.](http://redisbook.com/index.html)
-- [REDIS IN ACTION](https://redislabs.com/ebook/foreword/)
-- [Skip Lists: Done Right](http://ticki.github.io/blog/skip-lists-done-right/)
-- [论述 Redis 和 Memcached 的差异](http://www.cnblogs.com/loveincode/p/7411911.html)
-- [Redis 3.0 中文版- 分片](http://wiki.jikexueyuan.com/project/redis-guide)
-- [Redis 应用场景](http://www.scienjus.com/redis-use-case/)
-- [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
+[Redis](https://cyc2018.github.io/CS-Notes/#/notes/Redis)
 

@@ -338,3 +338,6 @@ e1.set(2, 222);
 System.out.println(e2.get(2)); // 2
 ```
 
+# 参考资料
+
+[Java 基础](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%9F%BA%E7%A1%80)

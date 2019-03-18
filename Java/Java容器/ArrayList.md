@@ -66,7 +66,7 @@ public E remove(int index) {
 
 modCount 用来记录 ArrayList 结构发生变化的次数。结构发生变化是指添加或者删除至少一个元素的所有操作，或者是调整内部数组的大小，仅仅只是设置元素的值不算结构发生变化。
 
-在进行序列化或者迭代等操作时，需要比较操作前后 modCount 是否改变，如果改变了需要抛出 ConcurrentModificationException。
+在进行**序列化或者迭代**等操作时，需要比较操作前后 modCount 是否改变，如果改变了需要抛出 ConcurrentModificationException。
 
 ```java
 private void writeObject(java.io.ObjectOutputStream s)
@@ -89,5 +89,7 @@ private void writeObject(java.io.ObjectOutputStream s)
 }
 ```
 
+# 参考资料
 
+[Java 容器](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%AE%B9%E5%99%A8)
 

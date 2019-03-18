@@ -45,3 +45,6 @@ CopyOnWriteArrayList 在写操作的同时允许读操作，大大提高了读�
 
 所以 CopyOnWriteArrayList 不适合内存敏感以及对实时性要求很高的场景。
 
+# 参考资料
+
+[Java 容器](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%AE%B9%E5%99%A8)
