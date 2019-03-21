@@ -44,7 +44,3 @@ CopyOnWriteArrayList 在写操作的同时允许读操作，大大提高了读�
 - 数据不一致：读操作不能读取实时性的数据，因为部分写操作的数据还未同步到读数组中。
 
 所以 CopyOnWriteArrayList 不适合内存敏感以及对实时性要求很高的场景。
-
-# 参考资料
-
-[Java 容器](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%AE%B9%E5%99%A8)

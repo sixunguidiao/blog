@@ -382,8 +382,4 @@ static final int tableSizeFor(int cap) {
 
 ## 10. 注意
 
-HashMap 在多线程下可能会产生死循环，原因是当两个以上的线程同时执行 put() 并且同时执行 resize() 时，会在某一个桶上产生一个循环链表。
-
-# 参考资料
-
-[Java 容器](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%AE%B9%E5%99%A8)
+HashMap 在多线程下可能会产生循环链表，原因是当两个以上的线程同时执行 put() 并且同时执行 resize() 时，会在某一个桶上产生一个循环链表。

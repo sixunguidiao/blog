@@ -129,7 +129,7 @@ set.add(e2);
 System.out.println(set.size());   // 2
 ```
 
-理想的散列函数应当具有均匀性，即不相等的对象应当均匀分布到所有可能的散列值上。这就要求了散列函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。R 一般取 31，因为它是一个奇素数，如果是偶数的话，当出现乘法溢出，信息就会丢失，因为与 2 相乘相当于向左移一位。
+**理想的散列函数应当具有均匀性，即不相等的对象应当均匀分布到所有可能的散列值上**。这就要求了散列函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。R 一般取 31，因为它是一个奇素数，如果是偶数的话，当出现乘法溢出，信息就会丢失，因为与 2 相乘相当于向左移一位。
 
 一个数与 31 相乘可以转换成移位和减法：`31*x == (x<<5)-x`，编译器会自动进行这个优化。
 
@@ -209,7 +209,7 @@ public class CloneExample implements Cloneable {
 
 **2. 浅拷贝**
 
-拷贝对象和原始对象的引用类型引用同一个对象。
+拷贝对象和原始对象引用同一个对象。
 
 ```java
 public class ShallowCloneExample implements Cloneable {
@@ -252,7 +252,7 @@ System.out.println(e2.get(2)); // 222
 
 **3. 深拷贝**
 
-拷贝对象和原始对象的引用类型引用不同对象。
+拷贝对象和原始对象引用不同对象。
 
 ```java
 public class DeepCloneExample implements Cloneable {
@@ -300,7 +300,9 @@ System.out.println(e2.get(2)); // 2
 
 **4. clone() 的替代方案**
 
-使用 clone() 方法来拷贝一个对象即复杂又有风险，它会抛出异常，并且还需要类型转换。Effective Java 书上讲到，最好不要去使用 clone()，可以使用拷贝构造函数或者拷贝工厂来拷贝一个对象。
+使用 clone() 方法来拷贝一个对象既复杂又有风险，它会抛出异常，并且还需要类型转换。Effective Java 书上讲到，最好不要去使用 clone()，可以使用拷贝构造函数或者拷贝工厂来拷贝一个对象。
+
+下面使用拷贝构造函数实现 clone()。
 
 ```java
 public class CloneConstructorExample {
@@ -338,6 +340,3 @@ e1.set(2, 222);
 System.out.println(e2.get(2)); // 2
 ```
 
-# 参考资料
-
-[Java 基础](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%9F%BA%E7%A1%80)

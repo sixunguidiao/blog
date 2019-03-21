@@ -26,7 +26,3 @@ transient Node<E> last;
 - ArrayList 基于动态数组实现，LinkedList 基于双向链表实现；
 - ArrayList 支持随机访问，LinkedList 不支持；
 - LinkedList 在任意位置添加删除元素更快。
-
-# 参考资料
-
-[Java 容器](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%AE%B9%E5%99%A8)

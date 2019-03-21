@@ -57,13 +57,9 @@ final Segment<K,V>[] segments;
 transient int count;
 ```
 
-在执行 size 操作时，需要遍历所有 Segment 然后把 count 累计起来。
+put、remove 和 get 操作只需要关心一个 Segment，而 size 操作需要遍历所有的 Segment 才能算出整个 Map 的大小。一个简单的方案是，先锁住所有 Sgment，计算完后再解锁。但这样做，在做 size 操作时，不仅无法对 Map 进行写操作，同时也无法进行读操作，不利于对 Map 的并行操作。
 
-ConcurrentHashMap 在执行 size 操作时先尝试不加锁，如果**连续两次**不加锁操作得到的结果一致，那么可以认为这个结果是正确的。
-
-尝试次数使用 RETRIES_BEFORE_LOCK 定义，该值为 2，retries 初始值为 -1，因此尝试次数为 3。
-
-如果尝试的次数超过 3 次，就需要对每个 Segment 加锁。
+为更好支持并发操作，ConcurrentHashMap 会在不上锁的前提逐个 Segment 计算3次 size，如果某相邻两次计算获取的所有 Segment 的更新次数 (每个 Segment 都与 HashMap 一样通过 modCount 跟踪自己的修改次数，Segment 每修改一次其 modCount 加一) 相等，说明这两次计算过程中无更新操作，则这两次计算出的总 size 相等，可直接作为最终结果返回。如果这三次计算过程中 Map 有更新，则对所有 Segment 加锁重新计算Size。
 
 ```java
 /**
@@ -127,24 +123,34 @@ public int size() {
 
 4. 遍历该 HashEntry，如果不为空则判断传入的 key 和当前遍历的 key 是否相等，相等则覆盖旧的 value。
 
-5. 为空则需要新建一个 HashEntry 并加入到 Segment 中，在插入之前会先判断是否需要扩容。
+5. 为空则需要新建一个 HashEntry 并加入到 Segment 中，**在插入之前会先判断是否需要扩容**。
 
 6. 最后解除所获取的当前 Segment 的锁。
 
 ## 4. get 操作
 
-get逻辑比较简单，只需要将 key 通过 Hash 之后定位到具体的 Segment ，再定位到具体的HashEntry。由于 HashEntry 中的 value 属性是用 volatile 关键词修饰的，保证了内存可见性，所以每次获取时都是最新值。
+get 逻辑比较简单，只需要将 key 通过 Hash 之后定位到具体的 Segment ，再定位到具体的 HashEntry。由于 HashEntry 中的 value 属性是用 volatile 关键词修饰的，保证了内存可见性，所以每次获取时都是最新值。
 
 ConcurrentHashMap 的 get 方法是非常高效的，**因为整个过程都不需要加锁**。
 
-## . JDK 1.8 的改动
+## 5. JDK 1.8 的改动
 
-JDK 1.7 使用分段锁机制来实现并发更新操作，核心类为 Segment，它继承自重入锁 ReentrantLock，并发度与 Segment 数量相等。
+### put 操作
 
-JDK 1.8 使用了 CAS 操作来支持更高的并发度，在 CAS 操作失败时使用内置锁 synchronized，而且1.8 对synchronized 也做了很多的优化。
+1.8 的 put 操作采用 CAS + synchronized 的方式：如果 Key 对应的数组元素为 null，则通过 CAS 操作将其设置为当前值。如果 Key 对应的数组元素 (也即链表表头或者树的根元素) 不为 null，则对该元素使用 synchronized 关键字申请锁 (这样也可以看出在新版的 JDK 中对 synchronized 优化是很到位的)，然后进行操作。如果该 put 操作使得当前链表长度超过一定阈值，则将该链表转换为树，从而提高寻址效率。
 
-JDK 1.8 的实现也在链表过长 (默认为8) 时会转换为红黑树。
+### size 操作
 
-# 参考资料
+put 方法和 remove 方法都会通过 addCount 方法维护 Map 的 size。size 方法通过 sumCount 获取由 addCount 方法维护的 Map 的 size。
 
-[Java 容器](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%AE%B9%E5%99%A8)
+```java
+public int size() {
+    long n = sumCount();
+    return ((n < 0L) ? 0 :
+            (n > (long)Integer.MAX_VALUE) ? Integer.MAX_VALUE :
+            (int)n);
+}
+```
+
+[HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
+

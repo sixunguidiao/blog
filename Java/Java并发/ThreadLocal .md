@@ -157,9 +157,9 @@ public void set(T value) {
 
 ### 防止内存泄漏
 
-对于已经不再被使用且已被回收的 ThreadLocal 对象，它在每个线程内对应的实例由于被线程的 ThreadLocalMap 的 Entry 强引用，无法被回收，可能会造成内存泄漏。
+对于已经不再被使用且已被回收的 ThreadLocal 对象，它在每个线程内对应的**实例**由于被线程的 ThreadLocalMap 的 Entry 强引用，无法被回收，可能会造成内存泄漏。
 
-针对该问题，ThreadLocalMap 的 set 方法中，通过 replaceStaleEntry 方法将所有键为 null 的 Entry 的值设置为 null，从而使得该值可被回收。另外，会在 rehash 方法中通过 expungeStaleEntry 方法将键和值为 null 的 Entry 设置为 null 从而使得该 Entry 可被回收。通过这种方式，ThreadLocal 可防止内存泄漏。
+针对该问题，**ThreadLocalMap 的 set 方法** (注意不是 ThreadLocal 的 set 方法) 中，通过 replaceStaleEntry 方法将所有键为 null 的 Entry 的值设置为 null，从而使得该值可被回收。另外，会在 rehash 方法中通过 expungeStaleEntry 方法将键和值为 null 的 Entry 设置为 null 从而使得该 Entry 可被回收。通过这种方式，ThreadLocal 可防止内存泄漏。
 
 ```java
 private void set(ThreadLocal<?> key, Object value) {
@@ -174,7 +174,7 @@ private void set(ThreadLocal<?> key, Object value) {
       return;
     }
     if (k == null) {
-      replaceStaleEntry(key, value, i);
+      replaceStaleEntry(key, value, i);	// 回收键为null的值
       return;
     }
   }
@@ -210,10 +210,7 @@ private void set(ThreadLocal<?> key, Object value) {
 
 - ThreadLocalMap 的 set 方法通过调用 replaceStaleEntry 方法回收键为 null 的 Entry 对象的值（即为具体实例）以及 Entry 对象本身从而防止内存泄漏
 
-- ThreadLocal 适用于变量在线程间隔离且在方法间共享的场景
-
-# 参考资料
-
-[Java 并发](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%B9%B6%E5%8F%91)
+- **ThreadLocal 适用于变量在线程间隔离且在方法间共享的场景**
 
 [Java进阶（七）正确理解Thread Local的原理与适用场景](http://www.jasongj.com/java/threadlocal/)
+

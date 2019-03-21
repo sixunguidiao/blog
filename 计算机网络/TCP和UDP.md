@@ -143,7 +143,3 @@ TCP 主要通过四个算法来进行拥塞控制：慢开始、拥塞避免、�
 
 ![img](https://cyc2018.github.io/CS-Notes/pics/f61b5419-c94a-4df1-8d4d-aed9ae8cc6d5.png)
 
-# 参考资料
-
-[传输层](https://cyc2018.github.io/CS-Notes/#/notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20-%20%E4%BC%A0%E8%BE%93%E5%B1%82)
-

@@ -245,7 +245,3 @@ Thread 对象的结束先行发生于 join() 方法返回。
 > Transitivity
 
 如果操作 A 先行发生于操作 B，操作 B 先行发生于操作 C，那么操作 A 先行发生于操作 C。
-
-# 参考资料
-
-[Java 并发](https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%B9%B6%E5%8F%91)
