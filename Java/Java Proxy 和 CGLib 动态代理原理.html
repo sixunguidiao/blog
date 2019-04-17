@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Java · guidiao's blog</title>
+        <title>Java Proxy 和 CGLib 动态代理原理 · guidiao's blog</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="HashMap.html" />
+    <link rel="next" href="../数据库/" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="Java 反射如何获取私有属性并改变值.html" />
     
 
     </head>
@@ -119,7 +119,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="./">
             
                 <a href="./">
             
@@ -211,7 +211,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="Java Proxy 和 CGLib 动态代理原理.html">
+        <li class="chapter active" data-level="1.2.7" data-path="Java Proxy 和 CGLib 动态代理原理.html">
             
                 <a href="Java Proxy 和 CGLib 动态代理原理.html">
             
@@ -1693,7 +1693,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Java</a>
+        <a href=".." >Java Proxy 和 CGLib 动态代理原理</a>
     </h1>
 </div>
 
@@ -1708,7 +1708,134 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="java">Java</h1>
+                                <h1 id="java-proxy-&#x548C;-cglib-&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x539F;&#x7406;"># Java Proxy &#x548C; CGLib &#x52A8;&#x6001;&#x4EE3;&#x7406;&#x539F;&#x7406;</h1>
+<p>&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x5728; Java &#x4E2D;&#x6709;&#x7740;&#x5E7F;&#x6CDB;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x6BD4;&#x5982; Spring AOP&#xFF0C;Hibernate &#x6570;&#x636E;&#x67E5;&#x8BE2;&#x3001;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#x7684;&#x540E;&#x7AEF; mock&#xFF0C;RPC&#xFF0C;Java &#x6CE8;&#x89E3;&#x5BF9;&#x8C61;&#x83B7;&#x53D6;&#x7B49;&#x3002;&#x9759;&#x6001;&#x4EE3;&#x7406;&#x7684;&#x4EE3;&#x7406;&#x5173;&#x7CFB;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5C31;&#x786E;&#x5B9A;&#x4E86;&#xFF0C;&#x800C;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7684;&#x4EE3;&#x7406;&#x5173;&#x7CFB;&#x662F;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x786E;&#x5B9A;&#x7684;&#x3002;&#x9759;&#x6001;&#x4EE3;&#x7406;&#x5B9E;&#x73B0;&#x7B80;&#x5355;&#xFF0C;&#x9002;&#x5408;&#x4E8E;&#x4EE3;&#x7406;&#x7C7B;&#x8F83;&#x5C11;&#x4E14;&#x786E;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x800C;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x5219;&#x7ED9;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x5927;&#x7684;&#x7075;&#x6D3B;&#x6027;&#x3002;&#x4ECA;&#x5929;&#x6211;&#x4EEC;&#x6765;&#x63A2;&#x8BA8; Java &#x4E2D;&#x4E24;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x65B9;&#x5F0F;&#xFF1A;<strong>JDK &#x539F;&#x751F;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x548C; CGLIB &#x52A8;&#x6001;&#x4EE3;&#x7406;</strong>&#x3002;</p>
+<h2 id="jdk-&#x539F;&#x751F;&#x52A8;&#x6001;&#x4EE3;&#x7406;">JDK &#x539F;&#x751F;&#x52A8;&#x6001;&#x4EE3;&#x7406;</h2>
+<p>&#x5148;&#x4ECE;&#x76F4;&#x89C2;&#x7684;&#x793A;&#x4F8B;&#x8BF4;&#x8D77;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;&#x63A5;&#x53E3; <code>Hello</code> &#x548C;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x73B0; <code>HelloImp</code>&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x63A5;&#x53E3;</span>
+<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Hello</span></span>{
+    <span class="hljs-function">String <span class="hljs-title">sayHello</span><span class="hljs-params">(String str)</span></span>;
+}
+<span class="hljs-comment">// &#x5B9E;&#x73B0;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloImp</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Hello</span></span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">sayHello</span><span class="hljs-params">(String str)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;HelloImp: &quot;</span> + str;
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x662F; Java &#x79CD;&#x518D;&#x5E38;&#x89C1;&#x4E0D;&#x8FC7;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x4F7F;&#x7528;&#x63A5;&#x53E3;&#x5236;&#x5B9A;&#x534F;&#x8BAE;&#xFF0C;&#x7136;&#x540E;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x73B0;&#x6765;&#x5B9E;&#x73B0;&#x5177;&#x4F53;&#x884C;&#x4E3A;&#x3002;&#x5047;&#x8BBE;&#x4F60;&#x5DF2;&#x7ECF;&#x62FF;&#x5230;&#x4E0A;&#x8FF0;&#x7C7B;&#x5E93;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x901A;&#x8FC7;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x5BF9; <code>sayHello()</code> &#x7684;&#x8C03;&#x7528;&#xFF0C;&#x4F7F;&#x7528;&#x9759;&#x6001;&#x4EE3;&#x7406;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x505A;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x9759;&#x6001;&#x4EE3;&#x7406;&#x65B9;&#x5F0F;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StaticProxiedHello</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Hello</span></span>{
+    ...
+    <span class="hljs-keyword">private</span> Hello hello = <span class="hljs-keyword">new</span> HelloImp();
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">sayHello</span><span class="hljs-params">(String str)</span> </span>{
+        logger.info(<span class="hljs-string">&quot;You said: &quot;</span> + str);
+        <span class="hljs-keyword">return</span> hello.sayHello(str);
+    }
+}
+</code></pre>
+<p>&#x4E0A;&#x4F8B;&#x4E2D;&#x9759;&#x6001;&#x4EE3;&#x7406;&#x7C7B; <code>StaticProxiedHello</code> &#x4F5C;&#x4E3A; <code>HelloImp</code> &#x7684;&#x4EE3;&#x7406;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x76F8;&#x540C;&#x7684; <code>Hello</code> &#x63A5;&#x53E3;&#x3002;&#x7528; Java &#x52A8;&#x6001;&#x4EE3;&#x7406;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x505A;&#xFF1A;</p>
+<ol>
+<li>&#x9996;&#x5148;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; InvocationHandler&#xFF0C;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4F1A;&#x88AB;&#x8F6C;&#x53D1;&#x5230;&#x8BE5;&#x7C7B;&#x7684; invoke() &#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x7136;&#x540E;&#x5728;&#x9700;&#x8981;&#x4F7F;&#x7528; Hello &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x901A;&#x8FC7; JDK &#x52A8;&#x6001;&#x4EE3;&#x7406;&#x83B7;&#x53D6; Hello &#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x3002;</li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-comment">// Java Proxy</span>
+<span class="hljs-comment">// 1. &#x9996;&#x5148;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;InvocationHandler&#xFF0C;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4F1A;&#x88AB;&#x8F6C;&#x53D1;&#x5230;&#x8BE5;&#x7C7B;&#x7684;invoke()&#x65B9;&#x6CD5;&#x3002;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogInvocationHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InvocationHandler</span></span>{
+    ...
+    <span class="hljs-keyword">private</span> Hello hello;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">LogInvocationHandler</span><span class="hljs-params">(Hello hello)</span> </span>{
+        <span class="hljs-keyword">this</span>.hello = hello;
+    }
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable </span>{
+        <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;sayHello&quot;</span>.equals(method.getName())) {
+            logger.info(<span class="hljs-string">&quot;You said: &quot;</span> + Arrays.toString(args));
+        }
+        <span class="hljs-keyword">return</span> method.invoke(hello, args);
+    }
+}
+
+<span class="hljs-comment">// 2. &#x7136;&#x540E;&#x5728;&#x9700;&#x8981;&#x4F7F;&#x7528;Hello&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x901A;&#x8FC7;JDK&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x83B7;&#x53D6;Hello&#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x3002;</span>
+Hello hello = (Hello)Proxy.newProxyInstance(
+    getClass().getClassLoader(), <span class="hljs-comment">// 1. &#x7C7B;&#x52A0;&#x8F7D;&#x5668;</span>
+    <span class="hljs-keyword">new</span> Class&lt;?&gt;[] {Hello.class}, <span class="hljs-comment">// 2. &#x4EE3;&#x7406;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;</span>
+    <span class="hljs-keyword">new</span> LogInvocationHandler(<span class="hljs-keyword">new</span> HelloImp()));<span class="hljs-comment">// 3. &#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x7684;&#x5B9E;&#x9645;&#x5904;&#x7406;&#x8005;</span>
+System.out.println(hello.sayHello(<span class="hljs-string">&quot;I love you!&quot;</span>));
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-java">&#x65E5;&#x5FD7;&#x4FE1;&#x606F;: You said: [I love you!]
+HelloImp: I love you!
+</code></pre>
+<p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x7684;&#x5173;&#x952E;&#x662F; <code>Proxy.newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler handler)</code> &#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x6839;&#x636E;&#x6307;&#x5B9A;&#x7684;&#x53C2;&#x6570;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x3002;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x610F;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li><code>loader</code>&#xFF0C;&#x6307;&#x5B9A;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#xFF1B;</li>
+<li><code>interfaces</code>&#xFF0C;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x63A5;&#x53E3;&#xFF1B;</li>
+<li><code>handler</code>&#xFF0C;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x7684;&#x5B9E;&#x9645;&#x5904;&#x7406;&#x8005;&#xFF0C;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x8F6C;&#x53D1;&#x5230;&#x8FD9;&#x91CC;&#x3002;</li>
+</ol>
+<p><code>newProxyInstance()</code> &#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x4E86;&#x6307;&#x5B9A;&#x63A5;&#x53E3;&#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x8F6C;&#x53D1;&#x7ED9; <code>InvocationHandler.invoke()</code> &#x65B9;&#x6CD5;&#x3002;&#x7406;&#x89E3;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x5BF9; Java &#x53CD;&#x5C04;&#x673A;&#x5236;&#x6709;&#x4E00;&#x5B9A;&#x4E86;&#x89E3;&#x3002;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x795E;&#x5947;&#x7684;&#x5730;&#x65B9;&#x5C31;&#x662F;&#xFF1A;</p>
+<ol>
+<li>&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x662F;&#x5728;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x4EA7;&#x751F;&#x7684;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7F16;&#x8BD1;&#x671F;&#xFF1B;</li>
+<li><strong>&#x5BF9;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x8F6C;&#x53D1;&#x5230; InvocationHandler.invoke() &#x65B9;&#x6CD5;</strong>&#xFF0C;&#x5728; <code>invoke()</code> &#x65B9;&#x6CD5;&#x91CC;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x52A0;&#x5165;&#x4EFB;&#x4F55;&#x903B;&#x8F91;&#xFF0C;&#x6BD4;&#x5982;&#x4FEE;&#x6539;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#xFF0C;&#x52A0;&#x5165;&#x65E5;&#x5FD7;&#x529F;&#x80FD;&#x3001;&#x5B89;&#x5168;&#x68C0;&#x67E5;&#x529F;&#x80FD;&#x7B49;&#xFF1B;&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x67D0;&#x79CD;&#x65B9;&#x5F0F;&#x6267;&#x884C;&#x771F;&#x6B63;&#x7684;&#x65B9;&#x6CD5;&#x4F53;&#xFF0C;&#x793A;&#x4F8B;&#x4E2D;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x8C03;&#x7528;&#x4E86; Hello &#x5BF9;&#x8C61;&#x7684;&#x76F8;&#x5E94;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; RPC &#x8C03;&#x7528;&#x8FDC;&#x7A0B;&#x65B9;&#x6CD5;&#x3002;</li>
+</ol>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5BF9;&#x4E8E;&#x4ECE; Object &#x4E2D;&#x7EE7;&#x627F;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;JDK Proxy &#x4F1A;&#x628A; <code>hashCode()</code>&#x3001;<code>equals()</code>&#x3001;<code>toString()</code> &#x8FD9;&#x4E09;&#x4E2A;&#x975E;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x8F6C;&#x53D1;&#x7ED9; <code>InvocationHandler</code>&#xFF0C;&#x5176;&#x4F59;&#x7684; Object &#x65B9;&#x6CD5;&#x5219;&#x4E0D;&#x4F1A;&#x8F6C;&#x53D1;&#x3002;&#x8BE6;&#x89C1; <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Proxy.html" target="_blank">JDK Proxy&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#x3002;</p>
+</blockquote>
+<p>Java &#x52A8;&#x6001;&#x4EE3;&#x7406;&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x975E;&#x5E38;&#x7075;&#x6D3B;&#x7684;&#x4EE3;&#x7406;&#x673A;&#x5236;&#xFF0C;&#x4F46; Java &#x52A8;&#x6001;&#x4EE3;&#x7406;&#x662F;&#x57FA;&#x4E8E;&#x63A5;&#x53E3;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x6211;&#x4EEC;&#x8BE5;&#x5982;&#x4F55;&#x4EE3;&#x7406;&#x5462;&#xFF1F;CGLIB &#x767B;&#x573A;&#x3002;</p>
+<h2 id="cglib-&#x52A8;&#x6001;&#x4EE3;&#x7406;">CGLIB &#x52A8;&#x6001;&#x4EE3;&#x7406;</h2>
+<p>CGLIB (Code Generation Library) &#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E; ASM &#x7684;&#x5B57;&#x8282;&#x7801;&#x751F;&#x6210;&#x5E93;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5BF9;&#x5B57;&#x8282;&#x7801;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x548C;&#x52A8;&#x6001;&#x751F;&#x6210;&#x3002;CGLIB &#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x4EE3;&#x7406;&#x3002;</p>
+<p>&#x6765;&#x770B;&#x793A;&#x4F8B;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x4EFB;&#x4F55;&#x63A5;&#x53E3;&#x7684;&#x7C7B; <code>HelloConcrete</code>&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloConcrete</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">sayHello</span><span class="hljs-params">(String str)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;HelloConcrete: &quot;</span> + str;
+    }
+}
+</code></pre>
+<p>&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x8BE5;&#x7C7B;&#x65E0;&#x6CD5;&#x4F7F;&#x7528; JDK &#x4EE3;&#x7406;&#xFF0C;&#x901A;&#x8FC7; CGLIB &#x4EE3;&#x7406;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x9996;&#x5148;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; MethodInterceptor&#xFF0C;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4F1A;&#x88AB;&#x8F6C;&#x53D1;&#x5230;&#x8BE5;&#x7C7B;&#x7684; intercept() &#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x7136;&#x540E;&#x5728;&#x9700;&#x8981;&#x4F7F;&#x7528; HelloConcrete &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x901A;&#x8FC7; CGLIB &#x52A8;&#x6001;&#x4EE3;&#x7406;&#x83B7;&#x53D6;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x3002;</li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-comment">// CGLIB&#x52A8;&#x6001;&#x4EE3;&#x7406;</span>
+<span class="hljs-comment">// 1. &#x9996;&#x5148;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;MethodInterceptor&#xFF0C;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4F1A;&#x88AB;&#x8F6C;&#x53D1;&#x5230;&#x8BE5;&#x7C7B;&#x7684;intercept()&#x65B9;&#x6CD5;&#x3002;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyMethodInterceptor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MethodInterceptor</span></span>{
+  ...
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">intercept</span><span class="hljs-params">(Object obj, Method method, Object[] args, MethodProxy proxy)</span> <span class="hljs-keyword">throws</span> Throwable </span>{
+        logger.info(<span class="hljs-string">&quot;You said: &quot;</span> + Arrays.toString(args));
+        <span class="hljs-keyword">return</span> proxy.invokeSuper(obj, args);
+    }
+}
+<span class="hljs-comment">// 2. &#x7136;&#x540E;&#x5728;&#x9700;&#x8981;&#x4F7F;&#x7528;HelloConcrete&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x901A;&#x8FC7;CGLIB&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x83B7;&#x53D6;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x3002;</span>
+Enhancer enhancer = <span class="hljs-keyword">new</span> Enhancer();
+enhancer.setSuperclass(HelloConcrete.class);
+enhancer.setCallback(<span class="hljs-keyword">new</span> MyMethodInterceptor());
+
+HelloConcrete hello = (HelloConcrete)enhancer.create();
+System.out.println(hello.sayHello(<span class="hljs-string">&quot;I love you!&quot;</span>));
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>&#x65E5;&#x5FD7;&#x4FE1;&#x606F;: You said: [I love you!]
+HelloConcrete: I love you!
+</code></pre><p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7; CGLIB &#x7684; <code>Enhancer</code> &#x6765;&#x6307;&#x5B9A;&#x8981;&#x4EE3;&#x7406;&#x7684;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#xFF0C;&#x5B9E;&#x9645;&#x5904;&#x7406;&#x4EE3;&#x7406;&#x903B;&#x8F91;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6700;&#x7EC8;&#x901A;&#x8FC7;&#x8C03;&#x7528; <code>create()</code> &#x65B9;&#x6CD5;&#x5F97;&#x5230;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;<strong>&#x5BF9;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6240;&#x6709;&#x975E; final &#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x8F6C;&#x53D1;&#x7ED9; MethodInterceptor.intercept() &#x65B9;&#x6CD5;</strong>&#xFF0C;&#x5728; <code>intercept()</code> &#x65B9;&#x6CD5;&#x91CC;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x52A0;&#x5165;&#x4EFB;&#x4F55;&#x903B;&#x8F91;&#xFF0C;&#x6BD4;&#x5982;&#x4FEE;&#x6539;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#xFF0C;&#x52A0;&#x5165;&#x65E5;&#x5FD7;&#x529F;&#x80FD;&#x3001;&#x5B89;&#x5168;&#x68C0;&#x67E5;&#x529F;&#x80FD;&#x7B49;&#xFF1B;&#x901A;&#x8FC7;&#x8C03;&#x7528; <code>MethodProxy.invokeSuper()</code> &#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x8C03;&#x7528;&#x8F6C;&#x53D1;&#x7ED9;&#x539F;&#x59CB;&#x5BF9;&#x8C61;&#xFF0C;&#x5177;&#x4F53;&#x5230;&#x672C;&#x4F8B;&#xFF0C;&#x5C31;&#x662F; <code>HelloConcrete</code> &#x7684;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x3002;CGLIG&#x4E2D; MethodInterceptor &#x7684;&#x4F5C;&#x7528;&#x8DDF; JDK &#x4EE3;&#x7406;&#x4E2D;&#x7684; <code>InvocationHandler</code> &#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x90FD;&#x662F;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x7684;&#x4E2D;&#x8F6C;&#x7AD9;&#x3002;</p>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5BF9;&#x4E8E;&#x4ECE; Object &#x4E2D;&#x7EE7;&#x627F;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;CGLIB &#x4EE3;&#x7406;&#x4E5F;&#x4F1A;&#x8FDB;&#x884C;&#x4EE3;&#x7406;&#xFF0C;&#x5982; <code>hashCode()</code>&#x3001;<code>equals()</code>&#x3001;<code>toString()</code> &#x7B49;&#xFF0C;&#x4F46;&#x662F; <code>getClass()</code>&#x3001;<code>wait()</code> &#x7B49;&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F; final &#x65B9;&#x6CD5;&#xFF0C;CGLIB &#x65E0;&#x6CD5;&#x4EE3;&#x7406;&#x3002;</p>
+</blockquote>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x65E2;&#x7136;&#x662F;&#x7EE7;&#x627F;&#x5C31;&#x4E0D;&#x5F97;&#x4E0D;&#x8003;&#x8651; final &#x7684;&#x95EE;&#x9898;&#x3002;&#x6211;&#x4EEC;&#x77E5;&#x9053; final &#x7C7B;&#x578B;&#x4E0D;&#x80FD;&#x6709;&#x5B50;&#x7C7B;&#xFF0C;&#x6240;&#x4EE5; CGLIB &#x4E0D;&#x80FD;&#x4EE3;&#x7406; final &#x7C7B;&#x578B;&#xFF0C;&#x9047;&#x5230;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4F1A;&#x629B;&#x51FA;&#x7C7B;&#x4F3C;&#x5982;&#x4E0B;&#x5F02;&#x5E38;&#xFF1A;</p>
+<pre><code>java.lang.IllegalArgumentException: Cannot subclass final class cglib.HelloConcrete
+</code></pre><p>&#x540C;&#x6837;&#x7684;&#xFF0C;final &#x65B9;&#x6CD5;&#x662F;&#x4E0D;&#x80FD;&#x91CD;&#x8F7D;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x4E0D;&#x80FD;&#x901A;&#x8FC7; CGLIB &#x4EE3;&#x7406;&#xFF0C;&#x9047;&#x5230;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0D;&#x4F1A;&#x629B;&#x5F02;&#x5E38;&#xFF0C;&#x800C;&#x662F;&#x4F1A;&#x8DF3;&#x8FC7; final &#x65B9;&#x6CD5;&#x53EA;&#x4EE3;&#x7406;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="&#x7ED3;&#x8BED;">&#x7ED3;&#x8BED;</h2>
+<p>&#x672C;&#x6587;&#x4ECB;&#x7ECD;&#x4E86; Java &#x4E24;&#x79CD;&#x5E38;&#x89C1;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x673A;&#x5236;&#x7684;&#x7528;&#x6CD5;&#x548C;&#x539F;&#x7406;&#xFF0C;JDK &#x539F;&#x751F;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x662F; Java &#x539F;&#x751F;&#x652F;&#x6301;&#x7684;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x4EFB;&#x4F55;&#x5916;&#x90E8;&#x4F9D;&#x8D56;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x53EA;&#x80FD;&#x57FA;&#x4E8E;&#x63A5;&#x53E3;&#x8FDB;&#x884C;&#x4EE3;&#x7406;&#xFF1B;CGLIB &#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x4EE3;&#x7406;&#xFF0C;&#x65E0;&#x8BBA;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x6709;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x90FD;&#x53EF;&#x4EE5;&#x4EE3;&#x7406;&#xFF0C;&#x4F46;&#x662F;&#x65E0;&#x6CD5;&#x5904;&#x7406; final &#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<h2 id="springaop-&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7B56;&#x7565;">SpringAOP &#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7B56;&#x7565;</h2>
+<ul>
+<li>&#x5982;&#x679C;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x4E86;&#x63A5;&#x53E3;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x91C7;&#x7528; JDK &#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x5B9E;&#x73B0; AOP ;</li>
+<li>&#x5982;&#x679C;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x4E86;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x5F3A;&#x5236;&#x4F7F;&#x7528; CGLib &#x5B9E;&#x73B0; AOP&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#xFF0C;&#x5FC5;&#x987B;&#x91C7;&#x7528; CGLib &#x5E93;&#xFF0C;Spring &#x4F1A;&#x81EA;&#x52A8;&#x5728; JDK &#x52A8;&#x6001;&#x4EE3;&#x7406;&#x548C; CGLib &#x4E4B;&#x95F4;&#x8F6C;&#x6362;&#xFF1B;</li>
+</ul>
+<h2 id="&#x53C2;&#x8003;&#x6587;&#x732E;">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
+<p><a href="https://www.cnblogs.com/CarpenterLee/p/8241042.html" target="_blank">Java Proxy&#x548C;CGLIB&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x539F;&#x7406;</a></p>
 
                                 
                                 </section>
@@ -1736,12 +1863,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 介绍">
+                <a href="Java 反射如何获取私有属性并改变值.html" class="navigation navigation-prev " aria-label="Previous page: Java 反射如何获取私有属性并改变值">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="HashMap.html" class="navigation navigation-next " aria-label="Next page: HashMap">
+                <a href="../数据库/" class="navigation navigation-next " aria-label="Next page: 数据库">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1752,7 +1879,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java","level":"1.2","depth":1,"next":{"title":"HashMap","level":"1.2.1","depth":2,"path":"Java/HashMap.md","ref":"Java/HashMap.md","articles":[]},"previous":{"title":"介绍","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"Java/README.md","mtime":"2019-03-04T14:28:47.992Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-17T10:29:09.052Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java Proxy 和 CGLib 动态代理原理","level":"1.2.7","depth":2,"next":{"title":"数据库","level":"1.3","depth":1,"path":"数据库/README.md","ref":"数据库/README.md","articles":[{"title":"索引","level":"1.3.1","depth":2,"path":"数据库/索引.md","ref":"数据库/索引.md","articles":[]},{"title":"多版本并发控制","level":"1.3.2","depth":2,"path":"数据库/多版本并发控制.md","ref":"数据库/多版本并发控制.md","articles":[]},{"title":"Redis 底层数据结构","level":"1.3.3","depth":2,"path":"数据库/Redis 底层数据结构.md","ref":"数据库/Redis 底层数据结构.md","articles":[]},{"title":"Redis 的持久化","level":"1.3.4","depth":2,"path":"数据库/Redis 的持久化.md","ref":"数据库/Redis 的持久化.md","articles":[]}]},"previous":{"title":"Java 反射如何获取私有属性并改变值","level":"1.2.6","depth":2,"path":"Java/Java 反射如何获取私有属性并改变值.md","ref":"Java/Java 反射如何获取私有属性并改变值.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"Java/Java Proxy 和 CGLib 动态代理原理.md","mtime":"2019-04-17T10:25:26.141Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-17T10:29:09.052Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
