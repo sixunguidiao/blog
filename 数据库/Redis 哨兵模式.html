@@ -1,0 +1,794 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Redis 哨兵模式 · guidiao's blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="赵强 <zhao_qiang@bupt.edu.cn>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="Redis 的持久化.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://sixunguidiao.github.io/blog/" target="_blank" class="custom-link">guidiao's blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Java/">
+            
+                <a href="../Java/">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Java/BIO, NIO, AIO.html">
+            
+                <a href="../Java/BIO, NIO, AIO.html">
+            
+                    
+                    BIO, NIO, AIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Java/ConcurrentHashMap.html">
+            
+                <a href="../Java/ConcurrentHashMap.html">
+            
+                    
+                    ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Java/HashMap.html">
+            
+                <a href="../Java/HashMap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Java/Java Proxy 和 CGLib 动态代理原理.html">
+            
+                <a href="../Java/Java Proxy 和 CGLib 动态代理原理.html">
+            
+                    
+                    Java Proxy 和 CGLib 动态代理原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Java/Lambda 表达式.html">
+            
+                <a href="../Java/Lambda 表达式.html">
+            
+                    
+                    Lambda 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../Java/ThreadLocal.html">
+            
+                <a href="../Java/ThreadLocal.html">
+            
+                    
+                    ThreadLocal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../Java/WeakHashMap.html">
+            
+                <a href="../Java/WeakHashMap.html">
+            
+                    
+                    WeakHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../Java/线程池.html">
+            
+                <a href="../Java/线程池.html">
+            
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Spring/">
+            
+                <a href="../Spring/">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Spring/Spring AOP 的实现原理.html">
+            
+                <a href="../Spring/Spring AOP 的实现原理.html">
+            
+                    
+                    Spring AOP 的实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Spring/Spring Bean 的加载过程.html">
+            
+                <a href="../Spring/Spring Bean 的加载过程.html">
+            
+                    
+                    Spring Bean 的加载过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Spring/Spring Bean 的循环依赖问题.html">
+            
+                <a href="../Spring/Spring Bean 的循环依赖问题.html">
+            
+                    
+                    Spring Bean 的循环依赖问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Spring/Spring Bean 的作用域和生命周期.html">
+            
+                <a href="../Spring/Spring Bean 的作用域和生命周期.html">
+            
+                    
+                    Spring Bean 的作用域和生命周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Spring/实现简单的 Spring IoC 框架.html">
+            
+                <a href="../Spring/实现简单的 Spring IoC 框架.html">
+            
+                    
+                    实现简单的 Spring IoC 框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../计算机网络/">
+            
+                <a href="../计算机网络/">
+            
+                    
+                    计算机网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../计算机网络/Socket.html">
+            
+                <a href="../计算机网络/Socket.html">
+            
+                    
+                    Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../计算机网络/TCP 粘包.html">
+            
+                <a href="../计算机网络/TCP 粘包.html">
+            
+                    
+                    TCP 粘包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../计算机网络/Web 页面请求过程.html">
+            
+                <a href="../计算机网络/Web 页面请求过程.html">
+            
+                    
+                    Web 页面请求过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../设计模式/">
+            
+                <a href="../设计模式/">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../设计模式/单例模式.html">
+            
+                <a href="../设计模式/单例模式.html">
+            
+                    
+                    单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../设计模式/工厂模式.html">
+            
+                <a href="../设计模式/工厂模式.html">
+            
+                    
+                    工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="MySQL 多版本并发控制.html">
+            
+                <a href="MySQL 多版本并发控制.html">
+            
+                    
+                    MySQL 多版本并发控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="MySQL 分区.html">
+            
+                <a href="MySQL 分区.html">
+            
+                    
+                    MySQL 分区
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="MySQL 索引.html">
+            
+                <a href="MySQL 索引.html">
+            
+                    
+                    MySQL 索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="MySQL 主从复制.html">
+            
+                <a href="MySQL 主从复制.html">
+            
+                    
+                    MySQL 主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="Redis 的持久化.html">
+            
+                <a href="Redis 的持久化.html">
+            
+                    
+                    Redis 的持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.6" data-path="Redis 哨兵模式.html">
+            
+                <a href="Redis 哨兵模式.html">
+            
+                    
+                    Redis 哨兵模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Redis 哨兵模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="redis-&#x54E8;&#x5175;&#x6A21;&#x5F0F;">Redis &#x54E8;&#x5175;&#x6A21;&#x5F0F;</h1>
+<p><code>Redis</code> &#x7684; <strong>&#x4E3B;&#x4ECE;&#x590D;&#x5236;</strong> &#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x4E00;&#x65E6; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x7531;&#x4E8E;&#x6545;&#x969C;&#x4E0D;&#x80FD;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x5C06; <strong>&#x4ECE;&#x8282;&#x70B9;</strong> &#x664B;&#x5347;&#x4E3A; <strong>&#x4E3B;&#x8282;&#x70B9;</strong>&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x8981;&#x901A;&#x77E5; <strong>&#x5BA2;&#x6237;&#x7AEF;</strong> &#x66F4;&#x65B0; <strong>&#x4E3B;&#x8282;&#x70B9;&#x5730;&#x5740;</strong>&#xFF0C;&#x8FD9;&#x79CD;&#x6545;&#x969C;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x4ECE;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x662F;&#x65E0;&#x6CD5;&#x63A5;&#x53D7;&#x7684;&#x3002;<code>Redis 2.8</code> &#x4EE5;&#x540E;&#x63D0;&#x4F9B;&#x4E86; <code>Redis Sentinel</code> <strong>&#x54E8;&#x5175;&#x673A;&#x5236;</strong> &#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="1-redis-&#x9AD8;&#x53EF;&#x7528;&#x6982;&#x8FF0;">1. Redis &#x9AD8;&#x53EF;&#x7528;&#x6982;&#x8FF0;</h2>
+<p>&#x5728; <code>Web</code> &#x670D;&#x52A1;&#x5668;&#x4E2D;&#xFF0C;<strong>&#x9AD8;&#x53EF;&#x7528;</strong> &#x662F;&#x6307;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5; <strong>&#x6B63;&#x5E38;&#x8BBF;&#x95EE;</strong> &#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x8861;&#x91CF;&#x7684;&#x6807;&#x51C6;&#x662F;&#x5728; <strong>&#x591A;&#x957F;&#x65F6;&#x95F4;</strong> &#x5185;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x6B63;&#x5E38;&#x670D;&#x52A1;&#xFF08;<code>99.9%</code>&#x3001;<code>99.99%</code>&#x3001;<code>99.999%</code> &#x7B49;&#x7B49;&#xFF09;&#x3002;&#x5728; <code>Redis</code> &#x5C42;&#x9762;&#xFF0C;<strong>&#x9AD8;&#x53EF;&#x7528;</strong> &#x7684;&#x542B;&#x4E49;&#x8981;&#x5BBD;&#x6CDB;&#x4E00;&#x4E9B;&#xFF0C;&#x9664;&#x4E86;&#x4FDD;&#x8BC1;&#x63D0;&#x4F9B; <strong>&#x6B63;&#x5E38;&#x670D;&#x52A1;</strong>&#xFF08;&#x5982; <strong>&#x4E3B;&#x4ECE;&#x5206;&#x79BB;</strong>&#x3001;<strong>&#x5FEB;&#x901F;&#x5BB9;&#x707E;&#x6280;&#x672F;</strong> &#x7B49;&#xFF09;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x8003;&#x8651; <strong>&#x6570;&#x636E;&#x5BB9;&#x91CF;&#x6269;&#x5C55;</strong>&#x3001;<strong>&#x6570;&#x636E;&#x5B89;&#x5168;</strong> &#x7B49;&#x7B49;&#x3002;</p>
+<p>&#x5728; <code>Redis</code> &#x4E2D;&#xFF0C;&#x5B9E;&#x73B0; <strong>&#x9AD8;&#x53EF;&#x7528;</strong> &#x7684;&#x6280;&#x672F;&#x4E3B;&#x8981;&#x5305;&#x62EC; <strong>&#x6301;&#x4E45;&#x5316;</strong>&#x3001;<strong>&#x590D;&#x5236;</strong>&#x3001;<strong>&#x54E8;&#x5175;</strong> &#x548C; <strong>&#x96C6;&#x7FA4;</strong>&#xFF0C;&#x4E0B;&#x9762;&#x7B80;&#x5355;&#x8BF4;&#x660E;&#x5B83;&#x4EEC;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x4EE5;&#x53CA;&#x89E3;&#x51B3;&#x4E86;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<p><strong>&#x6301;&#x4E45;&#x5316;</strong>&#xFF1A;&#x6301;&#x4E45;&#x5316;&#x662F; <strong>&#x6700;&#x7B80;&#x5355;&#x7684;</strong> &#x9AD8;&#x53EF;&#x7528;&#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x662F; <strong>&#x6570;&#x636E;&#x5907;&#x4EFD;</strong>&#xFF0C;&#x5373;&#x5C06;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5728; <strong>&#x786C;&#x76D8;</strong>&#xFF0C;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x56E0;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x800C;&#x4E22;&#x5931;&#x3002;</p>
+<p><strong>&#x590D;&#x5236;</strong>&#xFF1A;&#x590D;&#x5236;&#x662F;&#x9AD8;&#x53EF;&#x7528; <code>Redis</code> &#x7684;&#x57FA;&#x7840;&#xFF0C;<strong>&#x54E8;&#x5175;</strong> &#x548C; <strong>&#x96C6;&#x7FA4;</strong> &#x90FD;&#x662F;&#x5728; <strong>&#x590D;&#x5236;&#x57FA;&#x7840;</strong> &#x4E0A;&#x5B9E;&#x73B0;&#x9AD8;&#x53EF;&#x7528;&#x7684;&#x3002;&#x590D;&#x5236;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x4E86;&#x6570;&#x636E;&#x7684;&#x591A;&#x673A;&#x5907;&#x4EFD;&#x4EE5;&#x53CA;&#x5BF9;&#x4E8E;&#x8BFB;&#x64CD;&#x4F5C;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x548C;&#x7B80;&#x5355;&#x7684;&#x6545;&#x969C;&#x6062;&#x590D;&#x3002;&#x7F3A;&#x9677;&#x662F;&#x6545;&#x969C;&#x6062;&#x590D;&#x65E0;&#x6CD5;&#x81EA;&#x52A8;&#x5316;&#x3001;&#x5199;&#x64CD;&#x4F5C;&#x65E0;&#x6CD5;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x3001;&#x5B58;&#x50A8;&#x80FD;&#x529B;&#x53D7;&#x5230;&#x5355;&#x673A;&#x7684;&#x9650;&#x5236;&#x3002;</p>
+<p><strong>&#x54E8;&#x5175;</strong>&#xFF1A;&#x5728;&#x590D;&#x5236;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x54E8;&#x5175;&#x5B9E;&#x73B0;&#x4E86; <strong>&#x81EA;&#x52A8;&#x5316;</strong> &#x7684; <strong>&#x6545;&#x969C;&#x6062;&#x590D;</strong>&#x3002;&#x7F3A;&#x9677;&#x662F; <strong>&#x5199;&#x64CD;&#x4F5C;</strong> &#x65E0;&#x6CD5; <strong>&#x8D1F;&#x8F7D;&#x5747;&#x8861;</strong>&#xFF0C;<strong>&#x5B58;&#x50A8;&#x80FD;&#x529B;</strong> &#x53D7;&#x5230; <strong>&#x5355;&#x673A;</strong> &#x7684;&#x9650;&#x5236;&#x3002;</p>
+<p><strong>&#x96C6;&#x7FA4;</strong>&#xFF1A;&#x901A;&#x8FC7;&#x96C6;&#x7FA4;&#xFF0C;<code>Redis</code> &#x89E3;&#x51B3;&#x4E86; <strong>&#x5199;&#x64CD;&#x4F5C;</strong> &#x65E0;&#x6CD5; <strong>&#x8D1F;&#x8F7D;&#x5747;&#x8861;</strong> &#x4EE5;&#x53CA; <strong>&#x5B58;&#x50A8;&#x80FD;&#x529B;</strong> &#x53D7;&#x5230; <strong>&#x5355;&#x673A;&#x9650;&#x5236;</strong> &#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x8F83;&#x4E3A; <strong>&#x5B8C;&#x5584;</strong> &#x7684; <strong>&#x9AD8;&#x53EF;&#x7528;&#x65B9;&#x6848;</strong>&#x3002;</p>
+<h2 id="2-redis-sentinel-&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;">2. Redis Sentinel &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+<p><code>Redis Sentinel</code> &#x662F; <code>Redis</code> <strong>&#x9AD8;&#x53EF;&#x7528;</strong> &#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x6848;&#x3002;<code>Sentinel</code> &#x662F;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x591A;&#x4E2A; <code>Redis</code> &#x5B9E;&#x4F8B;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5BF9; <code>Redis</code> &#x7684; <strong>&#x76D1;&#x63A7;</strong>&#x3001;<strong>&#x901A;&#x77E5;</strong>&#x3001;<strong>&#x81EA;&#x52A8;&#x6545;&#x969C;&#x8F6C;&#x79FB;</strong>&#x3002;&#x4E0B;&#x9762;&#x5148;&#x5BF9; <code>Redis Sentinel</code> &#x7684; <strong>&#x57FA;&#x672C;&#x6982;&#x5FF5;</strong> &#x8FDB;&#x884C;&#x7B80;&#x5355;&#x7684;&#x4ECB;&#x7ECD;&#x3002;</p>
+<p>&#x57FA;&#x672C;&#x540D;&#x8BCD;&#x8BF4;&#x660E;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x57FA;&#x672C;&#x540D;&#x8BCD;</th>
+<th style="text-align:center">&#x903B;&#x8F91;&#x7ED3;&#x6784;</th>
+<th style="text-align:center">&#x7269;&#x7406;&#x7ED3;&#x6784;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Redis &#x6570;&#x636E;&#x8282;&#x70B9;</td>
+<td style="text-align:center">&#x4E3B;&#x8282;&#x70B9;&#x548C;&#x4ECE;&#x8282;&#x70B9;</td>
+<td style="text-align:center">&#x4E3B;&#x8282;&#x70B9;&#x548C;&#x4ECE;&#x8282;&#x70B9;&#x7684;&#x8FDB;&#x7A0B;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4E3B;&#x8282;&#x70B9; (master)</td>
+<td style="text-align:center">Redis &#x4E3B;&#x6570;&#x636E;&#x5E93;</td>
+<td style="text-align:center">&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684; Redis &#x8FDB;&#x7A0B;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x4ECE;&#x8282;&#x70B9; (slave)</td>
+<td style="text-align:center">Redis &#x4ECE;&#x6570;&#x636E;&#x5E93;</td>
+<td style="text-align:center">&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684; Redis &#x8FDB;&#x7A0B;</td>
+</tr>
+<tr>
+<td style="text-align:center">Sentinel &#x8282;&#x70B9;</td>
+<td style="text-align:center">&#x76D1;&#x63A7; Redis &#x6570;&#x636E;&#x8282;&#x70B9;</td>
+<td style="text-align:center">&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684; Sentinel &#x8FDB;&#x7A0B;</td>
+</tr>
+<tr>
+<td style="text-align:center">Sentinel &#x8282;&#x70B9;&#x96C6;&#x5408;</td>
+<td style="text-align:center">&#x82E5;&#x5E72; Sentinel &#x8282;&#x70B9;&#x7684;&#x62BD;&#x8C61;&#x7EC4;&#x5408;</td>
+<td style="text-align:center">&#x82E5;&#x5E72; Sentinel &#x8282;&#x70B9;&#x8FDB;&#x7A0B;</td>
+</tr>
+<tr>
+<td style="text-align:center">Redis Sentinel</td>
+<td style="text-align:center">Redis &#x9AD8;&#x53EF;&#x7528;&#x5B9E;&#x73B0;&#x65B9;&#x6848;</td>
+<td style="text-align:center">Sentinel &#x8282;&#x70B9;&#x96C6;&#x5408;&#x548C; Redis &#x6570;&#x636E;&#x8282;&#x70B9;&#x8FDB;&#x7A0B;</td>
+</tr>
+<tr>
+<td style="text-align:center">&#x5E94;&#x7528;&#x5BA2;&#x6237;&#x7AEF;</td>
+<td style="text-align:center">&#x6CDB;&#x6307;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;</td>
+<td style="text-align:center">&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x7A0B;&#x6216;&#x8005;&#x7EBF;&#x7A0B;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF0C;<code>Redis</code> &#x7684; <strong>&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x6A21;&#x5F0F;</strong> &#x548C; <code>Sentinel</code> <strong>&#x9AD8;&#x53EF;&#x7528;&#x67B6;&#x6784;</strong> &#x7684;&#x793A;&#x610F;&#x56FE;&#xFF1A;</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/22/16560ce611d8c4a5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h2 id="3-redis-&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x7684;&#x95EE;&#x9898;">3. Redis &#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x7684;&#x95EE;&#x9898;</h2>
+<ol>
+<li>&#x4E00;&#x65E6; <strong>&#x4E3B;&#x8282;&#x70B9;&#x5B95;&#x673A;</strong>&#xFF0C;<strong>&#x4ECE;&#x8282;&#x70B9;</strong> &#x4F5C;&#x4E3A; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x7684; <strong>&#x5907;&#x4EFD;</strong> &#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x9876;&#x4E0A;&#x6765;&#x3002;</li>
+<li>&#x6269;&#x5C55; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x7684; <strong>&#x8BFB;&#x80FD;&#x529B;</strong>&#xFF0C;&#x5206;&#x62C5;&#x4E3B;&#x8282;&#x70B9;&#x8BFB;&#x538B;&#x529B;&#x3002;</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/22/16560ce61dbb9d7e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p><strong>&#x4E3B;&#x4ECE;&#x590D;&#x5236;</strong> &#x540C;&#x65F6;&#x5B58;&#x5728;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
+<ol>
+<li>&#x4E00;&#x65E6; <strong>&#x4E3B;&#x8282;&#x70B9;&#x5B95;&#x673A;</strong>&#xFF0C;<strong>&#x4ECE;&#x8282;&#x70B9;</strong> &#x664B;&#x5347;&#x6210; <strong>&#x4E3B;&#x8282;&#x70B9;</strong>&#xFF0C;&#x540C;&#x65F6;&#x9700;&#x8981;&#x4FEE;&#x6539; <strong>&#x5E94;&#x7528;&#x65B9;</strong> &#x7684; <strong>&#x4E3B;&#x8282;&#x70B9;&#x5730;&#x5740;</strong>&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x547D;&#x4EE4;&#x6240;&#x6709; <strong>&#x4ECE;&#x8282;&#x70B9;</strong> &#x53BB; <strong>&#x590D;&#x5236;</strong> &#x65B0;&#x7684;&#x4E3B;&#x8282;&#x70B9;&#xFF0C;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x9700;&#x8981; <strong>&#x4EBA;&#x5DE5;&#x5E72;&#x9884;</strong>&#x3002;</li>
+<li><strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x7684; <strong>&#x5199;&#x80FD;&#x529B;</strong> &#x53D7;&#x5230; <strong>&#x5355;&#x673A;&#x7684;&#x9650;&#x5236;</strong>&#x3002;</li>
+<li><strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x7684; <strong>&#x5B58;&#x50A8;&#x80FD;&#x529B;</strong> &#x53D7;&#x5230; <strong>&#x5355;&#x673A;&#x7684;&#x9650;&#x5236;</strong>&#x3002;</li>
+<li><strong>&#x539F;&#x751F;&#x590D;&#x5236;</strong> &#x7684;&#x5F0A;&#x7AEF;&#x5728;&#x65E9;&#x671F;&#x7684;&#x7248;&#x672C;&#x4E2D;&#x4E5F;&#x4F1A;&#x6BD4;&#x8F83;&#x7A81;&#x51FA;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;<code>Redis</code> <strong>&#x590D;&#x5236;&#x4E2D;&#x65AD;</strong> &#x540E;&#xFF0C;<strong>&#x4ECE;&#x8282;&#x70B9;</strong> &#x4F1A;&#x53D1;&#x8D77; <code>psync</code>&#x3002;&#x6B64;&#x65F6;&#x5982;&#x679C; <strong>&#x540C;&#x6B65;&#x4E0D;&#x6210;&#x529F;</strong>&#xFF0C;&#x5219;&#x4F1A;&#x8FDB;&#x884C; <strong>&#x5168;&#x91CF;&#x540C;&#x6B65;</strong>&#xFF0C;<strong>&#x4E3B;&#x5E93;</strong> &#x6267;&#x884C; <strong>&#x5168;&#x91CF;&#x5907;&#x4EFD;</strong> &#x7684;&#x540C;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x9020;&#x6210;&#x6BEB;&#x79D2;&#x6216;&#x79D2;&#x7EA7;&#x7684; <strong>&#x5361;&#x987F;</strong>&#x3002;</li>
+</ol>
+<h2 id="4-redis-sentinel-&#x6DF1;&#x5165;&#x63A2;&#x7A76;">4. Redis Sentinel &#x6DF1;&#x5165;&#x63A2;&#x7A76;</h2>
+<h3 id="redis-sentinel&#x7684;&#x67B6;&#x6784;">Redis Sentinel&#x7684;&#x67B6;&#x6784;</h3>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/22/16560ce61dbc4eeb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h3 id="redis-sentinel-&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;">Redis Sentinel &#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;</h3>
+<p><code>Sentinel</code> &#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x5305;&#x62EC; <strong>&#x4E3B;&#x8282;&#x70B9;&#x5B58;&#x6D3B;&#x68C0;&#x6D4B;</strong>&#x3001;<strong>&#x4E3B;&#x4ECE;&#x8FD0;&#x884C;&#x60C5;&#x51B5;&#x68C0;&#x6D4B;</strong>&#x3001;<strong>&#x81EA;&#x52A8;&#x6545;&#x969C;&#x8F6C;&#x79FB;</strong> &#xFF08;<code>failover</code>&#xFF09;&#x3001;<strong>&#x4E3B;&#x4ECE;&#x5207;&#x6362;</strong>&#x3002;<code>Redis</code> &#x7684; <code>Sentinel</code> &#x6700;&#x5C0F;&#x914D;&#x7F6E;&#x662F; <strong>&#x4E00;&#x4E3B;&#x4E00;&#x4ECE;</strong>&#x3002;</p>
+<p><code>Redis</code> &#x7684; <code>Sentinel</code> &#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x7BA1;&#x7406;&#x591A;&#x4E2A; <code>Redis</code> &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8BE5;&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x56DB;&#x4E2A;&#x4EFB;&#x52A1;&#xFF1A;</p>
+<ul>
+<li><strong>&#x76D1;&#x63A7;</strong></li>
+</ul>
+<p><code>Sentinel</code> &#x4F1A;&#x4E0D;&#x65AD;&#x7684;&#x68C0;&#x67E5; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x548C; <strong>&#x4ECE;&#x670D;&#x52A1;&#x5668;</strong> &#x662F;&#x5426;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;</p>
+<ul>
+<li><strong>&#x901A;&#x77E5;</strong></li>
+</ul>
+<p>&#x5F53;&#x88AB;&#x76D1;&#x63A7;&#x7684;&#x67D0;&#x4E2A; <code>Redis</code> &#x670D;&#x52A1;&#x5668;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#xFF0C;<code>Sentinel</code> &#x901A;&#x8FC7; <code>API</code> <strong>&#x811A;&#x672C;</strong> &#x5411; <strong>&#x7BA1;&#x7406;&#x5458;</strong> &#x6216;&#x8005;&#x5176;&#x4ED6;&#x7684; <strong>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</strong> &#x53D1;&#x9001;&#x901A;&#x77E5;&#x3002;</p>
+<ul>
+<li><strong>&#x81EA;&#x52A8;&#x6545;&#x969C;&#x8F6C;&#x79FB;</strong></li>
+</ul>
+<p>&#x5F53; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x65F6;&#xFF0C;<code>Sentinel</code> &#x4F1A;&#x5F00;&#x59CB;&#x4E00;&#x6B21; <strong>&#x81EA;&#x52A8;&#x7684;</strong> &#x6545;&#x969C;&#x8F6C;&#x79FB;&#x64CD;&#x4F5C;&#xFF0C;&#x5B83;&#x4F1A;&#x5C06;&#x4E0E; <strong>&#x5931;&#x6548;&#x4E3B;&#x8282;&#x70B9;</strong> &#x662F; <strong>&#x4E3B;&#x4ECE;&#x5173;&#x7CFB;</strong> &#x7684;&#x5176;&#x4E2D;&#x4E00;&#x4E2A; <strong>&#x4ECE;&#x8282;&#x70B9;</strong> &#x5347;&#x7EA7;&#x4E3A;&#x65B0;&#x7684; <strong>&#x4E3B;&#x8282;&#x70B9;</strong>&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x5176;&#x4ED6;&#x7684; <strong>&#x4ECE;&#x8282;&#x70B9;</strong> &#x6307;&#x5411; <strong>&#x65B0;&#x7684;&#x4E3B;&#x8282;&#x70B9;</strong>&#x3002;</p>
+<ul>
+<li><strong>&#x914D;&#x7F6E;&#x63D0;&#x4F9B;&#x8005;</strong></li>
+</ul>
+<p>&#x5728; <code>Redis Sentinel</code> &#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;<strong>&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x7528;</strong> &#x5728;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x8FDE;&#x63A5;&#x7684;&#x662F; <code>Sentinel</code> <strong>&#x8282;&#x70B9;&#x96C6;&#x5408;</strong>&#xFF0C;&#x4ECE;&#x4E2D;&#x83B7;&#x53D6; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<h3 id="&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;&#x548C;&#x5BA2;&#x89C2;&#x4E0B;&#x7EBF;">&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;&#x548C;&#x5BA2;&#x89C2;&#x4E0B;&#x7EBF;</h3>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<strong>&#x6BCF;&#x4E2A;</strong> <code>Sentinel</code> &#x8282;&#x70B9;&#x4F1A;&#x4EE5; <strong>&#x6BCF;&#x79D2;&#x4E00;&#x6B21;</strong> &#x7684;&#x9891;&#x7387;&#x5BF9; <code>Redis</code> &#x8282;&#x70B9;&#x548C; <strong>&#x5176;&#x5B83;</strong> &#x7684; <code>Sentinel</code> &#x8282;&#x70B9;&#x53D1;&#x9001; <code>PING</code> &#x547D;&#x4EE4;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x8282;&#x70B9;&#x7684; <strong>&#x56DE;&#x590D;</strong> &#x6765;&#x5224;&#x65AD;&#x8282;&#x70B9;&#x662F;&#x5426;&#x5728;&#x7EBF;&#x3002;</p>
+<ul>
+<li><strong>&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;</strong></li>
+</ul>
+<p><strong>&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;</strong> &#x9002;&#x7528;&#x4E8E;&#x6240;&#x6709; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x548C; <strong>&#x4ECE;&#x8282;&#x70B9;</strong>&#x3002;&#x5982;&#x679C;&#x5728; <code>down-after-milliseconds</code> &#x6BEB;&#x79D2;&#x5185;&#xFF0C;<code>Sentinel</code> &#x6CA1;&#x6709;&#x6536;&#x5230; <strong>&#x76EE;&#x6807;&#x8282;&#x70B9;</strong> &#x7684;&#x6709;&#x6548;&#x56DE;&#x590D;&#xFF0C;&#x5219;&#x4F1A;&#x5224;&#x5B9A; <strong>&#x8BE5;&#x8282;&#x70B9;</strong> &#x4E3A; <strong>&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;</strong>&#x3002;</p>
+<ul>
+<li><strong>&#x5BA2;&#x89C2;&#x4E0B;&#x7EBF;</strong></li>
+</ul>
+<p><strong>&#x5BA2;&#x89C2;&#x4E0B;&#x7EBF;</strong> &#x53EA;&#x9002;&#x7528;&#x4E8E; <strong>&#x4E3B;&#x8282;&#x70B9;</strong>&#x3002;&#x5982;&#x679C; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x51FA;&#x73B0;&#x6545;&#x969C;&#xFF0C;<code>Sentinel</code> &#x8282;&#x70B9;&#x4F1A;&#x901A;&#x8FC7; <code>sentinel is-master-down-by-addr</code> &#x547D;&#x4EE4;&#xFF0C;&#x5411;&#x5176;&#x5B83; <code>Sentinel</code> &#x8282;&#x70B9;&#x8BE2;&#x95EE;&#x5BF9;&#x8BE5;&#x8282;&#x70B9;&#x7684; <strong>&#x72B6;&#x6001;&#x5224;&#x65AD;</strong>&#x3002;&#x5982;&#x679C;&#x8D85;&#x8FC7; <code>&lt;quorum&gt;</code> &#x4E2A;&#x6570;&#x7684;&#x8282;&#x70B9;&#x5224;&#x5B9A; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x4E0D;&#x53EF;&#x8FBE;&#xFF0C;&#x5219;&#x8BE5; <code>Sentinel</code> &#x8282;&#x70B9;&#x4F1A;&#x5224;&#x65AD; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x4E3A; <strong>&#x5BA2;&#x89C2;&#x4E0B;&#x7EBF;</strong>&#x3002;</p>
+<h3 id="redis-sentinel-&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;">### Redis Sentinel &#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</h3>
+<p>&#x6BCF;&#x4E2A; <code>Sentinel</code> &#x8282;&#x70B9;&#x90FD;&#x9700;&#x8981; <strong>&#x5B9A;&#x671F;&#x6267;&#x884C;</strong> &#x4EE5;&#x4E0B;&#x4EFB;&#x52A1;&#xFF1A;</p>
+<ol>
+<li>&#x6BCF;&#x4E2A; <code>Sentinel</code> &#x4EE5; <strong>&#x6BCF;&#x79D2;&#x949F;</strong> &#x4E00;&#x6B21;&#x7684;&#x9891;&#x7387;&#xFF0C;&#x5411;&#x5B83;&#x6240;&#x77E5;&#x7684; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong>&#x3001;<strong>&#x4ECE;&#x670D;&#x52A1;&#x5668;</strong> &#x4EE5;&#x53CA;&#x5176;&#x4ED6; <code>Sentinel</code><strong>&#x5B9E;&#x4F8B;</strong> &#x53D1;&#x9001;&#x4E00;&#x4E2A; <code>PING</code> &#x547D;&#x4EE4;&#x3002;</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/22/16560ce61df44c4d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ol>
+<li>&#x5982;&#x679C;&#x4E00;&#x4E2A; <strong>&#x5B9E;&#x4F8B;</strong>&#xFF08;<code>instance</code>&#xFF09;&#x8DDD;&#x79BB; <strong>&#x6700;&#x540E;&#x4E00;&#x6B21;</strong> &#x6709;&#x6548;&#x56DE;&#x590D; <code>PING</code> &#x547D;&#x4EE4;&#x7684;&#x65F6;&#x95F4;&#x8D85;&#x8FC7; <code>down-after-milliseconds</code> &#x6240;&#x6307;&#x5B9A;&#x7684;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x4F1A;&#x88AB; <code>Sentinel</code> &#x6807;&#x8BB0;&#x4E3A; <strong>&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;</strong>&#x3002;</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/22/16560ce61dc739de?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ol>
+<li>&#x5982;&#x679C;&#x4E00;&#x4E2A; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x88AB;&#x6807;&#x8BB0;&#x4E3A; <strong>&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;</strong>&#xFF0C;&#x90A3;&#x4E48;&#x6B63;&#x5728; <strong>&#x76D1;&#x89C6;</strong> &#x8FD9;&#x4E2A; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x7684;&#x6240;&#x6709; <code>Sentinel</code> &#x8282;&#x70B9;&#xFF0C;&#x8981;&#x4EE5; <strong>&#x6BCF;&#x79D2;&#x4E00;&#x6B21;</strong> &#x7684;&#x9891;&#x7387;&#x786E;&#x8BA4; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x7684;&#x786E;&#x8FDB;&#x5165;&#x4E86; <strong>&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;</strong> &#x72B6;&#x6001;&#x3002;</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/22/16560ce647a39535?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ol>
+<li>&#x5982;&#x679C;&#x4E00;&#x4E2A; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x88AB;&#x6807;&#x8BB0;&#x4E3A; <strong>&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;</strong>&#xFF0C;&#x5E76;&#x4E14;&#x6709; <strong>&#x8DB3;&#x591F;&#x6570;&#x91CF;</strong> &#x7684; <code>Sentinel</code>&#xFF08;&#x81F3;&#x5C11;&#x8981;&#x8FBE;&#x5230; <strong>&#x914D;&#x7F6E;&#x6587;&#x4EF6;</strong> &#x6307;&#x5B9A;&#x7684;&#x6570;&#x91CF;&#xFF09;&#x5728;&#x6307;&#x5B9A;&#x7684; <strong>&#x65F6;&#x95F4;&#x8303;&#x56F4;</strong> &#x5185;&#x540C;&#x610F;&#x8FD9;&#x4E00;&#x5224;&#x65AD;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x88AB;&#x6807;&#x8BB0;&#x4E3A; <strong>&#x5BA2;&#x89C2;&#x4E0B;&#x7EBF;</strong>&#x3002;</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/22/16560ce647c2583e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ol>
+<li>&#x5728;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; &#x6BCF;&#x4E2A; <code>Sentinel</code> &#x4F1A;&#x4EE5;&#x6BCF; <code>10</code> &#x79D2;&#x4E00;&#x6B21;&#x7684;&#x9891;&#x7387;&#xFF0C;&#x5411;&#x5B83;&#x5DF2;&#x77E5;&#x7684;&#x6240;&#x6709; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x548C; <strong>&#x4ECE;&#x670D;&#x52A1;&#x5668;</strong> &#x53D1;&#x9001; <code>INFO</code> &#x547D;&#x4EE4;&#x3002;&#x5F53;&#x4E00;&#x4E2A; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x88AB; <code>Sentinel</code> &#x6807;&#x8BB0;&#x4E3A; <strong>&#x5BA2;&#x89C2;&#x4E0B;&#x7EBF;</strong> &#x65F6;&#xFF0C;<code>Sentinel</code> &#x5411; <strong>&#x4E0B;&#x7EBF;&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x7684;&#x6240;&#x6709; <strong>&#x4ECE;&#x670D;&#x52A1;&#x5668;</strong> &#x53D1;&#x9001; <code>INFO</code> &#x547D;&#x4EE4;&#x7684;&#x9891;&#x7387;&#xFF0C;&#x4F1A;&#x4ECE; <code>10</code> &#x79D2;&#x4E00;&#x6B21;&#x6539;&#x4E3A; <strong>&#x6BCF;&#x79D2;&#x4E00;&#x6B21;</strong>&#x3002;</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/22/16560ce6738a30db?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ol>
+<li><code>Sentinel</code> &#x548C;&#x5176;&#x4ED6; <code>Sentinel</code> &#x534F;&#x5546; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C; <strong>&#x4E3B;&#x8282;&#x70B9;</strong> &#x5904;&#x4E8E; <code>SDOWN</code> &#x72B6;&#x6001;&#xFF0C;&#x5219;&#x6295;&#x7968;&#x81EA;&#x52A8;&#x9009;&#x51FA;&#x65B0;&#x7684; <strong>&#x4E3B;&#x8282;&#x70B9;</strong>&#x3002;&#x5C06;&#x5269;&#x4F59;&#x7684; <strong>&#x4ECE;&#x8282;&#x70B9;</strong> &#x6307;&#x5411; <strong>&#x65B0;&#x7684;&#x4E3B;&#x8282;&#x70B9;</strong> &#x8FDB;&#x884C; <strong>&#x6570;&#x636E;&#x590D;&#x5236;</strong>&#x3002;</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/22/16560ce676a95a54?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ol>
+<li>&#x5F53;&#x6CA1;&#x6709;&#x8DB3;&#x591F;&#x6570;&#x91CF;&#x7684; <code>Sentinel</code> &#x540C;&#x610F; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x4E0B;&#x7EBF;&#x65F6;&#xFF0C; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x7684; <strong>&#x5BA2;&#x89C2;&#x4E0B;&#x7EBF;&#x72B6;&#x6001;</strong> &#x5C31;&#x4F1A;&#x88AB;&#x79FB;&#x9664;&#x3002;&#x5F53; <strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x91CD;&#x65B0;&#x5411; <code>Sentinel</code> &#x7684; <code>PING</code> &#x547D;&#x4EE4;&#x8FD4;&#x56DE; <strong>&#x6709;&#x6548;&#x56DE;&#x590D;</strong> &#x65F6;&#xFF0C;<strong>&#x4E3B;&#x670D;&#x52A1;&#x5668;</strong> &#x7684; <strong>&#x4E3B;&#x89C2;&#x4E0B;&#x7EBF;&#x72B6;&#x6001;</strong> &#x5C31;&#x4F1A;&#x88AB;&#x79FB;&#x9664;&#x3002;</li>
+</ol>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x7684; <code>PING</code> &#x56DE;&#x590D;&#x53EF;&#x4EE5;&#x662F;&#xFF1A;<code>+PONG</code>&#x3001;<code>-LOADING</code> &#x6216;&#x8005; <code>-MASTERDOWN</code>&#x3002;&#x5982;&#x679C; <strong>&#x670D;&#x52A1;&#x5668;</strong> &#x8FD4;&#x56DE;&#x9664;&#x4EE5;&#x4E0A;&#x4E09;&#x79CD;&#x56DE;&#x590D;&#x4E4B;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x56DE;&#x590D;&#xFF0C;&#x53C8;&#x6216;&#x8005;&#x5728; <strong>&#x6307;&#x5B9A;&#x65F6;&#x95F4;</strong> &#x5185;&#x6CA1;&#x6709;&#x56DE;&#x590D; <code>PING</code> &#x547D;&#x4EE4;&#xFF0C; &#x90A3;&#x4E48; <code>Sentinel</code> &#x8BA4;&#x4E3A;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x56DE;&#x590D; <strong>&#x65E0;&#x6548;</strong>&#xFF08;<code>non-valid</code>&#xFF09;&#x3002;</p>
+</blockquote>
+<h2 id="&#x53C2;&#x8003;&#x6587;&#x732E;">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
+<p><a href="https://juejin.im/post/5b7d226a6fb9a01a1e01ff64" target="_blank">&#x6DF1;&#x5165;&#x5256;&#x6790;Redis&#x7CFB;&#x5217;(&#x4E8C;) - Redis&#x54E8;&#x5175;&#x6A21;&#x5F0F;&#x4E0E;&#x9AD8;&#x53EF;&#x7528;&#x96C6;&#x7FA4;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Redis 的持久化.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Redis 的持久化">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Redis 哨兵模式","level":"1.6.6","depth":2,"previous":{"title":"Redis 的持久化","level":"1.6.5","depth":2,"path":"数据库/Redis 的持久化.md","ref":"数据库/Redis 的持久化.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"数据库/Redis 哨兵模式.md","mtime":"2019-04-17T16:09:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:33:58.446Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

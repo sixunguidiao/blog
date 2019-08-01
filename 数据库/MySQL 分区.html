@@ -1,0 +1,790 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>MySQL 分区 · guidiao's blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="赵强 <zhao_qiang@bupt.edu.cn>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="MySQL 索引.html" />
+    
+    
+    <link rel="prev" href="MySQL 多版本并发控制.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://sixunguidiao.github.io/blog/" target="_blank" class="custom-link">guidiao's blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Java/">
+            
+                <a href="../Java/">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Java/BIO, NIO, AIO.html">
+            
+                <a href="../Java/BIO, NIO, AIO.html">
+            
+                    
+                    BIO, NIO, AIO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Java/ConcurrentHashMap.html">
+            
+                <a href="../Java/ConcurrentHashMap.html">
+            
+                    
+                    ConcurrentHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Java/HashMap.html">
+            
+                <a href="../Java/HashMap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Java/Java Proxy 和 CGLib 动态代理原理.html">
+            
+                <a href="../Java/Java Proxy 和 CGLib 动态代理原理.html">
+            
+                    
+                    Java Proxy 和 CGLib 动态代理原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Java/Lambda 表达式.html">
+            
+                <a href="../Java/Lambda 表达式.html">
+            
+                    
+                    Lambda 表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../Java/ThreadLocal.html">
+            
+                <a href="../Java/ThreadLocal.html">
+            
+                    
+                    ThreadLocal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../Java/WeakHashMap.html">
+            
+                <a href="../Java/WeakHashMap.html">
+            
+                    
+                    WeakHashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../Java/线程池.html">
+            
+                <a href="../Java/线程池.html">
+            
+                    
+                    线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Spring/">
+            
+                <a href="../Spring/">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Spring/Spring AOP 的实现原理.html">
+            
+                <a href="../Spring/Spring AOP 的实现原理.html">
+            
+                    
+                    Spring AOP 的实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Spring/Spring Bean 的加载过程.html">
+            
+                <a href="../Spring/Spring Bean 的加载过程.html">
+            
+                    
+                    Spring Bean 的加载过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Spring/Spring Bean 的循环依赖问题.html">
+            
+                <a href="../Spring/Spring Bean 的循环依赖问题.html">
+            
+                    
+                    Spring Bean 的循环依赖问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Spring/Spring Bean 的作用域和生命周期.html">
+            
+                <a href="../Spring/Spring Bean 的作用域和生命周期.html">
+            
+                    
+                    Spring Bean 的作用域和生命周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Spring/实现简单的 Spring IoC 框架.html">
+            
+                <a href="../Spring/实现简单的 Spring IoC 框架.html">
+            
+                    
+                    实现简单的 Spring IoC 框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../计算机网络/">
+            
+                <a href="../计算机网络/">
+            
+                    
+                    计算机网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../计算机网络/Socket.html">
+            
+                <a href="../计算机网络/Socket.html">
+            
+                    
+                    Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../计算机网络/TCP 粘包.html">
+            
+                <a href="../计算机网络/TCP 粘包.html">
+            
+                    
+                    TCP 粘包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../计算机网络/Web 页面请求过程.html">
+            
+                <a href="../计算机网络/Web 页面请求过程.html">
+            
+                    
+                    Web 页面请求过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../设计模式/">
+            
+                <a href="../设计模式/">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../设计模式/单例模式.html">
+            
+                <a href="../设计模式/单例模式.html">
+            
+                    
+                    单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../设计模式/工厂模式.html">
+            
+                <a href="../设计模式/工厂模式.html">
+            
+                    
+                    工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="MySQL 多版本并发控制.html">
+            
+                <a href="MySQL 多版本并发控制.html">
+            
+                    
+                    MySQL 多版本并发控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.2" data-path="MySQL 分区.html">
+            
+                <a href="MySQL 分区.html">
+            
+                    
+                    MySQL 分区
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="MySQL 索引.html">
+            
+                <a href="MySQL 索引.html">
+            
+                    
+                    MySQL 索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="MySQL 主从复制.html">
+            
+                <a href="MySQL 主从复制.html">
+            
+                    
+                    MySQL 主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="Redis 的持久化.html">
+            
+                <a href="Redis 的持久化.html">
+            
+                    
+                    Redis 的持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="Redis 哨兵模式.html">
+            
+                <a href="Redis 哨兵模式.html">
+            
+                    
+                    Redis 哨兵模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >MySQL 分区</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mysql-&#x5206;&#x533A;">MySQL &#x5206;&#x533A;</h1>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;&#x6570;&#x636E;&#x5E93;&#x5206;&#x533A;">&#x4EC0;&#x4E48;&#x662F;&#x6570;&#x636E;&#x5E93;&#x5206;&#x533A;</h2>
+<p>&#x4EE5;mysql&#x4E3A;&#x4F8B;&#x3002;mysql&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x662F;&#x4EE5;&#x6587;&#x4EF6;&#x7684;&#x5F62;&#x52BF;&#x5B58;&#x5728;&#x78C1;&#x76D8;&#x4E0A;&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x653E;&#x5728;/mysql/data&#x4E0B;&#x9762;&#xFF08;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;my.cnf&#x4E2D;&#x7684;datadir&#x6765;&#x67E5;&#x770B;&#xFF09;&#xFF0C;&#x4E00;&#x5F20;&#x8868;&#x4E3B;&#x8981;&#x5BF9;&#x5E94;&#x7740;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;frm&#x5B58;&#x653E;&#x8868;&#x7ED3;&#x6784;&#x7684;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;myd&#x5B58;&#x653E;&#x8868;&#x6570;&#x636E;&#x7684;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;myi&#x5B58;&#x8868;&#x7D22;&#x5F15;&#x7684;&#xFF08;&#x8FD9;&#x91CC;&#x7279;&#x6307; MyISAM &#x5F15;&#x64CE;&#xFF0C;&#x56E0;&#x4E3A; InnoDB &#x5F15;&#x64CE;&#x6570;&#x636E;&#x548C;&#x6240;&#x6709;&#x90FD;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#xFF09;&#x3002;&#x5982;&#x679C;&#x4E00;&#x5F20;&#x8868;&#x7684;&#x6570;&#x636E;&#x91CF;&#x592A;&#x5927;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;myd,myi&#x5C31;&#x4F1A;&#x53D8;&#x7684;&#x5F88;&#x5927;&#xFF0C;&#x67E5;&#x627E;&#x6570;&#x636E;&#x5C31;&#x4F1A;&#x53D8;&#x7684;&#x5F88;&#x6162;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;mysql&#x7684;&#x5206;&#x533A;&#x529F;&#x80FD;&#xFF0C;&#x5728;&#x7269;&#x7406;&#x4E0A;&#x5C06;&#x8FD9;&#x4E00;&#x5F20;&#x8868;&#x5BF9;&#x5E94;&#x7684;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5206;&#x5272;&#x6210;&#x8BB8;&#x591A;&#x4E2A;&#x5C0F;&#x5757;&#xFF0C;&#x8FD9;&#x6837;&#x5462;&#xFF0C;&#x6211;&#x4EEC;&#x67E5;&#x627E;&#x4E00;&#x6761;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x5C31;&#x4E0D;&#x7528;&#x5168;&#x90E8;&#x67E5;&#x627E;&#x4E86;&#xFF0C;&#x53EA;&#x8981;&#x77E5;&#x9053;&#x8FD9;&#x6761;&#x6570;&#x636E;&#x5728;&#x54EA;&#x4E00;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x90A3;&#x4E00;&#x5757;&#x627E;&#x5C31;&#x884C;&#x4E86;&#x3002;&#x5982;&#x679C;&#x8868;&#x7684;&#x6570;&#x636E;&#x592A;&#x5927;&#xFF0C;&#x53EF;&#x80FD;&#x4E00;&#x4E2A;&#x78C1;&#x76D8;&#x653E;&#x4E0D;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x6570;&#x636E;&#x5206;&#x914D;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x78C1;&#x76D8;&#x91CC;&#x9762;&#x53BB;&#x3002;</p>
+<p>&#x5206;&#x533A;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ol>
+<li>&#x6A2A;&#x5411;&#x5206;&#x533A;</li>
+</ol>
+<p>&#x4EC0;&#x4E48;&#x662F;&#x6A2A;&#x5411;&#x5206;&#x533A;&#x5462;&#xFF1F;&#x5C31;&#x662F;&#x6A2A;&#x7740;&#x6765;&#x5206;&#x533A;&#x4E86;&#xFF0C;&#x4E3E;&#x4F8B;&#x6765;&#x8BF4;&#x660E;&#x4E00;&#x4E0B;&#xFF0C;&#x5047;&#x5982;&#x6709;100W&#x6761;&#x6570;&#x636E;&#xFF0C;&#x5206;&#x6210;&#x5341;&#x4EFD;&#xFF0C;&#x524D;10W&#x6761;&#x6570;&#x636E;&#x653E;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x5206;&#x533A;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;10W&#x6761;&#x6570;&#x636E;&#x653E;&#x5230;&#x7B2C;&#x4E8C;&#x4E2A;&#x5206;&#x533A;&#xFF0C;&#x4F9D;&#x6B64;&#x7C7B;&#x63A8;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x628A;&#x8868;&#x5206;&#x6210;&#x4E86;&#x5341;&#x5206;&#xFF0C;&#x6839;&#x7528;merge&#x6765;&#x5206;&#x8868;&#xFF0C;&#x6709;&#x70B9;&#x50CF;&#x54E6;&#x3002;&#x53D6;&#x51FA;&#x4E00;&#x6761;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x6761;&#x6570;&#x636E;&#x5305;&#x542B;&#x4E86;&#x8868;&#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5B57;&#x6BB5;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6A2A;&#x5411;&#x5206;&#x533A;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x6539;&#x53D8;&#x8868;&#x7684;&#x7ED3;&#x6784;&#x3002;</p>
+<ol>
+<li>&#x7EB5;&#x5411;&#x5206;&#x533A;</li>
+</ol>
+<p>&#x4EC0;&#x4E48;&#x662F;&#x7EB5;&#x5411;&#x5206;&#x533A;&#x5462;&#xFF1F;&#x5C31;&#x662F;&#x7AD6;&#x6765;&#x5206;&#x533A;&#x4E86;&#xFF0C;&#x4E3E;&#x4F8B;&#x6765;&#x8BF4;&#x660E;&#xFF0C;&#x5728;&#x8BBE;&#x8BA1;&#x7528;&#x6237;&#x8868;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F00;&#x59CB;&#x7684;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x8003;&#x8651;&#x597D;&#xFF0C;&#x800C;&#x628A;&#x4E2A;&#x4EBA;&#x7684;&#x6240;&#x6709;&#x4FE1;&#x606F;&#x90FD;&#x653E;&#x5230;&#x4E86;&#x4E00;&#x5F20;&#x8868;&#x91CC;&#x9762;&#x53BB;&#xFF0C;&#x8FD9;&#x6837;&#x8FD9;&#x4E2A;&#x8868;&#x91CC;&#x9762;&#x5C31;&#x4F1A;&#x6709;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x5982;&#x4E2A;&#x4EBA;&#x7B80;&#x4ECB;&#xFF0C;&#x800C;&#x8FD9;&#x4E9B;&#x7B80;&#x4ECB;&#x5462;&#xFF0C;&#x4E5F;&#x8BB8;&#x4E0D;&#x4F1A;&#x6709;&#x597D;&#x591A;&#x4EBA;&#x53BB;&#x770B;&#xFF0C;&#x6240;&#x4EE5;&#x7B49;&#x5230;&#x6709;&#x4EBA;&#x8981;&#x770B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5728;&#x53BB;&#x67E5;&#x627E;&#xFF0C;&#x5206;&#x8868;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x6837;&#x7684;&#x5927;&#x5B57;&#x6BB5;&#xFF0C;&#x5206;&#x5F00;&#x6765;&#x3002;</p>
+<h2 id="&#x5206;&#x533A;&#x7684;&#x4F18;&#x70B9;">&#x5206;&#x533A;&#x7684;&#x4F18;&#x70B9;</h2>
+<ol>
+<li>&#x4F7F;&#x7528;&#x5206;&#x533A;&#x53EF;&#x4EE5;&#x5C06;&#x6570;&#x636E;&#x5206;&#x5728;&#x591A;&#x4E2A;&#x78C1;&#x76D8;&#x4E0A;&#xFF0C;&#x5206;&#x533A;&#x6570;&#x636E;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x6B65;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x7269;&#x7406;&#x4F4D;&#x7F6E;&#xFF0C; &#x53EF;&#x4EE5;&#x505A;&#x5206;&#x5E03;&#x5F0F;&#x6709;&#x6548;&#x5229;&#x7528;&#x591A;&#x4E2A;&#x78C1;&#x76D8;&#xFF1B;</li>
+<li>&#x6839;&#x636E;&#x67E5;&#x627E;&#x6761;&#x4EF6;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;where&#x540E;&#x9762;&#x7684;&#x6761;&#x4EF6;&#xFF0C;&#x67E5;&#x627E;&#x53EA;&#x67E5;&#x627E;&#x76F8;&#x5E94;&#x7684;&#x5206;&#x533A;&#x4E0D;&#x7528;&#x5168;&#x90E8;&#x67E5;&#x627E;&#x4E86;&#xFF1B;</li>
+<li>&#x8FDB;&#x884C;&#x5927;&#x6570;&#x636E;&#x641C;&#x7D22;&#x65F6;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x5E76;&#x884C;&#x5904;&#x7406;&#xFF1B;</li>
+<li>&#x8DE8;&#x591A;&#x4E2A;&#x78C1;&#x76D8;&#x6765;&#x5206;&#x6563;&#x6570;&#x636E;&#x67E5;&#x8BE2;&#xFF0C;&#x6765;&#x83B7;&#x5F97;&#x66F4;&#x5927;&#x7684;&#x67E5;&#x8BE2;&#x541E;&#x5410;&#x91CF;&#xFF1B;</li>
+</ol>
+<h2 id="&#x5206;&#x533A;&#x8868;&#x7684;&#x9650;&#x5236;">&#x5206;&#x533A;&#x8868;&#x7684;&#x9650;&#x5236;</h2>
+<ol>
+<li><p>&#x4E00;&#x4E2A;&#x8868;&#x6700;&#x591A;&#x53EA;&#x80FD;&#x6709;1024&#x4E2A;&#x5206;&#x533A;&#x3002;</p>
+</li>
+<li><p>&#x5728;MySQL 5.1&#x4E2D;&#xFF0C;&#x5206;&#x533A;&#x8868;&#x8FBE;&#x5F0F;&#x5FC5;&#x987B;&#x662F;&#x6574;&#x6570;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x8FD4;&#x56DE;&#x6574;&#x6570;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3002;&#x5728;MySQL 5.5&#x4E2D;&#xFF0C;&#x67D0;&#x4E9B;&#x573A;&#x666F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5217;&#x8FDB;&#x884C;&#x5206;&#x533A;&#x3002;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x5206;&#x533A;&#x5B57;&#x6BB5;&#x4E2D;&#x542B;&#x6709;&#x4E3B;&#x952E;&#x6216;&#x8005;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#x7684;&#x5217;&#xFF0C;&#x90A3;&#x4E48;&#x6240;&#x6709;&#x4E3B;&#x952E;&#x5217;&#x548C;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#x5217;&#x90FD;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x3002;</p>
+</li>
+<li><p>&#x5206;&#x533A;&#x8868;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x5916;&#x952E;&#x7EA6;&#x675F;&#x3002;</p>
+</li>
+</ol>
+<h2 id="mysql-&#x7684;&#x5206;&#x533A;">MySQL &#x7684;&#x5206;&#x533A;</h2>
+<p>MySQL &#x7684;&#x5206;&#x533A;&#x4E3B;&#x8981;&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<h3 id="range">Range</h3>
+<p>&#x6309;&#x7167;RANGE&#x5206;&#x533A;&#x7684;&#x8868;&#x662F;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x5206;&#x533A;&#x7684;&#xFF0C;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x5305;&#x542B;&#x90A3;&#x4E9B;&#x5206;&#x533A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x4F4D;&#x4E8E;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684;&#x8FDE;&#x7EED;&#x533A;&#x95F4;&#x5185;&#x7684;&#x884C;&#xFF1A;</p>
+<pre><code class="lang-mysql">//&#x521B;&#x5EFA;range&#x5206;&#x533A;&#x8868;  
+mysql&gt; CREATE TABLE IF NOT EXISTS `user` (  
+ -&gt;   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT &apos;&#x7528;&#x6237;ID&apos;,  
+ -&gt;   `name` varchar(50) NOT NULL DEFAULT &apos;&apos; COMMENT &apos;&#x540D;&#x79F0;&apos;,  
+ -&gt;   `sex` int(1) NOT NULL DEFAULT &apos;0&apos; COMMENT &apos;0&#x4E3A;&#x7537;&#xFF0C;1&#x4E3A;&#x5973;&apos;,  
+ -&gt;   PRIMARY KEY (`id`)  
+ -&gt; ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1  
+ -&gt; PARTITION BY RANGE (id) (  
+ -&gt;     PARTITION p0 VALUES LESS THAN (3),  
+ -&gt;     PARTITION p1 VALUES LESS THAN (6),  
+ -&gt;     PARTITION p2 VALUES LESS THAN (9),  
+ -&gt;     PARTITION p3 VALUES LESS THAN (12),  
+ -&gt;     PARTITION p4 VALUES LESS THAN MAXVALUE  
+ -&gt; );
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x73B0;&#x6709;&#x7684;&#x8868;&#x8FDB;&#x884C;&#x5206;&#x533A;&#xFF1A;</p>
+<pre><code class="lang-mysql">mysql&gt; alter table aa partition by RANGE(id)  
+ -&gt; (PARTITION p1 VALUES less than (1),  
+ -&gt; PARTITION p2 VALUES less than (5),  
+ -&gt; PARTITION p3 VALUES less than MAXVALUE);
+</code></pre>
+<h3 id="list-&#x5206;&#x533A;">List &#x5206;&#x533A;</h3>
+<p>LIST&#x5206;&#x533A;&#x4E2D;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x7684;&#x5B9A;&#x4E49;&#x548C;&#x9009;&#x62E9;&#x662F;&#x57FA;&#x4E8E;&#x67D0;&#x5217;&#x7684;&#x503C;&#x4ECE;&#x5C5E;&#x4E8E;&#x4E00;&#x4E2A;&#x503C;&#x5217;&#x8868;&#x96C6;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x800C;RANGE&#x5206;&#x533A;&#x662F;&#x4ECE;&#x5C5E;&#x4E8E;&#x4E00;&#x4E2A;&#x8FDE;&#x7EED;&#x533A;&#x95F4;&#x503C;&#x7684;&#x96C6;&#x5408;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x8BF4; Range &#x662F;&#x57FA;&#x4E8E;&#x4E00;&#x4E2A;&#x8FDE;&#x7EED;&#x7684;&#x533A;&#x95F4;&#xFF0C;List &#x662F;&#x57FA;&#x4E8E;&#x4E00;&#x4E2A;&#x79BB;&#x6563;&#x7684;&#x533A;&#x95F4;&#xFF09;&#x3002;</p>
+<pre><code class="lang-mysql">//&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5931;&#x8D25;  
+mysql&gt; CREATE TABLE IF NOT EXISTS `list_part` (  
+ -&gt;   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT &apos;&#x7528;&#x6237;ID&apos;,  
+ -&gt;   `province_id` int(2) NOT NULL DEFAULT 0 COMMENT &apos;&#x7701;&apos;,  
+ -&gt;   `name` varchar(50) NOT NULL DEFAULT &apos;&apos; COMMENT &apos;&#x540D;&#x79F0;&apos;,  
+ -&gt;   `sex` int(1) NOT NULL DEFAULT &apos;0&apos; COMMENT &apos;0&#x4E3A;&#x7537;&#xFF0C;1&#x4E3A;&#x5973;&apos;,  
+ -&gt;   PRIMARY KEY (`id`)  
+ -&gt; ) ENGINE=INNODB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1  
+ -&gt; PARTITION BY LIST (province_id) (  
+ -&gt;     PARTITION p0 VALUES IN (1,2,3,4,5,6,7,8),  
+ -&gt;     PARTITION p1 VALUES IN (9,10,11,12,16,21),  
+ -&gt;     PARTITION p2 VALUES IN (13,14,15,19),  
+ -&gt;     PARTITION p3 VALUES IN (17,18,20,22,23,24)  
+ -&gt; );  
+ERROR 1503 (HY000): A PRIMARY KEY must include all columns in the table&apos;s partitioning function 
+
+//&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6210;&#x529F; 
+mysql&gt; CREATE TABLE IF NOT EXISTS `list_part` ( 
+ -&gt;   `id` int(11) NOT NULL  COMMENT &apos;&#x7528;&#x6237;ID&apos;, 
+ -&gt;   `province_id` int(2) NOT NULL DEFAULT 0 COMMENT &apos;&#x7701;&apos;, 
+ -&gt;   `name` varchar(50) NOT NULL DEFAULT &apos;&apos; COMMENT &apos;&#x540D;&#x79F0;&apos;, 
+ -&gt;   `sex` int(1) NOT NULL DEFAULT &apos;0&apos; COMMENT &apos;0&#x4E3A;&#x7537;&#xFF0C;1&#x4E3A;&#x5973;&apos;  
+ -&gt; ) ENGINE=INNODB  DEFAULT CHARSET=utf8  
+ -&gt; PARTITION BY LIST (province_id) (  
+ -&gt;     PARTITION p0 VALUES IN (1,2,3,4,5,6,7,8),  
+ -&gt;     PARTITION p1 VALUES IN (9,10,11,12,16,21),  
+ -&gt;     PARTITION p2 VALUES IN (13,14,15,19),  
+ -&gt;     PARTITION p3 VALUES IN (17,18,20,22,23,24)  
+ -&gt; );
+</code></pre>
+<p><strong>&#x6CE8;&#x610F;&#xFF0C;&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;&#x521B;&#x5EFA;list&#x5206;&#x533A;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x4E3B;&#x952E;&#x7684;&#x8BDD;&#xFF0C;&#x5206;&#x533A;&#x65F6;&#x4E3B;&#x952E;&#x5FC5;&#x987B;&#x5728;&#x5176;&#x4E2D;&#xFF0C;&#x4E0D;&#x7136;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#x3002;&#x5982;&#x679C;&#x6211;&#x4E0D;&#x7528;&#x4E3B;&#x952E;&#xFF0C;&#x5206;&#x533A;&#x5C31;&#x521B;&#x5EFA;&#x6210;&#x529F;&#x4E86;&#xFF0C;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E00;&#x4E2A;&#x5F20;&#x8868;&#x80AF;&#x5B9A;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x4E3B;&#x952E;&#xFF0C;&#x8FD9;&#x7B97;&#x662F;&#x4E00;&#x4E2A;&#x5206;&#x533A;&#x7684;&#x5C40;&#x9650;&#x6027;&#x5427;&#x3002;</strong></p>
+<h3 id="hash-&#x5206;&#x533A;">Hash &#x5206;&#x533A;</h3>
+<p>HASH&#x5206;&#x533A;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x786E;&#x4FDD;&#x6570;&#x636E;&#x5728;&#x9884;&#x5148;&#x786E;&#x5B9A;&#x6570;&#x76EE;&#x7684;&#x5206;&#x533A;&#x4E2D;&#x5E73;&#x5747;&#x5206;&#x5E03;&#xFF0C;&#x4F60;&#x6240;&#x8981;&#x505A;&#x7684;&#x53EA;&#x662F;&#x57FA;&#x4E8E;&#x5C06;&#x8981;&#x88AB;&#x54C8;&#x5E0C;&#x7684;&#x6570;&#x636E;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5217;&#x503C;&#x6216;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x4EE5; &#x53CA;&#x6307;&#x5B9A;&#x88AB;&#x5206;&#x533A;&#x7684;&#x8868;&#x5C06;&#x8981;&#x88AB;&#x5206;&#x5272;&#x6210;&#x7684;&#x5206;&#x533A;&#x6570;&#x91CF;&#x3002;</p>
+<pre><code class="lang-mysql">mysql&gt; CREATE TABLE IF NOT EXISTS `hash_part` (  
+ -&gt;   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT &apos;&#x8BC4;&#x8BBA;ID&apos;,  
+ -&gt;   `comment` varchar(1000) NOT NULL DEFAULT &apos;&apos; COMMENT &apos;&#x8BC4;&#x8BBA;&apos;,  
+ -&gt;   `ip` varchar(25) NOT NULL DEFAULT &apos;&apos; COMMENT &apos;&#x6765;&#x6E90;IP&apos;,  
+ -&gt;   PRIMARY KEY (`id`)  
+ -&gt; ) ENGINE=INNODB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1  
+ -&gt; PARTITION BY HASH(id)  
+ -&gt; PARTITIONS 3;
+</code></pre>
+<h3 id="key-&#x5206;&#x533A;">key &#x5206;&#x533A;</h3>
+<p>&#x6309;&#x7167;KEY&#x8FDB;&#x884C;&#x5206;&#x533A;&#x7C7B;&#x4F3C;&#x4E8E;&#x6309;&#x7167;HASH&#x5206;&#x533A;&#xFF0C;&#x9664;&#x4E86;HASH&#x5206;&#x533A;&#x4F7F;&#x7528;&#x7684;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x800C;KEY&#x5206;&#x533A;&#x7684;&#x54C8;&#x5E0C;&#x51FD;&#x6570;&#x662F;&#x7531;MySQL &#x670D;&#x52A1;&#x5668;&#x63D0;&#x4F9B;&#x3002;</p>
+<pre><code class="lang-mysql">mysql&gt; CREATE TABLE IF NOT EXISTS `key_part` (  
+ -&gt;   `news_id` int(11) NOT NULL  COMMENT &apos;&#x65B0;&#x95FB;ID&apos;,  
+ -&gt;   `content` varchar(1000) NOT NULL DEFAULT &apos;&apos; COMMENT &apos;&#x65B0;&#x95FB;&#x5185;&#x5BB9;&apos;,  
+ -&gt;   `u_id` varchar(25) NOT NULL DEFAULT &apos;&apos; COMMENT &apos;&#x6765;&#x6E90;IP&apos;,  
+ -&gt;   `create_time` DATE NOT NULL DEFAULT &apos;0000-00-00 00:00:00&apos; COMMENT &apos;&#x65F6;&#x95F4;&apos;  
+ -&gt; ) ENGINE=INNODB  DEFAULT CHARSET=utf8  
+ -&gt; PARTITION BY LINEAR HASH(YEAR(create_time))  
+ -&gt; PARTITIONS 3;
+</code></pre>
+<h3 id="&#x5B50;&#x5206;&#x533A;">&#x5B50;&#x5206;&#x533A;</h3>
+<p>&#x5B50;&#x5206;&#x533A;&#x662F;&#x5206;&#x533A;&#x8868;&#x4E2D;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x7684;&#x518D;&#x6B21;&#x5206;&#x5272;&#xFF0C;&#x5B50;&#x5206;&#x533A;&#x65E2;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;HASH&#x5E0C;&#x5206;&#x533A;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;KEY&#x5206;&#x533A;&#x3002;&#x8FD9;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x590D;&#x5408;&#x5206;&#x533A;&#xFF08;composite partitioning&#xFF09;&#x3002;</p>
+<ol>
+<li>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5206;&#x533A;&#x4E2D;&#x521B;&#x5EFA;&#x4E86;&#x5B50;&#x5206;&#x533A;&#xFF0C;&#x5176;&#x4ED6;&#x5206;&#x533A;&#x4E5F;&#x8981;&#x6709;&#x5B50;&#x5206;&#x533A;&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x521B;&#x5EFA;&#x5B50;&#x5206;&#x533A;&#xFF0C;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x4E2D;&#x7684;&#x5B50;&#x5206;&#x533A;&#x6570;&#x5FC5;&#x987B;&#x76F8;&#x540C;&#xFF1B;</li>
+<li>&#x540C;&#x4E00;&#x5206;&#x533A;&#x5185;&#x7684;&#x5B50;&#x5206;&#x533A;&#x7684;&#x540D;&#x5B57;&#x4E0D;&#x80FD;&#x76F8;&#x540C;&#xFF0C;&#x4E0D;&#x540C;&#x5206;&#x533A;&#x5185;&#x7684;&#x5B50;&#x5206;&#x533A;&#x7684;&#x540D;&#x5B57;&#x53EF;&#x4EE5;&#x76F8;&#x540C;&#xFF08;5.1.50&#x4E0D;&#x9002;&#x7528;&#xFF09;&#xFF1B;</li>
+</ol>
+<h2 id="&#x5206;&#x533A;&#x8868;&#x4E2D;&#x6BD4;&#x8F83;&#x5751;&#x7684;&#x5730;&#x65B9;">&#x5206;&#x533A;&#x8868;&#x4E2D;&#x6BD4;&#x8F83;&#x5751;&#x7684;&#x5730;&#x65B9;</h2>
+<ol>
+<li>&#x5206;&#x533A;&#x8868;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x4E3A;NULL&#x65F6;&#xFF0C;&#x5982;&#x4E0A;&#x4F8B;&#x4E2D;&#x7684;year&#xFF08;order_date&#xFF09;&#x4E3A;&#x7A7A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8BE5;&#x6761;&#x8BB0;&#x5F55;&#x4F1A;&#x88AB;&#x5B58;&#x653E;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x5206;&#x533A;&#xFF08;&#x7279;&#x6B8A;&#x5206;&#x533A;&#xFF09;&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x5B9A;&#x4E49;&#x7684;&#x7D22;&#x5F15;&#x5217;&#x548C;&#x5206;&#x533A;&#x5217;&#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x505A;&#x5206;&#x533A;&#x8FC7;&#x6EE4;&#xFF08;&#x5206;&#x533A;&#x8FC7;&#x6EE4;&#x7684;&#x610F;&#x601D;&#x662F;&#x6839;&#x636E;&#x5206;&#x533A;&#x5217;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x5206;&#x533A;&#xFF09;&#x3002;&#x5373;&#x5B57;&#x6BB5;a&#x4E3A;&#x7D22;&#x5F15;&#x5217;&#xFF0C;b&#x4E3A;&#x5206;&#x533A;&#x5217;&#x3002;&#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x90FD;&#x6709;&#x72EC;&#x7ACB;&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x6240;&#x4EE5;&#x626B;&#x63CF;&#x5217;b&#x4E0A;&#x7684;&#x7D22;&#x5F15;&#x4F1A;&#x5BFC;&#x81F4;&#x5168;&#x90E8;&#x5206;&#x533A;&#x7684;&#x626B;&#x63CF;&#xFF1B;</li>
+<li>&#x5206;&#x533A;&#x4E2D;&#x7684;Range&#x5206;&#x533A;&#x7C7B;&#x578B;&#xFF0C;&#x5728;&#x6570;&#x636E;&#x91CF;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B9A;&#x4F4D;&#x5230;&#x5177;&#x4F53;&#x7684;&#x5206;&#x533A;&#x4E0A;&#xFF0C;&#x6027;&#x80FD;&#x4E0D;&#x5982;&#x5176;&#x4ED6;&#x7684;&#x5206;&#x533A;&#x7C7B;&#x578B;&#xFF1A;Key&#x5206;&#x533A;&#x548C;Hash&#x5206;&#x533A;&#x3002;&#x8FD9;&#x4E24;&#x79CD;&#x5206;&#x533A;&#x65B9;&#x5F0F;&#x627E;&#x5230;&#x786E;&#x5B9A;&#x5206;&#x533A;&#x90FD;&#x662F;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#xFF1B;</li>
+<li><p>&#x6253;&#x5F00;&#x53CA;&#x9501;&#x8868;&#x7684;&#x6210;&#x672C;&#x5F88;&#x9AD8;&#xFF1A;&#x5F53;&#x67E5;&#x8BE2;&#x8BBF;&#x95EE;&#x5206;&#x533A;&#x8868;&#x7684;&#x65F6;&#x5019;&#xFF0C;MySQL&#x9700;&#x8981;&#x6253;&#x5F00;&#x5E76;&#x9501;&#x4F4F;&#x6240;&#x6709;&#x7684;&#x5E95;&#x5C42;&#x8868;&#xFF08;&#x4E00;&#x4E2A;&#x8868;&#x7ECF;&#x8FC7;&#x5206;&#x533A;&#x4E4B;&#x540E;&#x5BF9;&#x5E94;&#x591A;&#x4E2A;&#x5E95;&#x5C42;&#x8868;&#xFF0C;&#x4E00;&#x4E2A;&#x5206;&#x533A;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x5E95;&#x5C42;&#x8868;&#xFF09;&#x3002;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x53D1;&#x751F;&#x5728;&#x5206;&#x533A;&#x8FC7;&#x6EE4;&#x4E4B;&#x524D;&#xFF0C;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x5206;&#x533A;&#x8FC7;&#x6EE4;&#x964D;&#x4F4E;&#x6B21;&#x5F00;&#x9500;&#xFF0C;&#x4E0E;&#x5206;&#x533A;&#x7C7B;&#x578B;&#x4E5F;&#x65E0;&#x5173;&#xFF08;&#x7531;&#x4E8E;&#x9501;&#x8868;&#x53D1;&#x751F;&#x5728;&#x5206;&#x533A;&#x8FC7;&#x6EE4;&#x4E4B;&#x524D;&#xFF0C;&#x56E0;&#x6B64;&#x76F8;&#x5BF9;&#x4E8E;&#x6CA1;&#x505A;&#x5206;&#x533A;&#x65F6;&#x53EA;&#x9700;&#x8981;&#x9501;&#x4F4F;&#x4E00;&#x4E2A;&#x8868;&#x800C;&#x8A00;&#xFF0C;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x9501;&#x4F4F;&#x591A;&#x4E2A;&#x8868;&#xFF0C;&#x5F00;&#x9500;&#x53D8;&#x5927;&#xFF09;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x7C7B;&#x4F3C;&#x6839;&#x636E;&#x4E3B;&#x952E;&#x67E5;&#x627E;&#x5355;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x4E5F;&#x4F1A;&#x5E26;&#x6765;&#x989D;&#x5916;&#x7684;&#x5F00;&#x9500;&#x3002;&#x901A;&#x5E38;&#x9700;&#x8981;&#x6279;&#x91CF;&#x64CD;&#x4F5C;&#x548C;&#x51CF;&#x5C11;&#x5206;&#x533A;&#x6570;&#x91CF;&#x964D;&#x4F4E;&#x8BE5;&#x9879;&#x6027;&#x80FD;&#x6D88;&#x8017;&#x3002;</p>
+</li>
+<li><p>&#x90E8;&#x5206;&#x7EF4;&#x62A4;&#x5206;&#x533A;&#x7684;&#x6210;&#x672C;&#x5F00;&#x9500;&#x6BD4;&#x8F83;&#x9AD8;&#x3002;&#x5982;&#x91CD;&#x7EC4;&#x5206;&#x533A;&#x6216;&#x8005;&#x7C7B;&#x4F3C;alter&#x8BED;&#x53E5;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x9700;&#x8981;&#x590D;&#x5236;&#x6570;&#x636E;&#x3002;&#x4E0E;alter table&#x7C7B;&#x4F3C;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x5206;&#x533A;&#xFF0C;&#x590D;&#x5236;&#x4E4B;&#x540E;&#x5220;&#x9664;&#x539F;&#x5206;&#x533A;&#xFF1B;</p>
+</li>
+</ol>
+<p><a href="http://blog.51yip.com/mysql/1013.html" target="_blank">mysql&#x5206;&#x533A;&#x529F;&#x80FD;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#xFF0C;&#x4EE5;&#x53CA;&#x5B9E;&#x4F8B;</a></p>
+<p><a href="http://km.oa.com/group/15624/articles/show/206490?kmref=search&amp;from_page=1&amp;no=1" target="_blank">&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5B66;&#x4E60;MySQL&#x5206;&#x533A;&#x8868;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="MySQL 多版本并发控制.html" class="navigation navigation-prev " aria-label="Previous page: MySQL 多版本并发控制">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="MySQL 索引.html" class="navigation navigation-next " aria-label="Next page: MySQL 索引">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"MySQL 分区","level":"1.6.2","depth":2,"next":{"title":"MySQL 索引","level":"1.6.3","depth":2,"path":"数据库/MySQL 索引.md","ref":"数据库/MySQL 索引.md","articles":[]},"previous":{"title":"MySQL 多版本并发控制","level":"1.6.1","depth":2,"path":"数据库/MySQL 多版本并发控制.md","ref":"数据库/MySQL 多版本并发控制.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","toggle-chapters","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"multipart":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","author":"赵强 <zhao_qiang@bupt.edu.cn>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"guidiao's blog","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"guidiao's blog":"https://sixunguidiao.github.io/blog/"}},"gitbook":"*","description":"guidiao's blog","extension":null},"file":{"path":"数据库/MySQL 分区.md","mtime":"2019-05-27T08:41:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T11:33:58.446Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

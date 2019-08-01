@@ -43,7 +43,7 @@ final Segment<K,V>[] segments;
 
 默认的并发级别为 16，也就是说默认创建 16 个 Segment。
 
-![img](https://cyc2018.github.io/CS-Notes/pics/deb18bdb-b3b3-4660-b778-b0823a48db12.jpg)
+![img](https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/db808eff-31d7-4229-a4ad-b8ae71870a3a.png)
 
 ## 2. size 操作
 
